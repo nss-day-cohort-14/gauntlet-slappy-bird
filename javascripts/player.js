@@ -16,7 +16,6 @@ var Player = function(name) {
   this.intelligence = 90;
 
   this.toString = function() {
-    console.log(this.class);
     var output = [this.playerName,
       ": a ",
       this.skinColor,
@@ -28,11 +27,17 @@ var Player = function(name) {
       this.health,
       " health. ",
       (this.class.magical) ? "Able to cast " : " Wielding a ",
-      this.weapon
+      this.weapon.toString(),
+      "!"
     ].join("");
     return output;
   };
 };
+
+Player.prototype.setWeapon = function(newWeapon) {
+  this.weapon = newWeapon;
+}
+
 Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array
   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));

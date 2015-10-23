@@ -2,6 +2,10 @@ var Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
+
+  this.toString = function() {
+    return this.name;
+  }
 };
 
 var Dagger = function() {
