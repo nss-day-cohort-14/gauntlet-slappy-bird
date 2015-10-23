@@ -1,7 +1,14 @@
 /*
+  TODO: Modularize this code with IIFE or Browserify
+ */
+var Gauntlet = Gauntlet || {};
+Gauntlet.SpellBook = {};
+
+
+/*
   Base spell function that defines name, damage, damage type
  */
-var Spell = function() {
+Gauntlet.SpellBook.Spell = function() {
   this.name = "";
   this.damage = 0;
 
@@ -16,11 +23,11 @@ var Spell = function() {
 /*
   An elemental sphere that can be cast by a magical class
  */
-var Sphere = function() {
+Gauntlet.SpellBook.Sphere = function() {
   this.name = "sphere";
   this.damage = Math.floor(Math.random() * 10 + 10);
 
   var random = Math.round(Math.random() * (this.damageTypes.length - 1));
   this.type = this.damageTypes[random];
 };
-Sphere.prototype = new Spell();
+Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();

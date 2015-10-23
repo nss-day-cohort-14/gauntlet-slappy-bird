@@ -1,4 +1,4 @@
-var Orc = function() {
+Gauntlet.Combatants.Orc = function() {
   this.health = this.health + 20;
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
@@ -11,10 +11,10 @@ var Orc = function() {
     var randomClass = this.allowedClasses[random];
 
     // Composes the corresponding player class into the player object
-    this.class = new window[randomClass]();
+    this.class = new Gauntlet.GuildHall[randomClass]();
     return this.class;
   }
 };
 
-Orc.prototype = new Monster();
+Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
 
