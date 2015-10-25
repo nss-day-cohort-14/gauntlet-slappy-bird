@@ -14,29 +14,41 @@ var Player = function(name) {
   this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
-
-  this.toString = function() {
-    var output = [this.playerName,
-      ": a ",
-      this.skinColor,
-      " skinned ",
-      this.species,
-      " ",
-      this.class,
-      " with ",
-      this.health,
-      " health. ",
-      (this.class.magical) ? "Able to cast " : " Wielding a ",
-      this.weapon,
-      "!"
-    ].join("");
-    return output;
-  };
 };
 
-Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
-}
+Player.prototype.toString = function() {
+  var output = [this.playerName,
+    ": a ",
+    this.skinColor,
+    (this.skinColor) ? " skinned " : "",
+    this.species,
+    " ",
+    this.class,
+    " with ",
+    this.health,
+    " health. ",
+    (this.class.magical) ? "Able to cast " : " Wielding a ",
+    this.weapon,
+    "!"
+  ].join("");
+  return output;
+};
+
+Player.prototype.init = function(profession, weapon) {
+  if (!profession) {
+    this.generateClass();
+  } else {
+    this.setClass(profession);
+  }
+
+  if (!weapon) {
+    this.generateWeapon();
+  } else {
+    this.setWeapon(weapon);
+  }
+
+  this.setSkin();
+};
 
 Player.prototype.modifyHealth = function(bonus) {
   this.health += bonus;
@@ -68,7 +80,13 @@ Player.prototype.generateWeapon = function() {
 }
 
 Player.prototype.setWeapon = function(newWeapon) {
+  console.log("this.class.allowedWeapons",this.class.allowedWeapons);
   this.weapon = newWeapon;
+};
+
+Player.prototype.setSkin = function() {
+  var randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
+  this.skinColor = this.skinColors[randomSkin];
 };
 
 
@@ -77,14 +95,9 @@ Player.prototype.setWeapon = function(newWeapon) {
   constructor function.
  */
 var Human = function() {
-  var randomSkin;
-
   this.species = "Human";
   this.intelligence = this.intelligence + 20;
-
   this.skinColors.push("brown", "red", "white", "disease");
-  randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
-  this.skinColor = this.skinColors[randomSkin];
 
   /*
     Define the classes allowed for Humans

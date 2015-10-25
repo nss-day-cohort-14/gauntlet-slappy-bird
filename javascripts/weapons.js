@@ -3,6 +3,7 @@ var Weapon = function() {
   this.damage = 1;
   this.hands = 2;
   this.ranged = false;
+  this.poisoned = false;
 
   this.toString = function() {
     return this.name;
@@ -58,6 +59,22 @@ var LongSword = function() {
   this.hands = 2;
 };
 LongSword.prototype = new Weapon();
+
+var Rapier = function() {
+  this.name = "rapier";
+  this.damage = 8;
+  this.hands = 1;
+};
+Rapier.prototype = new Weapon();
+
+var PoisonBlowgun = function() {
+  this.name = "poison blowgun";
+  this.damage = 4;
+  this.hands = 1;
+  this.poisoned = true;
+  this.ranged = true;
+};
+PoisonBlowgun.prototype = new Weapon();
 
 var BroadSword = function() {
   this.name = "broad sword";

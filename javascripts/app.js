@@ -5,18 +5,12 @@ $(document).ready(function() {
    */
   var warrior = new Human();
   // warrior.generateClass();  // This will be used for "Surprise me" option
-  warrior.setClass(new Ninja()); // Use this method when specific class selected
-  warrior.generateWeapon();
+  // warrior.init();
+  warrior.init(new Ninja());
   console.log(warrior.toString());
 
-  var orc = new Goblin();
-  orc.generateClass();
-  warrior.generateWeapon();
-  if (orc.class.magical) {
-    orc.setWeapon(new Sphere());
-  } else {
-    orc.setWeapon(new BroadSword());
-  }
+  var orc = new Ghoul();
+  orc.init();
   console.log(orc.toString());
 
 

@@ -144,6 +144,8 @@ var Ninja = function() {
   this.name = "Ninja";
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus + 15;
+
+  this.allowedWeapons.push("Rapier");
 };
 Ninja.prototype = new Stealth();
 
@@ -152,6 +154,8 @@ var Assassin = function() {
   this.healthBonus = this.healthBonus - 10;
   this.strengthBonus = this.strengthBonus - 5;
   this.intelligenceBonus = this.intelligenceBonus + 30;
+
+  this.allowedWeapons.push("PoisonBlowgun");
 };
 Assassin.prototype = new Stealth();
 
