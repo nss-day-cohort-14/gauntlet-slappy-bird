@@ -159,3 +159,10 @@ var Assassin = function() {
 };
 Assassin.prototype = new Stealth();
 
+var Lord = function() {
+  this.name = "Lord";
+  this.intelligenceBonus = this.intelligenceBonus + 40;
+
+  this.allowedWeapons = ["LightSaber"];
+};
+Lord.prototype = new PlayerClass();

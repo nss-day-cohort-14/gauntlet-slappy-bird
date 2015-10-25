@@ -5,6 +5,14 @@ var Orc = function() {
 };
 Orc.prototype = new Monster();
 
+var Sith = function() {
+  this.species = "Sith";
+  this.skinColors.push("red", "blue", "golden", "thorny");
+  this.allowedClasses = ["Lord"];
+  this.health = this.health + 60;
+};
+Sith.prototype = new Monster();
+
 var Kobold = function() {
   this.species = "Kobold";
   this.health = this.health - 5;

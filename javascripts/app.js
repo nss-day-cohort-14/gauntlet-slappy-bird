@@ -9,8 +9,8 @@ $(document).ready(function() {
   warrior.init(new Ninja());
   console.log(warrior.toString());
 
-  var orc = new Ghoul();
-  orc.init();
+  var orc = new Sith();
+  orc.init(new Lord());
   console.log(orc.toString());
 
 
@@ -19,7 +19,19 @@ $(document).ready(function() {
 
     Show the initial view that accepts player name
    */
+   var HumanCombatant = null;
+
   $("#player-setup").show();
+
+
+  $(".class__link").click(function(e) {
+    HumanCombatant = new Human();
+    var chosenProfession = $(this).children(".btn__text").html();
+    var profession = new window[chosenProfession]();
+    HumanCombatant.init(profession);
+    console.log(HumanCombatant.toString());
+  });
+
 
   /*
     When any button with card__link class is clicked,
@@ -31,10 +43,10 @@ $(document).ready(function() {
 
     switch (nextCard) {
       case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
+        moveAlong = $("#player-name").val() !== "";
         break;
       case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
+        moveAlong = HumanCombatant !== null;
         break;
     }
 

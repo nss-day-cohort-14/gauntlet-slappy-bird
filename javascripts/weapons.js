@@ -127,3 +127,10 @@ var Nunchaku = function() {
 };
 Nunchaku.prototype = new Weapon();
 
+var LightSaber = function() {
+  this.name = "light saber";
+  this.damage = 16;
+  this.hands = 1;
+};
+LightSaber.prototype = new Weapon();
+

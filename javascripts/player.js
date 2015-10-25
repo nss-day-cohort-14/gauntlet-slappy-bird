@@ -8,7 +8,7 @@ var Player = function(name) {
   this.weapon = null;
 
   this.playerName = name || "unknown adventurer";
-  this.health = Math.floor(Math.random() * 40 + 50);
+  this.health = 0;
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
   this.skinColors = [this.skinColor];
@@ -27,14 +27,15 @@ Player.prototype.toString = function() {
     " with ",
     this.health,
     " health. ",
-    (this.class.magical) ? "Able to cast " : " Wielding a ",
-    this.weapon,
+    (this.class.magical) ? "I smell a mage" : " Wielding a " + this.weapon,
     "!"
   ].join("");
   return output;
 };
 
 Player.prototype.init = function(profession, weapon) {
+  this.health = Math.floor(Math.random() * 40 + 50);
+
   if (!profession) {
     this.generateClass();
   } else {
@@ -80,7 +81,6 @@ Player.prototype.generateWeapon = function() {
 }
 
 Player.prototype.setWeapon = function(newWeapon) {
-  console.log("this.class.allowedWeapons",this.class.allowedWeapons);
   this.weapon = newWeapon;
 };
 
@@ -89,35 +89,4 @@ Player.prototype.setSkin = function() {
   this.skinColor = this.skinColors[randomSkin];
 };
 
-
-/*
-  Define the base properties for a human in a 
-  constructor function.
- */
-var Human = function() {
-  this.species = "Human";
-  this.intelligence = this.intelligence + 20;
-  this.skinColors.push("brown", "red", "white", "disease");
-
-  /*
-    Define the classes allowed for Humans
-   */
-  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
-  this.allowedClasses.push("Mage", "Wizard", "Conjurer");
-  this.allowedClasses.push("Thief", "Ninja");
-};
-Human.prototype = new Player();
-
-
-/*
-  Define the base properties for a monster in a 
-  constructor function.
- */
-var Monster = function() {
-  this.health = this.health - 30;
-  this.intelligence = this.intelligence -20;
-  this.strength = this.strength + 30;
-};
-
-Monster.prototype = new Player();
 
