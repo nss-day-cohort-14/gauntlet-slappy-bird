@@ -5,12 +5,16 @@ var Spell = function() {
   this.name = "";
   this.damage = 0;
 
-  this.damageTypes = ["lightning", "fire", "water", "earth", "mysticism"];
+  this.elements = ["lightning", "fire", "water", "earth", "mysticism"];
   this.type = "";
+};
 
-  this.toString = function() {
-    return this.name + " of " + this.type + " for " + this.damage + " damage!";
-  }
+Spell.prototype.toString = function() {
+  return this.name;
+};
+
+Spell.prototype.cast = function() {
+  return {name: this.name, type: this.type, damage: this.damage};
 };
 
 /*
@@ -20,7 +24,7 @@ var Sphere = function() {
   this.name = "sphere";
   this.damage = Math.floor(Math.random() * 10 + 10);
 
-  var random = Math.round(Math.random() * (this.damageTypes.length - 1));
-  this.type = this.damageTypes[random];
+  var random = Math.round(Math.random() * (this.elements.length - 1));
+  this.type = this.elements[random];
 };
 Sphere.prototype = new Spell();

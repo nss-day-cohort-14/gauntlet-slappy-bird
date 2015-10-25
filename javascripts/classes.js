@@ -21,8 +21,10 @@ var PlayerClass = function() {
       - Monk
  */
 var Fighter = function() {
-  this.healthBonus = 20;
+  this.name = "Fighter";
+  this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = 10;
+  this.allowedWeapons = ["LongSword", "ShortSword", "BroadSword", "Dagger"];
 };
 Fighter.prototype = new PlayerClass();
 
@@ -30,6 +32,7 @@ Fighter.prototype = new PlayerClass();
 var Warrior = function() {
   this.name = "Warrior";
   this.healthBonus = this.healthBonus + 25;
+  this.allowedWeapons.push("Halberd");
   this.strengthBonus = this.strengthBonus + 30;
 };
 Warrior.prototype = new Fighter();
@@ -38,6 +41,7 @@ Warrior.prototype = new Fighter();
 var Valkyrie = function() {
   this.name = "Valkyrie";
   this.healthBonus = this.healthBonus + 20;
+  this.allowedWeapons.push("BallChain", "LongBow");
   this.strengthBonus = this.strengthBonus + 10;
 };
 Valkyrie.prototype = new Fighter();
@@ -46,6 +50,7 @@ Valkyrie.prototype = new Fighter();
 var Berserker = function() {
   this.name = "Berserker";
   this.healthBonus = this.healthBonus + 35;
+  this.allowedWeapons.unshift("Mace", "WarAxe");
   this.strengthBonus = this.strengthBonus + 20;
 };
 Berserker.prototype = new Fighter();
@@ -54,6 +59,7 @@ Berserker.prototype = new Fighter();
 var Monk = function() {
   this.name = "Monk";
   this.healthBonus = this.healthBonus + 10;
+  this.allowedWeapons = ["ShortBow", "Staff", "Nunchaku"];
   this.strengthBonus = this.strengthBonus + 40;
 };
 Monk.prototype = new Fighter();
@@ -69,9 +75,9 @@ Monk.prototype = new Fighter();
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
-  this.healthBonus = this.healthBonus - 10;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
+  this.healthBonus = this.healthBonus - 20;
+  this.strengthBonus = this.strengthBonus - 40;
+  this.intelligenceBonus = this.intelligenceBonus + 50;
 };
 Mage.prototype = new PlayerClass();
 
@@ -117,4 +123,35 @@ Sorcerer.prototype = new Mage();
       - Ninja
       - Assassin
  */
+var Stealth = function() {
+  this.name = "Stealth";
+  this.healthBonus = this.healthBonus - 5;
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus + 20;
+  this.allowedWeapons = ["Dagger", "Dart", "Dirk", "ShortSword"];
+};
+Stealth.prototype = new PlayerClass();
+
+var Thief = function() {
+  this.name = "Thief";
+  this.healthBonus = this.healthBonus - 5;
+  this.strengthBonus = this.strengthBonus - 5;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
+};
+Thief.prototype = new Stealth();
+
+var Ninja = function() {
+  this.name = "Ninja";
+  this.healthBonus = this.healthBonus + 5;
+  this.strengthBonus = this.strengthBonus + 15;
+};
+Ninja.prototype = new Stealth();
+
+var Assassin = function() {
+  this.name = "Assassin";
+  this.healthBonus = this.healthBonus - 10;
+  this.strengthBonus = this.strengthBonus - 5;
+  this.intelligenceBonus = this.intelligenceBonus + 30;
+};
+Assassin.prototype = new Stealth();
 

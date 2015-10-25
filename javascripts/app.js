@@ -4,20 +4,20 @@ $(document).ready(function() {
     Test code to generate a human player and an orc player
    */
   var warrior = new Human();
-  warrior.setWeapon(new WarAxe());
-  warrior.generateClass();  // This will be used for "Surprise me" option
+  // warrior.generateClass();  // This will be used for "Surprise me" option
+  warrior.setClass(new Ninja()); // Use this method when specific class selected
+  warrior.generateWeapon();
   console.log(warrior.toString());
 
-  var orc = new Orc();
+  var orc = new Goblin();
   orc.generateClass();
-  orc.setWeapon(new BroadSword());
+  warrior.generateWeapon();
+  if (orc.class.magical) {
+    orc.setWeapon(new Sphere());
+  } else {
+    orc.setWeapon(new BroadSword());
+  }
   console.log(orc.toString());
-
-  /*
-    Test code to generate a spell
-   */
-  var spell = new Sphere();
-  console.log("spell: ", spell.toString());
 
 
   /*
@@ -58,5 +58,11 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
+
+  /*
+    Whichever combatant has the higher intelligence score
+    will attack first. Intelligence also increases damange 
+    to magical attacks.
+   */
 
 });
