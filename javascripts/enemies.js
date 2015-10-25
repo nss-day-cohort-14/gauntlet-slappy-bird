@@ -1,9 +1,19 @@
+AvailableEnemies = {
+  randomEnemy: function() {
+    var enemies = Object.keys(this).filter((k) => k !== "randomEnemy");
+    var enemyInstance = enemies[Math.round(Math.random() * (enemies.length - 1))];
+    return this[enemyInstance];
+  }
+};
+
 var Orc = function() {
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman", "Assassin"];
   this.health = this.health + 30;
 };
 Orc.prototype = new Monster();
+AvailableEnemies.Orc = new Orc();
+
 
 var Sith = function() {
   this.species = "Sith";
@@ -12,6 +22,8 @@ var Sith = function() {
   this.health = this.health + 60;
 };
 Sith.prototype = new Monster();
+AvailableEnemies.Sith = new Sith();
+
 
 var Kobold = function() {
   this.species = "Kobold";
@@ -19,6 +31,8 @@ var Kobold = function() {
   this.allowedClasses = ["Warrior", "Assassin"];
 };
 Kobold.prototype = new Monster();
+AvailableEnemies.Kobold = new Kobold();
+
 
 var Goblin = function() {
   this.species = "Goblin";
@@ -27,6 +41,8 @@ var Goblin = function() {
   this.allowedClasses = ["Fighter", "Assassin", "Conjurer"];
 };
 Goblin.prototype = new Monster();
+AvailableEnemies.Goblin = new Goblin();
+
 
 var Skeleton = function() {
   this.species = "Skeleton";
@@ -35,6 +51,8 @@ var Skeleton = function() {
   this.allowedClasses = ["Fighter"];
 };
 Skeleton.prototype = new Monster();
+AvailableEnemies.Skeleton = new Skeleton();
+
 
 var Ghoul = function() {
   this.species = "Ghoul";
@@ -43,4 +61,4 @@ var Ghoul = function() {
   this.allowedClasses = ["Assassin", "Shaman"];
 };
 Ghoul.prototype = new Monster();
-
+AvailableEnemies.Ghoul = new Ghoul();

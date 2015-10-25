@@ -1,17 +1,20 @@
+var Battleground = {};
+
 $(document).ready(function() {
 
   /*
     Test code to generate a human player and an orc player
    */
-  var warrior = new Human();
-  // warrior.generateClass();  // This will be used for "Surprise me" option
-  // warrior.init();
-  warrior.init(new Ninja());
-  console.log(warrior.toString());
+  var warrior = new Human("Joe");
+  warrior.init();
+  // warrior.init(AvailableClasses.Monk);
 
-  var orc = new Sith();
-  orc.init(new Lord());
-  console.log(orc.toString());
+  var enemy = AvailableEnemies.randomEnemy();
+  enemy.init();
+
+
+  console.log(warrior.toString());
+  console.log(enemy.toString());
 
 
   /*
@@ -20,17 +23,11 @@ $(document).ready(function() {
     Show the initial view that accepts player name
    */
    var HumanCombatant = null;
+   var chosenProfession = null;
+   var chosenWeapon = null;
+
 
   $("#player-setup").show();
-
-
-  $(".class__link").click(function(e) {
-    HumanCombatant = new Human();
-    var chosenProfession = $(this).children(".btn__text").html();
-    var profession = new window[chosenProfession]();
-    HumanCombatant.init(profession);
-    console.log(HumanCombatant.toString());
-  });
 
 
   /*
@@ -38,23 +35,70 @@ $(document).ready(function() {
     move on to the next view.
    */
   $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
+    var currentCard = $(this).attr("current");
     var moveAlong = false;
 
-    switch (nextCard) {
-      case "card--class":
+    switch (currentCard) {
+      case "card--name":
         moveAlong = $("#player-name").val() !== "";
         break;
-      case "card--weapon":
-        moveAlong = HumanCombatant !== null;
+      case "card--class":
+        moveAlong = chosenProfession !== null;
         break;
-    }
+      case "card--weapon":
+        moveAlong = chosenWeapon !== null;
+        break;
+    };
 
     if (moveAlong) {
+      /*
+        If all requirements met to move along to the next screen, set
+        that screen up now if there is any dynamic elements that need
+        to be created before it is shown.
+       */
+      if (nextCard === "card--weapon") {
+        var weaponEl = $("#weapon-select").children(".card__prompt");
+        $(".weapons").remove();
+
+        var block = "<div class=\"row weapons\">";
+        block += '<div class="col-sm-6">';
+
+        chosenProfession.allowedWeapons.forEach(function(weapon, index) {
+          var weaponName = new window[weapon]().toString();
+          if (index === 3) {
+            block += "</div>";
+            block += "<div class=\"col-sm-6\">";
+          }
+          block += '<div class="card__button"><a class="weapon__link btn btn--big btn--blue" href="#"><span class="btn__prompt">&gt;</span><span class="btn__text" weapon='+weapon+'>' + weaponName + '</span></a></div>';
+        });
+        block += "</div></div>";
+        weaponEl.append(block);
+      }
+
       $(".card").hide();
       $("." + nextCard).show();
     }
   });
+
+  /*
+    Handle user choosing a profession for the human combatant
+   */
+  $(".class__link").click(function(e) {
+    HumanCombatant = new Human();
+    chosenProfession = AvailableClasses[$(this).children(".btn__text").html()];
+    console.log("chosenProfession",chosenProfession);
+  });
+
+
+  /*
+    Handle user choosing a weapon for the human combatant
+   */
+  $(document).on("click", ".weapon__link", function(e) {
+    var weapon = $(this).find(".btn__text").attr("weapon");
+    chosenWeapon = new window[weapon]();
+    console.log("chosenWeapon",chosenWeapon);
+  });
+
 
   /*
     When the back button clicked, move back a view

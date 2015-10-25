@@ -5,10 +5,10 @@ var Weapon = function() {
   this.ranged = false;
   this.poisoned = false;
 
-  this.toString = function() {
-    return this.name;
-  }
 };
+Weapon.prototype.toString = function() {
+  return this.name;
+}
 
 var Dart = function() {
   this.name = "dart";

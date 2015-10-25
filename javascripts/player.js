@@ -2,12 +2,12 @@
   Define the base object for any player of Gauntlet,
   whether a human player or a monster.
  */
-var Player = function(name) {
+var Player = function() {
   this.species = null;
   this.class = null;
   this.weapon = null;
+  this.playerName = null;
 
-  this.playerName = name || "unknown adventurer";
   this.health = 0;
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";

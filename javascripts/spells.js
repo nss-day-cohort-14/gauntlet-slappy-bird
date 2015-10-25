@@ -24,19 +24,19 @@ Spell.prototype.cast = function() {
  */
 var Sphere = function() {
   this.name = "sphere";
-  this.damage = Math.floor(Math.random() * 10 + 7);
+  this.damage = Math.floor(Math.random() * 3 + 7);
 };
 Sphere.prototype = new Spell();
 
 var Missile = function() {
   this.name = "magical missile";
-  this.damage = Math.floor(Math.random() * 10 + 5);
+  this.damage = Math.floor(Math.random() * 5 + 3);
 };
 Missile.prototype = new Spell();
 
 var Hammer = function() {
   this.name = "giant hammer";
-  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.damage = Math.floor(Math.random() * 8 + 4);
 };
 Hammer.prototype = new Spell();
 

@@ -1,16 +1,24 @@
 /*
+  One object to store a single instance of each class. When
+  assigning a class to a combatant, use the keys on this object
+  instead of creating new instances every time.
+ */
+var AvailableClasses = {};
+
+/*
   Base function for a player, or enemy, class (profession)
  */
 var PlayerClass = function() {
-  this.name = "Beggar";
+  this.name = "Apprentice";
   this.healthBonus = 0;
   this.strengthBonus = 0;
   this.intelligenceBonus = 0;
   this.magical = false;
 
-  this.toString = function() {
-    return this.name;
-  }
+};
+
+PlayerClass.prototype.toString = function() {
+  return this.name;
 };
 
 /*
@@ -27,6 +35,7 @@ var Fighter = function() {
   this.allowedWeapons = ["LongSword", "ShortSword", "BroadSword", "Dagger"];
 };
 Fighter.prototype = new PlayerClass();
+AvailableClasses.Fighter = new Fighter();
 
 
 var Warrior = function() {
@@ -36,6 +45,7 @@ var Warrior = function() {
   this.strengthBonus = this.strengthBonus + 30;
 };
 Warrior.prototype = new Fighter();
+AvailableClasses.Warrior = new Warrior();
 
 
 var Valkyrie = function() {
@@ -45,6 +55,7 @@ var Valkyrie = function() {
   this.strengthBonus = this.strengthBonus + 10;
 };
 Valkyrie.prototype = new Fighter();
+AvailableClasses.Valkyrie = new Valkyrie();
 
 
 var Berserker = function() {
@@ -54,6 +65,7 @@ var Berserker = function() {
   this.strengthBonus = this.strengthBonus + 20;
 };
 Berserker.prototype = new Fighter();
+AvailableClasses.Berserker = new Berserker();
 
 
 var Monk = function() {
@@ -63,6 +75,7 @@ var Monk = function() {
   this.strengthBonus = this.strengthBonus + 40;
 };
 Monk.prototype = new Fighter();
+AvailableClasses.Monk = new Monk();
 
 
 /*
@@ -89,6 +102,7 @@ var Shaman = function() {
   this.intelligenceBonus = this.intelligenceBonus + 20;
 };
 Shaman.prototype = new Mage();
+AvailableClasses.Shaman = new Shaman();
 
 
 var Wizard = function() {
@@ -98,6 +112,7 @@ var Wizard = function() {
   this.intelligenceBonus = this.intelligenceBonus + 40;
 };
 Wizard.prototype = new Mage();
+AvailableClasses.Wizard = new Wizard();
 
 
 var Conjurer = function() {
@@ -106,6 +121,7 @@ var Conjurer = function() {
   this.intelligenceBonus = this.intelligenceBonus + 10;
 };
 Conjurer.prototype = new Mage();
+AvailableClasses.Conjurer = new Conjurer();
 
 
 var Sorcerer = function() {
@@ -115,6 +131,7 @@ var Sorcerer = function() {
   this.intelligenceBonus = this.intelligenceBonus + 30;
 };
 Sorcerer.prototype = new Mage();
+AvailableClasses.Sorcerer = new Sorcerer();
 
 
 /*
@@ -139,6 +156,8 @@ var Thief = function() {
   this.intelligenceBonus = this.intelligenceBonus + 10;
 };
 Thief.prototype = new Stealth();
+AvailableClasses.Thief = new Thief();
+
 
 var Ninja = function() {
   this.name = "Ninja";
@@ -148,6 +167,8 @@ var Ninja = function() {
   this.allowedWeapons.push("Rapier");
 };
 Ninja.prototype = new Stealth();
+AvailableClasses.Ninja = new Ninja();
+
 
 var Assassin = function() {
   this.name = "Assassin";
@@ -158,6 +179,8 @@ var Assassin = function() {
   this.allowedWeapons.push("PoisonBlowgun");
 };
 Assassin.prototype = new Stealth();
+AvailableClasses.Assassin = new Assassin();
+
 
 var Lord = function() {
   this.name = "Lord";
@@ -166,3 +189,6 @@ var Lord = function() {
   this.allowedWeapons = ["LightSaber"];
 };
 Lord.prototype = new PlayerClass();
+AvailableClasses.Lord = new Lord();
+
+

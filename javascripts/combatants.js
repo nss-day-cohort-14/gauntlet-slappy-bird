@@ -2,8 +2,9 @@
   Define the base properties for a human in a 
   constructor function.
  */
-var Human = function() {
+var Human = function(name) {
   this.species = "Human";
+  this.playerName = name;
   this.intelligence = this.intelligence + 20;
   this.skinColors.push("brown", "red", "white", "disease");
 
@@ -21,7 +22,8 @@ Human.prototype = new Player();
   Define the base properties for a monster in a 
   constructor function.
  */
-var Monster = function() {
+var Monster = function(name) {
+  this.playerName = name || "Grax";
   this.health = this.health - 30;
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;
