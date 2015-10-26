@@ -88,9 +88,9 @@ AvailableClasses.Monk = new Monk();
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
-  this.healthBonus = this.healthBonus - 20;
+  this.healthBonus = this.healthBonus - 40;
   this.strengthBonus = this.strengthBonus - 40;
-  this.intelligenceBonus = this.intelligenceBonus + 50;
+  this.intelligenceBonus = this.intelligenceBonus + 150;
 };
 Mage.prototype = new PlayerClass();
 
@@ -99,7 +99,7 @@ var Shaman = function() {
   this.name = "Shaman";
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
+  this.intelligenceBonus = this.intelligenceBonus + 80;
 };
 Shaman.prototype = new Mage();
 AvailableClasses.Shaman = new Shaman();
@@ -109,7 +109,7 @@ var Wizard = function() {
   this.name = "Wizard";
   this.healthBonus = this.healthBonus - 15;
   this.strengthBonus = this.strengthBonus - 25;
-  this.intelligenceBonus = this.intelligenceBonus + 40;
+  this.intelligenceBonus = this.intelligenceBonus + 100;
 };
 Wizard.prototype = new Mage();
 AvailableClasses.Wizard = new Wizard();
@@ -118,7 +118,7 @@ AvailableClasses.Wizard = new Wizard();
 var Conjurer = function() {
   this.name = "Conjurer";
   this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
+  this.intelligenceBonus = this.intelligenceBonus + 90;
 };
 Conjurer.prototype = new Mage();
 AvailableClasses.Conjurer = new Conjurer();

@@ -4,31 +4,66 @@ var Battleground = function(humanCombatant, enemyCombatant) {
 };
 
 Battleground.prototype.melee = function() {
-  var baseHumanDamage = Math.round(Math.random() * this.human.weapon.damage + 1);
-  var baseEnemyDamage = Math.round(Math.random() * this.enemy.weapon.damage + 1);
+  var baseHumanDamage;
+  var baseEnemyDamage;
+  var totalHumanDamage;
+  var humanWeapon, enemyWeapon, modifier;
 
-  var totalHumanDamage = Math.floor(baseHumanDamage + (this.human.strength / 10));
-  var totalEnemyDamage = Math.floor(baseEnemyDamage + (this.enemy.strength / 10));
+  if (!this.human.class.magical) {
+    humanWeapon = this.human.weapon;
+    modifier = Math.floor(baseHumanDamage + (this.human.strength / 10));
+  } else {
+    humanWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
+    humanWeapon.cast();
+    modifier = Math.floor(this.human.intelligence / 10);
+  }
+  baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
+  totalHumanDamage = baseHumanDamage + modifier;
+
+  if (!this.enemy.class.magical) {
+    enemyWeapon = this.enemy.weapon;
+    modifier = Math.floor(baseHumanDamage + (this.human.strength / 10));
+  } else {
+    enemyWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
+    enemyWeapon.cast();
+    modifier = Math.floor(this.enemy.intelligence / 10);
+  }
+  baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
+  totalEnemyDamage = baseEnemyDamage + modifier;
+
+  /*
+    Calculate damage done by player
+   */
+  this.enemy.health -= totalHumanDamage;
 
   var battleResult = "";
   battleResult += "<div class=\"battle-record__human\">";
-  battleResult += "&gt; " + this.human.playerName + "(" + this.human.health + " hp) attacks with " + this.human.weapon + " for " + totalHumanDamage + " damage";
+  battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage";
   battleResult += "</div>";
-
-  battleResult += "<div class=\"battle-record__enemy\">";
-  battleResult += "&gt; " + this.enemy.species + "(" + this.enemy.health + " hp) attacks with " + this.enemy.weapon + " for " + totalEnemyDamage + " damage";
-  battleResult += "</div>";
-
-  this.human.health -= totalEnemyDamage;
-  this.enemy.health -= totalHumanDamage;
-
   $("#battle-record").append(battleResult);
 
-  if (this.human.health <= 0 || this.enemy.health <= 0) {
-    $("#battle-record").append("<div>The battle is over. " + ((this.human.health > 0) ? "You" : "The " + this.enemy.species) + " won!</div>");
+  if (this.enemy.health <= 0) {
+    $("#battle-record").append("<div>The battle is over. You won!</div>");
 
     return false;
   }
 
+  /*
+    Calculate damage done by enemy
+   */
+  var totalEnemyDamage = Math.floor(baseEnemyDamage + (this.enemy.strength / 10));
+  this.human.health -= totalEnemyDamage;
+
+  battleResult = "<div class=\"battle-record__enemy\">";
+  battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> attacks with " + enemyWeapon.toString() + " for " + totalEnemyDamage + " damage";
+  battleResult += "</div>";
+  $("#battle-record").append(battleResult);
+
+  if (this.human.health <= 0) {
+    $("#battle-record").append("<div>The battle is over. The " + this.enemy.species + " won!</div>");
+
+    return false;
+  }
+  
   return true;
 };

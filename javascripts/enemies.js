@@ -2,7 +2,8 @@ AvailableEnemies = {
   randomEnemy: function() {
     var enemies = Object.keys(this).filter((k) => k !== "randomEnemy");
     var enemyInstance = enemies[Math.round(Math.random() * (enemies.length - 1))];
-    return this[enemyInstance];
+    console.log("enemyInstance",enemyInstance);
+    return new window[enemyInstance]();
   }
 };
 

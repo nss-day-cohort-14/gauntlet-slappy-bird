@@ -34,7 +34,8 @@ Player.prototype.toString = function() {
 };
 
 Player.prototype.init = function(profession, weapon) {
-  this.health = Math.floor(Math.random() * 100 + 50);
+  this.health = Math.floor(Math.random() * 400 + 50);
+  console.log("initialized health: ", this.health);
 
   if (!profession) {
     this.generateClass();
@@ -52,13 +53,20 @@ Player.prototype.init = function(profession, weapon) {
 };
 
 Player.prototype.modifyHealth = function(bonus) {
+  console.log("original health", this.health);
   this.health += bonus;
+  console.log("adding bonus: ", bonus, this.health);
   if (this.health < 20) this.health = 20;
 };
 
 Player.prototype.modifyStrength = function(bonus) {
   this.strength += bonus;
   if (this.strength < 10) this.strength = 10;
+};
+
+Player.prototype.modifyIntelligence = function(bonus) {
+  this.intelligence += bonus;
+  if (this.intelligence < 10) this.intelligence = 10;
 };
 
 Player.prototype.generateClass = function() {
@@ -76,6 +84,7 @@ Player.prototype.setClass = function(newClass) {
   this.class = newClass;
   this.modifyHealth(newClass.healthBonus);
   this.modifyStrength(newClass.strengthBonus);
+  this.modifyIntelligence(newClass.intelligenceBonus);
 };
 
 Player.prototype.generateWeapon = function() {

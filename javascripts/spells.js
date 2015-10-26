@@ -1,3 +1,5 @@
+var AvailableSpells = ["Sphere", "Bolt", "Hammer", "Missile"];
+
 /*
   Base spell function that defines name, damage, damage type
  */
@@ -10,7 +12,7 @@ var Spell = function() {
 };
 
 Spell.prototype.toString = function() {
-  return this.name;
+  return this.name + " of " + this.type;
 };
 
 Spell.prototype.cast = function() {
@@ -39,4 +41,10 @@ var Hammer = function() {
   this.damage = Math.floor(Math.random() * 8 + 4);
 };
 Hammer.prototype = new Spell();
+
+var Bolt = function() {
+  this.name = "bolt";
+  this.damage = Math.floor(Math.random() * 7 + 6);
+};
+Bolt.prototype = new Spell();
 

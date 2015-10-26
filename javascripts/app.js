@@ -61,9 +61,9 @@ $(document).ready(function() {
 
         case "card--weapon":
           if (chosenProfession.magical) {
-            HumanCombatant.init(chosenProfession, chosenWeapon);
-            console.log("HumanCombatant",HumanCombatant);
+            HumanCombatant.init(chosenProfession);
             nextCard = "card--battleground";
+            startCombat();
           } else {
             var weaponEl = $("#weapon-select").children(".card__prompt");
             $(".weapons").remove();
@@ -86,15 +86,8 @@ $(document).ready(function() {
 
         case "card--battleground":
           HumanCombatant.init(chosenProfession, chosenWeapon);
-          EnemyCombatant = new Orc();
-          EnemyCombatant.init(new Assassin(), new Dart());
-          $(".battle--human").html(HumanCombatant.toString());
-          $(".battle--enemy").html(EnemyCombatant.toString());
+          startCombat();
 
-          startCombat(HumanCombatant, EnemyCombatant);
-
-          console.log(HumanCombatant.toString());
-          console.log(EnemyCombatant.toString());
           break;
       }
 
@@ -117,8 +110,14 @@ $(document).ready(function() {
     $("#battle-record").scrollTop(9999999);
   }
 
-  function startCombat(human, enemy) {
-    battleground = new Battleground(human, enemy);
+  function startCombat() {
+    EnemyCombatant = AvailableEnemies.randomEnemy();
+    EnemyCombatant.init();
+
+    $(".battle--human").html(HumanCombatant.toString());
+    $(".battle--enemy").html(EnemyCombatant.toString());
+
+    battleground = new Battleground(HumanCombatant, EnemyCombatant);
     battleTimer = window.setInterval(meleeRound, 2000);
   }
 

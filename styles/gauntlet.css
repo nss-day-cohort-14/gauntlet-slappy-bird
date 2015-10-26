@@ -113,14 +113,20 @@ body {
   height: 800px;
   background-color: darkgray;
   color: beige;
+  padding: 15px;
 }
 
 #battle-record {
   background-color: black;
-  max-height: 400px;
+  height: 673px;
   color: yellow;
   font-size: 0.7em;
   overflow: auto;
+}
+
+.battle-health {
+  color: goldenrod;
+  font-size: 0.9em;
 }
 
 .battle-record__enemy {
