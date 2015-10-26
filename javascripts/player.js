@@ -34,7 +34,7 @@ Player.prototype.toString = function() {
 };
 
 Player.prototype.init = function(profession, weapon) {
-  this.health = Math.floor(Math.random() * 40 + 50);
+  this.health = Math.floor(Math.random() * 100 + 50);
 
   if (!profession) {
     this.generateClass();
@@ -54,7 +54,12 @@ Player.prototype.init = function(profession, weapon) {
 Player.prototype.modifyHealth = function(bonus) {
   this.health += bonus;
   if (this.health < 20) this.health = 20;
-}
+};
+
+Player.prototype.modifyStrength = function(bonus) {
+  this.strength += bonus;
+  if (this.strength < 10) this.strength = 10;
+};
 
 Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array
@@ -70,6 +75,7 @@ Player.prototype.generateClass = function() {
 Player.prototype.setClass = function(newClass) {
   this.class = newClass;
   this.modifyHealth(newClass.healthBonus);
+  this.modifyStrength(newClass.strengthBonus);
 };
 
 Player.prototype.generateWeapon = function() {
