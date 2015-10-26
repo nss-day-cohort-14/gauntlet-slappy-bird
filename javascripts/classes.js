@@ -40,9 +40,9 @@ AvailableClasses.Fighter = new Fighter();
 
 var Warrior = function() {
   this.name = "Warrior";
-  this.healthBonus = this.healthBonus + 25;
+  this.healthBonus = this.healthBonus + 50;
   this.allowedWeapons.push("Halberd");
-  this.strengthBonus = this.strengthBonus + 30;
+  this.strengthBonus = this.strengthBonus + 80;
 };
 Warrior.prototype = new Fighter();
 AvailableClasses.Warrior = new Warrior();
@@ -52,7 +52,7 @@ var Valkyrie = function() {
   this.name = "Valkyrie";
   this.healthBonus = this.healthBonus + 20;
   this.allowedWeapons.push("BallChain", "LongBow");
-  this.strengthBonus = this.strengthBonus + 10;
+  this.strengthBonus = this.strengthBonus + 50;
 };
 Valkyrie.prototype = new Fighter();
 AvailableClasses.Valkyrie = new Valkyrie();
@@ -60,9 +60,8 @@ AvailableClasses.Valkyrie = new Valkyrie();
 
 var Berserker = function() {
   this.name = "Berserker";
-  this.healthBonus = this.healthBonus + 35;
   this.allowedWeapons.unshift("Mace", "WarAxe");
-  this.strengthBonus = this.strengthBonus + 20;
+  this.strengthBonus = this.strengthBonus + 120;
 };
 Berserker.prototype = new Fighter();
 AvailableClasses.Berserker = new Berserker();
@@ -70,9 +69,9 @@ AvailableClasses.Berserker = new Berserker();
 
 var Monk = function() {
   this.name = "Monk";
-  this.healthBonus = this.healthBonus + 10;
+  this.healthBonus = this.healthBonus + 25;
   this.allowedWeapons = ["ShortBow", "Staff", "Nunchaku"];
-  this.strengthBonus = this.strengthBonus + 40;
+  this.strengthBonus = this.strengthBonus + 100;
 };
 Monk.prototype = new Fighter();
 AvailableClasses.Monk = new Monk();

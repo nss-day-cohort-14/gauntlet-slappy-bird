@@ -8,10 +8,15 @@ Battleground.prototype.melee = function() {
   var baseEnemyDamage;
   var totalHumanDamage;
   var humanWeapon, enemyWeapon, modifier;
+  var humanCritical = Math.random() * 100;
+  var enemyCritical = Math.random() * 100;
 
+  /*
+    Calculate damage done by player
+   */
   if (!this.human.class.magical) {
     humanWeapon = this.human.weapon;
-    modifier = Math.floor(baseHumanDamage + (this.human.strength / 10));
+    modifier = Math.floor(this.human.strength / 10);
   } else {
     humanWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
     humanWeapon.cast();
@@ -19,26 +24,17 @@ Battleground.prototype.melee = function() {
   }
   baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
   totalHumanDamage = baseHumanDamage + modifier;
-
-  if (!this.enemy.class.magical) {
-    enemyWeapon = this.enemy.weapon;
-    modifier = Math.floor(baseHumanDamage + (this.human.strength / 10));
-  } else {
-    enemyWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
-    enemyWeapon.cast();
-    modifier = Math.floor(this.enemy.intelligence / 10);
+  if (humanCritical > 92) {
+    totalHumanDamage = Math.floor(totalHumanDamage * 1.5);
   }
-  baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
-  totalEnemyDamage = baseEnemyDamage + modifier;
 
-  /*
-    Calculate damage done by player
-   */
+
   this.enemy.health -= totalHumanDamage;
 
   var battleResult = "";
   battleResult += "<div class=\"battle-record__human\">";
-  battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage";
+  battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
+  battleResult += (humanCritical > 92) ? " Critical hit!!" : "";
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 
@@ -51,11 +47,27 @@ Battleground.prototype.melee = function() {
   /*
     Calculate damage done by enemy
    */
-  var totalEnemyDamage = Math.floor(baseEnemyDamage + (this.enemy.strength / 10));
+  if (!this.enemy.class.magical) {
+    enemyWeapon = this.enemy.weapon;
+    modifier = Math.floor(this.enemy.strength / 10);
+  } else {
+    enemyWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
+    enemyWeapon.cast();
+    modifier = Math.floor(this.enemy.intelligence / 10);
+  }
+  baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
+  totalEnemyDamage = baseEnemyDamage + modifier;
+  if (enemyCritical > 95) {
+    console.log("totalEnemyDamage",totalEnemyDamage);
+    totalEnemyDamage = Math.floor(totalEnemyDamage * 1.5);
+    console.log("totalEnemyDamage",totalEnemyDamage);
+  }
+
   this.human.health -= totalEnemyDamage;
 
   battleResult = "<div class=\"battle-record__enemy\">";
-  battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> attacks with " + enemyWeapon.toString() + " for " + totalEnemyDamage + " damage";
+  battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> attacks with " + enemyWeapon.toString() + " for " + totalEnemyDamage + " damage.";
+  battleResult += (enemyCritical > 95) ? " Critical hit!!" : "";
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 

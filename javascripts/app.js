@@ -105,6 +105,10 @@ $(document).ready(function() {
   function meleeRound() {
     if (!battleground.melee()) {
       window.clearInterval(battleTimer);
+
+      if (HumanCombatant.health > 0) {
+        $("#battle-record").after("<button class=\"btn btn--big btn--yellow btn--another\">Fight another</button>");
+      }
     }
 
     $("#battle-record").scrollTop(9999999);
@@ -120,6 +124,11 @@ $(document).ready(function() {
     battleground = new Battleground(HumanCombatant, EnemyCombatant);
     battleTimer = window.setInterval(meleeRound, 2000);
   }
+
+  $(document).on("click", ".btn--another", function() {
+    $(".btn--another").remove();
+    startCombat();
+  });
 
   /*
     Handle user choosing a profession for the human combatant
