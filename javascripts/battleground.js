@@ -58,9 +58,7 @@ Battleground.prototype.melee = function() {
   baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
   totalEnemyDamage = baseEnemyDamage + modifier;
   if (enemyCritical > 95) {
-    console.log("totalEnemyDamage",totalEnemyDamage);
     totalEnemyDamage = Math.floor(totalEnemyDamage * 1.5);
-    console.log("totalEnemyDamage",totalEnemyDamage);
   }
 
   this.human.health -= totalEnemyDamage;

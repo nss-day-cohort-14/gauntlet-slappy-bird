@@ -2,7 +2,6 @@ AvailableEnemies = {
   randomEnemy: function() {
     var enemies = Object.keys(this).filter((k) => k !== "randomEnemy");
     var enemyInstance = enemies[Math.round(Math.random() * (enemies.length - 1))];
-    console.log("enemyInstance",enemyInstance);
     return new window[enemyInstance]();
   }
 };
@@ -10,7 +9,8 @@ AvailableEnemies = {
 var Orc = function() {
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman", "Assassin"];
-  this.health = this.health + 30;
+  this.health += 30;
+  this.intelligence -= 30;
 };
 Orc.prototype = new Monster();
 AvailableEnemies.Orc = new Orc();
@@ -20,7 +20,7 @@ var Sith = function() {
   this.species = "Sith";
   this.skinColors.push("red", "blue", "golden", "thorny");
   this.allowedClasses = ["Lord"];
-  this.health = this.health + 60;
+  this.health += 60;
 };
 Sith.prototype = new Monster();
 AvailableEnemies.Sith = new Sith();
@@ -40,6 +40,7 @@ var Goblin = function() {
   this.health = this.health - 10;
   this.skinColors.push("green", "mottled gray");
   this.allowedClasses = ["Fighter", "Assassin", "Conjurer"];
+  this.intelligence -= 80;
 };
 Goblin.prototype = new Monster();
 AvailableEnemies.Goblin = new Goblin();
@@ -60,6 +61,7 @@ var Ghoul = function() {
   this.health = this.health + 10;
   this.skinColors.push("tattoo", "sickly white");
   this.allowedClasses = ["Assassin", "Shaman"];
+  this.intelligence -= 50;
 };
 Ghoul.prototype = new Monster();
 AvailableEnemies.Ghoul = new Ghoul();
