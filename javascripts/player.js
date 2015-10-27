@@ -35,7 +35,7 @@ Player.prototype.toString = function() {
 };
 
 Player.prototype.init = function(profession, weapon) {
-  this.health = Math.floor(Math.random() * 400 + 50);
+  this.health = Math.floor(Math.random() * 200 + 50);
 
   if (!profession) {
     this.generateClass();

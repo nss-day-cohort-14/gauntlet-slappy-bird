@@ -10,11 +10,11 @@ Battleground.prototype.melee = function() {
   var enemyCritical = Math.random() * 100;
 
   if (!this.human.class.magical) {
-    humanCritical = this.human.intelligence / 10;
+    humanCritical += this.human.intelligence / 10;
   }
 
   if (!this.enemy.class.magical) {
-    enemyCritical = this.enemy.intelligence / 10;
+    enemyCritical += this.enemy.intelligence / 10;
   }
 
   /*

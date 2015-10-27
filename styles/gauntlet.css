@@ -39,7 +39,7 @@ body {
 }
 
 .card > .card__prompt:first-child {
-  padding: 100px 0 0 0;
+  /*padding: 100px 0 0 0;*/
 }
 
 
@@ -110,7 +110,7 @@ body {
 
 
 .card--battleground {
-  height: 800px;
+  height: 600px;
   background-color: darkgray;
   color: beige;
   padding: 15px;
@@ -118,7 +118,7 @@ body {
 
 #battle-record {
   background-color: black;
-  height: 673px;
+  height: 473px;
   color: yellow;
   font-size: 0.7em;
   overflow: auto;
