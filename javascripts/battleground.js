@@ -6,8 +6,16 @@ var Battleground = function(humanCombatant, enemyCombatant) {
 Battleground.prototype.melee = function() {
   var baseHumanDamage = 0, baseEnemyDamage = 0, totalHumanDamage = 0, totalEnemyDamage = 0;
   var humanWeapon, enemyWeapon, modifier;
-  var humanCritical = Math.random() * 100 + (this.human.intelligence / 10);
-  var enemyCritical = Math.random() * 100 + (this.enemy.intelligence / 10);
+  var humanCritical = Math.random() * 100;
+  var enemyCritical = Math.random() * 100;
+
+  if (!this.human.class.magical) {
+    humanCritical = this.human.intelligence / 10;
+  }
+
+  if (!this.enemy.class.magical) {
+    enemyCritical = this.enemy.intelligence / 10;
+  }
 
   /*
     Calculate damage done by player
@@ -28,7 +36,7 @@ Battleground.prototype.melee = function() {
     baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
     totalHumanDamage = baseHumanDamage + modifier - this.enemy.protection;
     totalHumanDamage = (totalHumanDamage < 0) ? 0 : totalHumanDamage;
-    
+
     if (humanCritical > 92) {
       totalHumanDamage = Math.floor(totalHumanDamage * 1.5);
     }

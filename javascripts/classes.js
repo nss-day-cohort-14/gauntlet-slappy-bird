@@ -87,7 +87,7 @@ AvailableClasses.Monk = new Monk();
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
-  this.healthBonus -= 40;
+  this.healthBonus -= 60;
   this.strengthBonus -= 40;
   this.intelligenceBonus += 150;
 };
