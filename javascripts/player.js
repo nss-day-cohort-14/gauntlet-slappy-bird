@@ -7,6 +7,7 @@ var Player = function() {
   this.class = null;
   this.weapon = null;
   this.playerName = null;
+  this.protection = 0;
 
   this.health = 0;
   this.limbs = ["head", "neck", "arm", "leg", "torso"];

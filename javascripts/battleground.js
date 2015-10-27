@@ -4,12 +4,10 @@ var Battleground = function(humanCombatant, enemyCombatant) {
 };
 
 Battleground.prototype.melee = function() {
-  var baseHumanDamage;
-  var baseEnemyDamage;
-  var totalHumanDamage;
+  var baseHumanDamage = 0, baseEnemyDamage = 0, totalHumanDamage = 0, totalEnemyDamage = 0;
   var humanWeapon, enemyWeapon, modifier;
-  var humanCritical = Math.random() * 100;
-  var enemyCritical = Math.random() * 100;
+  var humanCritical = Math.random() * 100 + (this.human.intelligence / 10);
+  var enemyCritical = Math.random() * 100 + (this.enemy.intelligence / 10);
 
   /*
     Calculate damage done by player
@@ -20,12 +18,20 @@ Battleground.prototype.melee = function() {
   } else {
     humanWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
     humanWeapon.cast();
+    if (humanWeapon.defensive) {
+      this.human.protection = humanWeapon.protection;
+    }
     modifier = Math.floor(this.human.intelligence / 10);
   }
-  baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
-  totalHumanDamage = baseHumanDamage + modifier;
-  if (humanCritical > 92) {
-    totalHumanDamage = Math.floor(totalHumanDamage * 1.5);
+
+  if (!humanWeapon.defensive) {
+    baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
+    totalHumanDamage = baseHumanDamage + modifier - this.enemy.protection;
+    totalHumanDamage = (totalHumanDamage < 0) ? 0 : totalHumanDamage;
+    
+    if (humanCritical > 92) {
+      totalHumanDamage = Math.floor(totalHumanDamage * 1.5);
+    }
   }
 
 
@@ -33,13 +39,17 @@ Battleground.prototype.melee = function() {
 
   var battleResult = "";
   battleResult += "<div class=\"battle-record__human\">";
-  battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
+  if (humanWeapon.defensive) {
+    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> casts a " + humanWeapon.toString() + " for " + this.human.protection + " protection.";
+  } else {
+    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
+  }
   battleResult += (humanCritical > 92) ? " Critical hit!!" : "";
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 
   if (this.enemy.health <= 0) {
-    $("#battle-record").append("<div>The battle is over. You won!</div>");
+    $("#battle-record").append("<div class=\"battle-over\">The battle is over. You won!</div>");
 
     return false;
   }
@@ -54,23 +64,38 @@ Battleground.prototype.melee = function() {
     enemyWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
     enemyWeapon.cast();
     modifier = Math.floor(this.enemy.intelligence / 10);
+
+    if (enemyWeapon.defensive) {
+      this.enemy.protection = enemyWeapon.protection;
+    }
   }
-  baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
-  totalEnemyDamage = baseEnemyDamage + modifier;
-  if (enemyCritical > 95) {
-    totalEnemyDamage = Math.floor(totalEnemyDamage * 1.5);
+
+  /*
+    Apply damage unless a defensive spell was cast
+   */
+  if (!enemyWeapon.defensive) {
+    baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
+    totalEnemyDamage = baseEnemyDamage + modifier - this.human.protection;
+    totalEnemyDamage = (totalEnemyDamage < 0) ? 0 : totalEnemyDamage;
+    if (enemyCritical > 95) {
+      totalEnemyDamage = Math.floor(totalEnemyDamage * 1.5);
+    }
   }
 
   this.human.health -= totalEnemyDamage;
 
   battleResult = "<div class=\"battle-record__enemy\">";
-  battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> attacks with " + enemyWeapon.toString() + " for " + totalEnemyDamage + " damage.";
-  battleResult += (enemyCritical > 95) ? " Critical hit!!" : "";
+  if (enemyWeapon.defensive) {
+    battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> casts a " + enemyWeapon.toString() + " for " + this.enemy.protection + " protection.";
+  } else {
+    battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> attacks with " + enemyWeapon.toString() + " for " + totalEnemyDamage + " damage.";
+    battleResult += (enemyCritical > 95) ? " Critical hit!!" : "";
+  }
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 
   if (this.human.health <= 0) {
-    $("#battle-record").append("<div>The battle is over. The " + this.enemy.species + " won!</div>");
+    $("#battle-record").append("<div class=\"battle-over\">The battle is over. The " + this.enemy.species + " won!</div>");
 
     return false;
   }

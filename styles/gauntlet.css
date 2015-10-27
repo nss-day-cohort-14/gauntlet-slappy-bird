@@ -129,6 +129,10 @@ body {
   font-size: 0.9em;
 }
 
+.battle-over {
+  margin: 40px 0;
+}
+
 .battle-record__enemy {
   margin: 0 0 40px 0;
 }

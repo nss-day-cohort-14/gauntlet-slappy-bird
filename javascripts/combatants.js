@@ -24,9 +24,9 @@ Human.prototype = new Player();
  */
 var Monster = function(name) {
   this.playerName = name || "Grax";
-  this.health = this.health - 30;
-  this.intelligence = this.intelligence -20;
-  this.strength = this.strength + 30;
+  this.health -= 30;
+  this.intelligence -= 50;
+  this.strength += 30;
 };
 
 Monster.prototype = new Player();

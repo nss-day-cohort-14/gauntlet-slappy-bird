@@ -108,6 +108,8 @@ $(document).ready(function() {
 
       if (HumanCombatant.health > 0) {
         $("#battle-record").after("<button class=\"btn btn--big btn--yellow btn--another\">Fight another</button>");
+      } else {
+        $("#battle-record").after("<button class=\"btn btn--big btn--yellow btn--again\">Play Again</button>");
       }
     }
 
@@ -125,9 +127,26 @@ $(document).ready(function() {
     battleTimer = window.setInterval(meleeRound, 2000);
   }
 
+  /*
+    When the "Fight Another" button is clicked just start
+    the battle all over again with the player's existing
+    health, and a new opponent.
+   */
   $(document).on("click", ".btn--another", function() {
     $(".btn--another").remove();
     startCombat();
+  });
+
+  /*
+    When the "Fight Again" button is clicked just start
+    the battle all over again with the player's existing
+    health, and a new opponent.
+   */
+  $(document).on("click", ".btn--again", function() {
+    $(".btn--again").remove();
+    $(".card").hide();
+    $("#player-setup").show();
+    $("#battle-record").empty();
   });
 
   /*
@@ -136,7 +155,6 @@ $(document).ready(function() {
   $(".class__link").click(function(e) {
     HumanCombatant = new Human($("#player-name").val());
     chosenProfession = AvailableClasses[$(this).children(".btn__text").html()];
-    console.log("chosenProfession",chosenProfession);
   });
 
 
@@ -146,7 +164,6 @@ $(document).ready(function() {
   $(document).on("click", ".weapon__link", function(e) {
     var weapon = $(this).find(".btn__text").attr("weapon");
     chosenWeapon = new window[weapon]();
-    console.log("chosenWeapon",chosenWeapon);
   });
 
 

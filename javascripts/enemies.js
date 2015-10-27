@@ -28,7 +28,7 @@ AvailableEnemies.Sith = new Sith();
 
 var Kobold = function() {
   this.species = "Kobold";
-  this.health = this.health - 5;
+  this.health -= 15;
   this.allowedClasses = ["Warrior", "Assassin"];
 };
 Kobold.prototype = new Monster();
@@ -37,10 +37,10 @@ AvailableEnemies.Kobold = new Kobold();
 
 var Goblin = function() {
   this.species = "Goblin";
-  this.health = this.health - 10;
+  this.health -= 20;
   this.skinColors.push("green", "mottled gray");
   this.allowedClasses = ["Fighter", "Assassin", "Conjurer"];
-  this.intelligence -= 80;
+  this.intelligence -= 50;
 };
 Goblin.prototype = new Monster();
 AvailableEnemies.Goblin = new Goblin();
@@ -48,7 +48,7 @@ AvailableEnemies.Goblin = new Goblin();
 
 var Skeleton = function() {
   this.species = "Skeleton";
-  this.health = this.health - 10;
+  this.health += 10;
   this.skinColors = [];
   this.allowedClasses = ["Fighter"];
 };
@@ -58,7 +58,7 @@ AvailableEnemies.Skeleton = new Skeleton();
 
 var Ghoul = function() {
   this.species = "Ghoul";
-  this.health = this.health + 10;
+  this.health += 10;
   this.skinColors.push("tattoo", "sickly white");
   this.allowedClasses = ["Assassin", "Shaman"];
   this.intelligence -= 50;

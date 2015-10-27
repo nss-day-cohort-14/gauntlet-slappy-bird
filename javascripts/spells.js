@@ -1,4 +1,4 @@
-var AvailableSpells = ["Sphere", "Bolt", "Hammer", "Missile"];
+var AvailableSpells = ["Sphere", "Bolt", "Hammer", "Missile", "Shield", "Wall"];
 
 /*
   Base spell function that defines name, damage, damage type
@@ -6,23 +6,43 @@ var AvailableSpells = ["Sphere", "Bolt", "Hammer", "Missile"];
 var Spell = function() {
   this.name = "";
   this.damage = 0;
+  this.defensive = false;
 
   this.elements = ["lightning", "fire", "water", "earth", "mysticism"];
-  this.type = "";
+  this.damageType = "";
 };
 
 Spell.prototype.toString = function() {
-  return this.name + " of " + this.type;
+  return this.name + " of " + this.damageType;
 };
 
 Spell.prototype.cast = function() {
   var random = Math.round(Math.random() * (this.elements.length - 1));
-  this.type = this.elements[random];
-  return {name: this.name, type: this.type, damage: this.damage};
+  this.damageType = this.elements[random];
+  return {name: this.name, damageType: this.damageType, damage: this.damage};
 };
 
 /*
-  An elemental sphere that can be cast by a magical class
+  Protection spells
+ */
+var Shield = function() {
+  this.name = "shield";
+  this.defensive = true
+  this.protection = Math.floor(Math.random() * 6 + 4);
+};
+Shield.prototype = new Spell();
+
+var Wall = function() {
+  this.name = "wall";
+  this.defensive = true
+  this.protection = Math.floor(Math.random() * 8 + 12);
+};
+Wall.prototype = new Spell();
+
+
+
+/*
+  Damaging spells
  */
 var Sphere = function() {
   this.name = "sphere";

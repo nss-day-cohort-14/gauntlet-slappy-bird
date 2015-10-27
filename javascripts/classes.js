@@ -30,7 +30,7 @@ PlayerClass.prototype.toString = function() {
  */
 var Fighter = function() {
   this.name = "Fighter";
-  this.healthBonus = this.healthBonus + 20;
+  this.healthBonus += 20;
   this.strengthBonus = 10;
   this.allowedWeapons = ["LongSword", "ShortSword", "BroadSword", "Dagger"];
 };
@@ -40,9 +40,9 @@ AvailableClasses.Fighter = new Fighter();
 
 var Warrior = function() {
   this.name = "Warrior";
-  this.healthBonus = this.healthBonus + 50;
+  this.healthBonus += 50;
+  this.strengthBonus += 90;
   this.allowedWeapons.push("Halberd");
-  this.strengthBonus = this.strengthBonus + 80;
 };
 Warrior.prototype = new Fighter();
 AvailableClasses.Warrior = new Warrior();
@@ -50,9 +50,9 @@ AvailableClasses.Warrior = new Warrior();
 
 var Valkyrie = function() {
   this.name = "Valkyrie";
-  this.healthBonus = this.healthBonus + 20;
-  this.allowedWeapons.push("BallChain", "LongBow");
-  this.strengthBonus = this.strengthBonus + 50;
+  this.healthBonus += 20;
+  this.allowedWeapons = ["LongSword", "ShortSword", "BroadSword", "Dagger", "BallChain", "LongBow"];
+  this.strengthBonus += 70;
 };
 Valkyrie.prototype = new Fighter();
 AvailableClasses.Valkyrie = new Valkyrie();
@@ -60,8 +60,8 @@ AvailableClasses.Valkyrie = new Valkyrie();
 
 var Berserker = function() {
   this.name = "Berserker";
-  this.allowedWeapons.unshift("Mace", "WarAxe");
-  this.strengthBonus = this.strengthBonus + 120;
+  this.allowedWeapons = ["LongSword", "ShortSword", "BroadSword", "Dagger", "Mace", "WarAxe"];
+  this.strengthBonus += 120;
 };
 Berserker.prototype = new Fighter();
 AvailableClasses.Berserker = new Berserker();
@@ -69,7 +69,7 @@ AvailableClasses.Berserker = new Berserker();
 
 var Monk = function() {
   this.name = "Monk";
-  this.healthBonus = this.healthBonus + 25;
+  this.healthBonus += 25;
   this.allowedWeapons = ["ShortBow", "Staff", "Nunchaku"];
   this.strengthBonus = this.strengthBonus + 100;
 };
@@ -87,18 +87,18 @@ AvailableClasses.Monk = new Monk();
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
-  this.healthBonus = this.healthBonus - 40;
-  this.strengthBonus = this.strengthBonus - 40;
-  this.intelligenceBonus = this.intelligenceBonus + 150;
+  this.healthBonus -= 40;
+  this.strengthBonus -= 40;
+  this.intelligenceBonus += 150;
 };
 Mage.prototype = new PlayerClass();
 
 
 var Shaman = function() {
   this.name = "Shaman";
-  this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 80;
+  this.healthBonus += 5;
+  this.strengthBonus -= 10;
+  this.intelligenceBonus += 80;
 };
 Shaman.prototype = new Mage();
 AvailableClasses.Shaman = new Shaman();
@@ -106,9 +106,9 @@ AvailableClasses.Shaman = new Shaman();
 
 var Wizard = function() {
   this.name = "Wizard";
-  this.healthBonus = this.healthBonus - 15;
-  this.strengthBonus = this.strengthBonus - 25;
-  this.intelligenceBonus = this.intelligenceBonus + 100;
+  this.healthBonus -= 15;
+  this.strengthBonus -= 25;
+  this.intelligenceBonus += 100;
 };
 Wizard.prototype = new Mage();
 AvailableClasses.Wizard = new Wizard();
@@ -116,8 +116,8 @@ AvailableClasses.Wizard = new Wizard();
 
 var Conjurer = function() {
   this.name = "Conjurer";
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 90;
+  this.strengthBonus -= 10;
+  this.intelligenceBonus += 90;
 };
 Conjurer.prototype = new Mage();
 AvailableClasses.Conjurer = new Conjurer();
@@ -125,9 +125,9 @@ AvailableClasses.Conjurer = new Conjurer();
 
 var Sorcerer = function() {
   this.name = "Sorcerer";
-  this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 30;
+  this.healthBonus -= 5;
+  this.strengthBonus -= 20;
+  this.intelligenceBonus += 30;
 };
 Sorcerer.prototype = new Mage();
 AvailableClasses.Sorcerer = new Sorcerer();
@@ -141,18 +141,18 @@ AvailableClasses.Sorcerer = new Sorcerer();
  */
 var Stealth = function() {
   this.name = "Stealth";
-  this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
-  this.allowedWeapons = ["Dagger", "Dart", "Dirk", "ShortSword"];
+  this.healthBonus -= 5;
+  this.strengthBonus -= 10;
+  this.intelligenceBonus += 20;
 };
 Stealth.prototype = new PlayerClass();
 
 var Thief = function() {
   this.name = "Thief";
-  this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 5;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
+  this.healthBonus -= 5;
+  this.strengthBonus -= 5;
+  this.intelligenceBonus += 50;
+  this.allowedWeapons = ["Dagger", "Dart", "Dirk", "ShortSword"];
 };
 Thief.prototype = new Stealth();
 AvailableClasses.Thief = new Thief();
@@ -160,10 +160,10 @@ AvailableClasses.Thief = new Thief();
 
 var Ninja = function() {
   this.name = "Ninja";
-  this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus + 15;
-
-  this.allowedWeapons.push("Rapier");
+  this.healthBonus += 5;
+  this.strengthBonus += 15;
+  this.intelligenceBonus += 40;
+  this.allowedWeapons = ["Dagger", "Dart", "Dirk", "ShortSword", "Rapier"];
 };
 Ninja.prototype = new Stealth();
 AvailableClasses.Ninja = new Ninja();
@@ -171,11 +171,10 @@ AvailableClasses.Ninja = new Ninja();
 
 var Assassin = function() {
   this.name = "Assassin";
-  this.healthBonus = this.healthBonus - 10;
-  this.strengthBonus = this.strengthBonus - 5;
-  this.intelligenceBonus = this.intelligenceBonus + 30;
-
-  this.allowedWeapons.push("PoisonBlowgun");
+  this.healthBonus -= 10;
+  this.strengthBonus -= 5;
+  this.intelligenceBonus += 100;
+  this.allowedWeapons = ["Dagger", "Dart", "ShortSword", "PoisonBlowgun"];
 };
 Assassin.prototype = new Stealth();
 AvailableClasses.Assassin = new Assassin();
@@ -183,8 +182,7 @@ AvailableClasses.Assassin = new Assassin();
 
 var Lord = function() {
   this.name = "Lord";
-  this.intelligenceBonus = this.intelligenceBonus + 40;
-
+  this.intelligenceBonus += 20;
   this.allowedWeapons = ["LightSaber"];
 };
 Lord.prototype = new PlayerClass();
