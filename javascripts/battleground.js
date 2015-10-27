@@ -9,6 +9,10 @@ Battleground.prototype.melee = function() {
   var humanCritical = Math.random() * 100;
   var enemyCritical = Math.random() * 100;
 
+  /*
+    If the human/enemy class is a magical one, apply a bonus
+    to the critical hit probability based on intelligence
+   */
   if (!this.human.class.magical) {
     humanCritical += this.human.intelligence / 10;
   }
@@ -32,6 +36,9 @@ Battleground.prototype.melee = function() {
     modifier = Math.floor(this.human.intelligence / 10);
   }
 
+  /*
+    If the human player cast a defensive spell, skip calculating damage
+   */
   if (!humanWeapon.defensive) {
     baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
     totalHumanDamage = baseHumanDamage + modifier - this.enemy.protection;
@@ -42,20 +49,29 @@ Battleground.prototype.melee = function() {
     }
   }
 
-
+  /*
+    Reduce the enemy's health
+   */
   this.enemy.health -= totalHumanDamage;
 
+  /*
+    Start building output string for human action
+   */
   var battleResult = "";
+  var actionType = (this.human.class.magical) ? " casts a " : " attacks with ";
   battleResult += "<div class=\"battle-record__human\">";
   if (humanWeapon.defensive) {
-    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> casts a " + humanWeapon.toString() + " for " + this.human.protection + " protection.";
+    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + this.human.protection + " protection.";
   } else {
-    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span> attacks with " + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
+    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
   }
   battleResult += (humanCritical > 92) ? " Critical hit!!" : "";
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 
+  /*
+    If the human did enough damage to kill the enemy, stop the battle
+   */
   if (this.enemy.health <= 0) {
     $("#battle-record").append("<div class=\"battle-over\">The battle is over. You won!</div>");
 
@@ -92,6 +108,9 @@ Battleground.prototype.melee = function() {
 
   this.human.health -= totalEnemyDamage;
 
+  /*
+    Start building output string for enemy action
+   */
   battleResult = "<div class=\"battle-record__enemy\">";
   if (enemyWeapon.defensive) {
     battleResult += "&gt; " + this.enemy.species + " <span class=\"battle-health\">(" + this.enemy.health + " hp)</span> casts a " + enemyWeapon.toString() + " for " + this.enemy.protection + " protection.";
@@ -102,6 +121,9 @@ Battleground.prototype.melee = function() {
   battleResult += "</div>";
   $("#battle-record").append(battleResult);
 
+  /*
+    If the enemy did enough damage to kill the human, stop the battle
+   */
   if (this.human.health <= 0) {
     $("#battle-record").append("<div class=\"battle-over\">The battle is over. The " + this.enemy.species + " won!</div>");
 
