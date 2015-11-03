@@ -24,16 +24,29 @@ Battleground.prototype.melee = function() {
   /*
     Calculate damage done by player
    */
-  if (!this.human.class.magical) {
-    humanWeapon = this.human.weapon;
-    modifier = Math.floor(this.human.strength / 10);
-  } else {
+  if (this.human.class.magical) {
     humanWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
     humanWeapon.cast();
+    modifier = Math.floor(this.human.intelligence / 10);
+
+    // Handle defensive spells
     if (humanWeapon.defensive) {
       this.human.protection = humanWeapon.protection;
+
+    // Handle spells that affect the traits of the opponent
+    } else if (humanWeapon.debuff) {
+      switch (humanWeapon.effect.trait) {
+        case "intelligence":
+          this.enemy.modifyIntelligence(humanWeapon.effect.amount * -1)
+          break;
+        case "strength":
+          this.enemy.modifyStrength(humanWeapon.effect.amount * -1)
+          break;
+      };
     }
-    modifier = Math.floor(this.human.intelligence / 10);
+  } else {
+    humanWeapon = this.human.weapon;
+    modifier = Math.floor(this.human.strength / 10);
   }
 
   /*

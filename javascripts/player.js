@@ -8,6 +8,7 @@ var Player = function() {
   this.weapon = null;
   this.playerName = null;
   this.protection = 0;
+  this.effects = [];
 
   this.health = 0;
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
@@ -43,10 +44,13 @@ Player.prototype.init = function(profession, weapon) {
     this.setClass(profession);
   }
 
-  if (!weapon) {
-    this.generateWeapon();
-  } else {
-    this.setWeapon(weapon);
+  console.log("this.class",this.class);
+  if (!this.class.magical) {
+    if (!weapon) {
+      this.generateWeapon();
+    } else {
+      this.setWeapon(weapon);
+    }
   }
 
   this.setSkin();
