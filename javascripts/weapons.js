@@ -5,6 +5,8 @@ var Weapon = function() {
   this.ranged = false;
   this.poisoned = false;
 
+  console.log("Weapon constructor function");
+
 };
 Weapon.prototype.toString = function() {
   return this.name;
@@ -16,6 +18,8 @@ var Dart = function() {
   this.hands = 1;
   this.ranged = true;
 };
+console.log("");
+console.log("Dart set prototype");
 Dart.prototype = new Weapon();
 
 var Dagger = function() {
@@ -23,6 +27,9 @@ var Dagger = function() {
   this.damage = 4;
   this.hands = 1;
 };
+
+console.log("");
+console.log("Dart set prototype");
 Dagger.prototype = new Weapon();
 
 var Dirk = function() {
@@ -30,6 +37,8 @@ var Dirk = function() {
   this.damage = 5;
   this.hands = 1;
 };
+console.log("");
+console.log("Dart set prototype");
 Dirk.prototype = new Weapon();
 
 var ShortSword = function() {
@@ -37,6 +46,8 @@ var ShortSword = function() {
   this.damage = 6;
   this.hands = 1;
 };
+console.log("");
+console.log("ShortSword set prototype");
 ShortSword.prototype = new Weapon();
 
 var Mace = function() {
@@ -44,6 +55,8 @@ var Mace = function() {
   this.damage = 6;
   this.hands = 1;
 };
+console.log("");
+console.log("Mace set prototype");
 Mace.prototype = new Weapon();
 
 var BallChain = function() {
@@ -51,6 +64,8 @@ var BallChain = function() {
   this.damage = 8;
   this.hands = 1;
 };
+console.log("");
+console.log("Dart set prototype");
 BallChain.prototype = new Weapon();
 
 var LongSword = function() {
@@ -58,6 +73,8 @@ var LongSword = function() {
   this.damage = 8;
   this.hands = 2;
 };
+console.log("");
+console.log("Dart set prototype");
 LongSword.prototype = new Weapon();
 
 var Rapier = function() {
@@ -65,6 +82,8 @@ var Rapier = function() {
   this.damage = 8;
   this.hands = 1;
 };
+console.log("");
+console.log("Dart set prototype");
 Rapier.prototype = new Weapon();
 
 var PoisonBlowgun = function() {
@@ -74,6 +93,8 @@ var PoisonBlowgun = function() {
   this.poisoned = true;
   this.ranged = true;
 };
+console.log("");
+console.log("Dart set prototype");
 PoisonBlowgun.prototype = new Weapon();
 
 var BroadSword = function() {
@@ -81,6 +102,8 @@ var BroadSword = function() {
   this.damage = 8;
   this.hands = 2;
 };
+console.log("");
+console.log("Dart set prototype");
 BroadSword.prototype = new Weapon();
 
 var WarAxe = function() {
@@ -88,6 +111,8 @@ var WarAxe = function() {
   this.damage = 10;
   this.hands = 2;
 };
+console.log("");
+console.log("Dart set prototype");
 WarAxe.prototype = new Weapon();
 
 var Halberd = function() {
@@ -95,6 +120,8 @@ var Halberd = function() {
   this.damage = 12;
   this.hands = 2;
 };
+console.log("");
+console.log("Dart set prototype");
 Halberd.prototype = new Weapon();
 
 var LongBow = function() {
@@ -103,6 +130,8 @@ var LongBow = function() {
   this.hands = 2;
   this.ranged = true;
 };
+console.log("");
+console.log("Dart set prototype");
 LongBow.prototype = new Weapon();
 
 var Staff = function() {
@@ -110,6 +139,8 @@ var Staff = function() {
   this.damage = 6;
   this.hands = 2;
 };
+console.log("");
+console.log("Dart set prototype");
 Staff.prototype = new Weapon();
 
 var ShortBow = function() {
@@ -118,6 +149,8 @@ var ShortBow = function() {
   this.hands = 2;
   this.ranged = true;
 };
+console.log("");
+console.log("Dart set prototype");
 ShortBow.prototype = new Weapon();
 
 var Nunchaku = function() {
@@ -125,6 +158,8 @@ var Nunchaku = function() {
   this.damage = 6;
   this.hands = 1;
 };
+console.log("");
+console.log("Dart set prototype");
 Nunchaku.prototype = new Weapon();
 
 var LightSaber = function() {
@@ -132,5 +167,7 @@ var LightSaber = function() {
   this.damage = 16;
   this.hands = 1;
 };
+console.log("");
+console.log("Dart set prototype");
 LightSaber.prototype = new Weapon();
 

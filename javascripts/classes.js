@@ -69,7 +69,7 @@ AvailableClasses.Berserker = new Berserker();
 
 var Monk = function() {
   this.name = "Monk";
-  this.healthBonus += 25;
+  this.healthBonus = this.healthBonus + 25;
   this.allowedWeapons = ["ShortBow", "Staff", "Nunchaku"];
   this.strengthBonus = this.strengthBonus + 100;
 };

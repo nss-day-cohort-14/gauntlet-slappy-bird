@@ -16,6 +16,8 @@ var Player = function() {
   this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
+
+  console.log("Player constructor function");
 };
 
 Player.prototype.toString = function() {

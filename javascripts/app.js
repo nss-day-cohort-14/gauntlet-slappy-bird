@@ -3,9 +3,13 @@ $(document).ready(function() {
   /*
     Test code to generate a human player and an orc player
    */
-  // var warrior = new Human("Joe");
-  // warrior.init();
+  console.log("");
+  console.log("Creating a new Human instance");
+  var warrior = new Human("Joe");
+  warrior.init();
   // warrior.init(AvailableClasses.Monk);
+  console.log(warrior);
+  console.log(warrior.toString());
 
   // var enemy = AvailableEnemies.randomEnemy();
   // enemy.init();

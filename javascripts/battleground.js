@@ -4,7 +4,10 @@ var Battleground = function(humanCombatant, enemyCombatant) {
 };
 
 Battleground.prototype.melee = function() {
-  var baseHumanDamage = 0, baseEnemyDamage = 0, totalHumanDamage = 0, totalEnemyDamage = 0;
+  var baseHumanDamage = 0, 
+      baseEnemyDamage = 0, 
+      totalHumanDamage = 0, 
+      totalEnemyDamage = 0;
   var humanWeapon, enemyWeapon, modifier;
   var humanCritical = Math.random() * 100;
   var enemyCritical = Math.random() * 100;
