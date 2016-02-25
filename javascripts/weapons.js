@@ -17,11 +17,11 @@ var Gauntlet = function (g) {
   };
 
   g.WeaponRack = function () {
-    var weapons = {};
+    var weaponList = {};
 
     return {
       weapons () {
-        return weapons;
+        return weaponList;
       },
       load () {
 
@@ -30,14 +30,14 @@ var Gauntlet = function (g) {
             response.weapons.forEach((weapon) => {
               var currentWeapon;
 
-              weapons[weapon.id] = Object.create(Weapon.prototype);
-              currentWeapon = weapons[weapon.id];
+              weaponList[weapon.id] = Object.create(Weapon.prototype);
+              currentWeapon = weaponList[weapon.id];
 
               Object.keys(weapon).forEach((property) => {
                 defineProperty(currentWeapon, property, weapon[property]);
               });
             });
-            resolve(weapons);
+            resolve(weaponList);
           }).fail((xhr, error, msg) => {
             reject(msg);
           });

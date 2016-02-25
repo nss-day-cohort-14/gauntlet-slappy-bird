@@ -1,6 +1,7 @@
 Gauntlet.WeaponRack.load().then((weapons) => {
-  Gauntlet.GuildHall.load();
+  return Gauntlet.GuildHall.load();
 }).then((classes) => {
+
   /*
     Test code to generate a human player and an orc player
    */
@@ -84,7 +85,7 @@ $(document).ready(function() {
             block += '<div class="col-sm-6">';
 
             chosenProfession.allowedWeapons.forEach(function(weapon, index) {
-              var weaponName = new window[weapon]().toString();
+              var weaponName = Gauntlet.WeaponRack.weapons()[weapon].toString();
               if (index === 3) {
                 block += "</div>";
                 block += "<div class=\"col-sm-6\">";
@@ -166,7 +167,7 @@ $(document).ready(function() {
    */
   $(".class__link").click(function(e) {
     HumanCombatant = new Human($("#player-name").val());
-    chosenProfession = AvailableClasses[$(this).children(".btn__text").html()];
+    chosenProfession = Gauntlet.GuildHall.classes()[$(this).children(".btn__text").html()];
   });
 
 
@@ -175,7 +176,7 @@ $(document).ready(function() {
    */
   $(document).on("click", ".weapon__link", function(e) {
     var weapon = $(this).find(".btn__text").attr("weapon");
-    chosenWeapon = new window[weapon]();
+    chosenWeapon = Gauntlet.WeaponRack.weapons()[weapon];
   });
 
 

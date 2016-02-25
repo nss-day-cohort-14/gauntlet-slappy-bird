@@ -10,6 +10,14 @@
       "prototype": null
     },
     {
+      "id": "Lord",
+      "label": "Sith Lord",
+      "intelligenceModifier": 20,
+      "magical": false,
+      "prototype": "PlayerClass",
+      "allowedWeapons": ["LightSaber"]
+    },
+    {
       "id": "Mage",
       "label": "Mage",
       "healthModifier": -60,
@@ -26,7 +34,7 @@
       "strengthModifier": -10,
       "intelligenceModifier": 80,
       "magical": true,
-      "prototype": "PlayerClass",
+      "prototype": "Mage",
       "allowedWeapons": []
     },
     {
@@ -36,7 +44,7 @@
       "strengthModifier": -25,
       "intelligenceModifier": 100,
       "magical": true,
-      "prototype": "PlayerClass",
+      "prototype": "Mage",
       "allowedWeapons": []
     },
     {
@@ -45,17 +53,17 @@
       "strengthModifier": -10,
       "intelligenceModifier": 90,
       "magical": true,
-      "prototype": "PlayerClass",
+      "prototype": "Mage",
       "allowedWeapons": []
     },
     {
-      "id": "Sorceror",
-      "label": "Sorceror",
+      "id": "Sorcerer",
+      "label": "Sorcerer",
       "healthModifier": -5,
       "strengthModifier": -20,
       "intelligenceModifier": 85,
       "magical": true,
-      "prototype": "PlayerClass",
+      "prototype": "Mage",
       "allowedWeapons": []
     },
     {
@@ -68,12 +76,70 @@
       "allowedWeapons": ["Dagger", "Dart", "Dirk", "ShortSword"]
     },
     {
+      "id": "Thief",
+      "label": "Thief",
+      "healthModifier": -5,
+      "strengthModifier": -5,
+      "intelligenceModifier": 50,
+      "prototype": "Stealth",
+      "allowedWeapons": ["Dagger", "Dart", "Dirk", "ShortSword"]
+    },
+    {
+      "id": "Ninja",
+      "label": "Ninja",
+      "healthModifier": 5,
+      "strengthModifier": 15,
+      "intelligenceModifier": 40,
+      "prototype": "Stealth",
+      "allowedWeapons": ["Dagger", "Dart", "Dirk", "ShortSword", "Rapier"]
+    },
+    {
+      "id": "Assassin",
+      "label": "Assassin",
+      "healthModifier": -15,
+      "strengthModifier": -5,
+      "intelligenceModifier": 100,
+      "prototype": "Stealth",
+      "allowedWeapons": ["Dagger", "Dart", "ShortSword", "PoisonBlowgun"]
+    },
+    {
       "id": "Fighter",
       "label": "Fighter",
       "healthModifier": 20,
       "strengthModifier": 10,
       "prototype": "PlayerClass",
       "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger"]
+    },
+    {
+      "id": "Warrior",
+      "label": "Warrior",
+      "healthModifier": 50,
+      "strengthModifier": 90,
+      "prototype": "Fighter",
+      "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "Halberd"]
+    },
+    {
+      "id": "Valkyrie",
+      "label": "Valkyrie",
+      "healthModifier": 20,
+      "strengthModifier": 70,
+      "prototype": "Fighter",
+      "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "BallChain", "LongBow"]
+    },
+    {
+      "id": "Berserker",
+      "label": "Berserker",
+      "strengthModifier": 120,
+      "prototype": "Fighter",
+      "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "Mace", "WarAxe"]
+    },
+    {
+      "id": "Monk",
+      "label": "Monk",
+      "healthModifier": 25,
+      "strengthModifier": 100,
+      "prototype": "Fighter",
+      "allowedWeapons": ["ShortBow", "Staff", "Nunchaku"]
     }
   ]
 }

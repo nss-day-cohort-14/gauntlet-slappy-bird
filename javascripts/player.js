@@ -21,6 +21,7 @@ var Player = function() {
 };
 
 Player.prototype.toString = function() {
+  console.log("player.toString()", this);
   var output = [this.playerName,
     ": a ",
     this.skinColor,
@@ -38,7 +39,7 @@ Player.prototype.toString = function() {
 };
 
 Player.prototype.init = function(profession, weapon) {
-  this.health = Math.floor(Math.random() * 200 + 50);
+  this.health = Math.floor(Math.random() * 200 + 150);
 
   if (!profession) {
     this.generateClass();
@@ -81,14 +82,14 @@ Player.prototype.generateClass = function() {
   var randomClass = this.allowedClasses[random];
 
   // Composes the corresponding player class into the player object
-  this.setClass(new window[randomClass]());
+  this.setClass(Gauntlet.GuildHall.classes()[randomClass]);
 };
 
 Player.prototype.setClass = function(newClass) {
   this.class = newClass;
-  this.modifyHealth(newClass.healthBonus);
-  this.modifyStrength(newClass.strengthBonus);
-  this.modifyIntelligence(newClass.intelligenceBonus);
+  this.modifyHealth(newClass.healthModifier);
+  this.modifyStrength(newClass.strengthModifier);
+  this.modifyIntelligence(newClass.intelligenceModifier);
 };
 
 Player.prototype.generateWeapon = function() {
