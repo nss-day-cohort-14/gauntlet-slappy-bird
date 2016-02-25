@@ -1,3 +1,45 @@
+"use strict";
+
+var Gauntlet = function (g) {
+
+  g.GuildHall = function () {
+    var _classes = {};
+
+    return {
+      classes () {
+        return classes;
+      },
+      load (callBack) {
+        return new Promise((resolve, reject) => {
+          $.ajax({url: "./data/classes.json"}).done((response) => {
+            response.classes.forEach(($class) => {
+              var currentClass;
+
+              _classes[$class.id] = Object.create(eval($class.prototype));
+              currentClass = _classes[$class.id];
+
+              Object.keys($class).forEach((property) => {
+                defineProperty(currentClass, property, $class[property]);
+              });
+            });
+
+            resolve(_classes);
+          }).fail((xhr, error, msg) => {
+            console.error(msg);
+          });
+        });
+      }
+    }
+  }();
+
+  return g;
+  
+}(Gauntlet || {});
+
+
+
+
+
 /*
   One object to store a single instance of each class. When
   assigning a class to a combatant, use the keys on this object
@@ -127,7 +169,7 @@ var Sorcerer = function() {
   this.name = "Sorcerer";
   this.healthBonus -= 5;
   this.strengthBonus -= 20;
-  this.intelligenceBonus += 30;
+  this.intelligenceBonus += 85;
 };
 Sorcerer.prototype = new Mage();
 AvailableClasses.Sorcerer = new Sorcerer();

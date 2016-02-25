@@ -1,27 +1,35 @@
-$(document).ready(function() {
-
+Gauntlet.WeaponRack.load().then((weapons) => {
+  Gauntlet.GuildHall.load();
+}).then((classes) => {
   /*
     Test code to generate a human player and an orc player
    */
-  console.log("");
-  console.log("Creating a new Human instance");
   var warrior = new Human("Joe");
   warrior.init();
   // warrior.init(AvailableClasses.Monk);
+
+  var enemy = new Orc();
+  // var enemy = AvailableEnemies.randomEnemy();
+  enemy.init();
+
+  console.group("Sample Combatants");
+  console.log("Creating a new Human instance");
   console.log(warrior);
   console.log(warrior.toString());
+  
+  console.log("Creating a new Enemy instance");
+  console.log(enemy);
+  console.log(enemy.toString());
+  console.groupEnd("Sample Combatants");
 
-  // var enemy = AvailableEnemies.randomEnemy();
-  // enemy.init();
+});
 
 
-  // console.log(warrior.toString());
-  // console.log(enemy.toString());
+$(document).ready(function() {
+
 
 
   /*
-    END OF TEST CODE
-
     Show the initial view that accepts player name
    */
   var HumanCombatant = null;

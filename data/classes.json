@@ -1,0 +1,79 @@
+{
+  "classes": [
+    {
+      "id": "PlayerClass",
+      "label": "Vagabond",
+      "healthModifier": 0,
+      "strengthModifier": 0,
+      "intelligenceModifier": 0,
+      "magical": false,
+      "prototype": null
+    },
+    {
+      "id": "Mage",
+      "label": "Mage",
+      "healthModifier": -60,
+      "strengthModifier": -40,
+      "intelligenceModifier": 150,
+      "magical": true,
+      "prototype": "PlayerClass",
+      "allowedWeapons": []
+    },
+    {
+      "id": "Shaman",
+      "label": "Shaman",
+      "healthModifier": 5,
+      "strengthModifier": -10,
+      "intelligenceModifier": 80,
+      "magical": true,
+      "prototype": "PlayerClass",
+      "allowedWeapons": []
+    },
+    {
+      "id": "Wizard",
+      "label": "Wizard",
+      "healthModifier": -15,
+      "strengthModifier": -25,
+      "intelligenceModifier": 100,
+      "magical": true,
+      "prototype": "PlayerClass",
+      "allowedWeapons": []
+    },
+    {
+      "id": "Conjurer",
+      "label": "Conjurer",
+      "strengthModifier": -10,
+      "intelligenceModifier": 90,
+      "magical": true,
+      "prototype": "PlayerClass",
+      "allowedWeapons": []
+    },
+    {
+      "id": "Sorceror",
+      "label": "Sorceror",
+      "healthModifier": -5,
+      "strengthModifier": -20,
+      "intelligenceModifier": 85,
+      "magical": true,
+      "prototype": "PlayerClass",
+      "allowedWeapons": []
+    },
+    {
+      "id": "Stealth",
+      "label": "Stealth",
+      "healthModifier": -15,
+      "strengthModifier": -10,
+      "intelligenceModifier": 20,
+      "prototype": "PlayerClass",
+      "allowedWeapons": ["Dagger", "Dart", "Dirk", "ShortSword"]
+    },
+    {
+      "id": "Fighter",
+      "label": "Fighter",
+      "healthModifier": 20,
+      "strengthModifier": 10,
+      "prototype": "PlayerClass",
+      "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger"]
+    }
+  ]
+}

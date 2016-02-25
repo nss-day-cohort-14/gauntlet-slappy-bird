@@ -1,173 +1,52 @@
-var Weapon = function() {
-  this.name = "bare hands";
-  this.damage = 1;
-  this.hands = 2;
-  this.ranged = false;
-  this.poisoned = false;
+"use strict";
 
-  console.log("Weapon constructor function");
+var Gauntlet = function (g) {
+  var Weapon = Object.create(null);
 
-};
-Weapon.prototype.toString = function() {
-  return this.name;
-}
+  Weapon.prototype = {
+    id: "nothing",
+    label: "bare hands",
+    base_damage: 1,
+    hands: 2,
+    ranged: false,
+    poisoned: false
+  };
 
-var Dart = function() {
-  this.name = "dart";
-  this.damage = 3;
-  this.hands = 1;
-  this.ranged = true;
-};
-console.log("");
-console.log("Dart set prototype");
-Dart.prototype = new Weapon();
+  Weapon.prototype.toString = function() {
+    return this.label;
+  };
 
-var Dagger = function() {
-  this.name = "dagger";
-  this.damage = 4;
-  this.hands = 1;
-};
+  g.WeaponRack = function () {
+    var weapons = {};
 
-console.log("");
-console.log("Dart set prototype");
-Dagger.prototype = new Weapon();
+    return {
+      weapons () {
+        return weapons;
+      },
+      load () {
 
-var Dirk = function() {
-  this.name = "dirk";
-  this.damage = 5;
-  this.hands = 1;
-};
-console.log("");
-console.log("Dart set prototype");
-Dirk.prototype = new Weapon();
+        return new Promise((resolve, reject) => {
+          $.ajax({url: "./data/weapons.json"}).done((response) => {
+            response.weapons.forEach((weapon) => {
+              var currentWeapon;
 
-var ShortSword = function() {
-  this.name = "short sword";
-  this.damage = 6;
-  this.hands = 1;
-};
-console.log("");
-console.log("ShortSword set prototype");
-ShortSword.prototype = new Weapon();
+              weapons[weapon.id] = Object.create(Weapon.prototype);
+              currentWeapon = weapons[weapon.id];
 
-var Mace = function() {
-  this.name = "mace";
-  this.damage = 6;
-  this.hands = 1;
-};
-console.log("");
-console.log("Mace set prototype");
-Mace.prototype = new Weapon();
+              Object.keys(weapon).forEach((property) => {
+                defineProperty(currentWeapon, property, weapon[property]);
+              });
+            });
+            resolve(weapons);
+          }).fail((xhr, error, msg) => {
+            reject(msg);
+          });
+        });
+   
+      }
+    }
+  }();
 
-var BallChain = function() {
-  this.name = "ball and chain";
-  this.damage = 8;
-  this.hands = 1;
-};
-console.log("");
-console.log("Dart set prototype");
-BallChain.prototype = new Weapon();
-
-var LongSword = function() {
-  this.name = "long sword";
-  this.damage = 8;
-  this.hands = 2;
-};
-console.log("");
-console.log("Dart set prototype");
-LongSword.prototype = new Weapon();
-
-var Rapier = function() {
-  this.name = "rapier";
-  this.damage = 8;
-  this.hands = 1;
-};
-console.log("");
-console.log("Dart set prototype");
-Rapier.prototype = new Weapon();
-
-var PoisonBlowgun = function() {
-  this.name = "poison blowgun";
-  this.damage = 4;
-  this.hands = 1;
-  this.poisoned = true;
-  this.ranged = true;
-};
-console.log("");
-console.log("Dart set prototype");
-PoisonBlowgun.prototype = new Weapon();
-
-var BroadSword = function() {
-  this.name = "broad sword";
-  this.damage = 8;
-  this.hands = 2;
-};
-console.log("");
-console.log("Dart set prototype");
-BroadSword.prototype = new Weapon();
-
-var WarAxe = function() {
-  this.name = "war axe";
-  this.damage = 10;
-  this.hands = 2;
-};
-console.log("");
-console.log("Dart set prototype");
-WarAxe.prototype = new Weapon();
-
-var Halberd = function() {
-  this.name = "halberd";
-  this.damage = 12;
-  this.hands = 2;
-};
-console.log("");
-console.log("Dart set prototype");
-Halberd.prototype = new Weapon();
-
-var LongBow = function() {
-  this.name = "long bow";
-  this.damage = 8;
-  this.hands = 2;
-  this.ranged = true;
-};
-console.log("");
-console.log("Dart set prototype");
-LongBow.prototype = new Weapon();
-
-var Staff = function() {
-  this.name = "staff";
-  this.damage = 6;
-  this.hands = 2;
-};
-console.log("");
-console.log("Dart set prototype");
-Staff.prototype = new Weapon();
-
-var ShortBow = function() {
-  this.name = "short bow";
-  this.damage = 6;
-  this.hands = 2;
-  this.ranged = true;
-};
-console.log("");
-console.log("Dart set prototype");
-ShortBow.prototype = new Weapon();
-
-var Nunchaku = function() {
-  this.name = "nunchaku";
-  this.damage = 6;
-  this.hands = 1;
-};
-console.log("");
-console.log("Dart set prototype");
-Nunchaku.prototype = new Weapon();
-
-var LightSaber = function() {
-  this.name = "light saber";
-  this.damage = 16;
-  this.hands = 1;
-};
-console.log("");
-console.log("Dart set prototype");
-LightSaber.prototype = new Weapon();
-
+  return g;
+  
+}(Gauntlet || {});

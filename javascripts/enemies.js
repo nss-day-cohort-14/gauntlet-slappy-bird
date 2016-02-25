@@ -4,10 +4,10 @@ var Orc = function() {
   this.health = this.health + 30;
   this.intelligence -= 30;
 
-  console.log("Orc constructor function");
+  // console.log("Orc constructor function");
 };
-console.log("");
-console.log("Setting prototype for Orc");
+// console.log("");
+// console.log("Setting prototype for Orc");
 Orc.prototype = new Monster();
 
 
@@ -17,10 +17,10 @@ var Sith = function() {
   this.skinColors.push("red", "blue", "golden", "thorny");
   this.allowedClasses = ["Lord"];
   this.health += 60;
-  console.log("Sith constructor function");
+  // console.log("Sith constructor function");
 };
-console.log("");
-console.log("Setting prototype for Sith");
+// console.log("");
+// console.log("Setting prototype for Sith");
 Sith.prototype = new Monster();
 
 
@@ -29,10 +29,10 @@ var Kobold = function() {
   this.species = "Kobold";
   this.health -= 15;
   this.allowedClasses = ["Warrior", "Assassin"];
-  console.log("Kobold constructor function");
+  // console.log("Kobold constructor function");
 };
-console.log("");
-console.log("Setting prototype for Kobold");
+// console.log("");
+// console.log("Setting prototype for Kobold");
 Kobold.prototype = new Monster();
 
 
@@ -43,10 +43,10 @@ var Goblin = function() {
   this.skinColors.push("green", "mottled gray");
   this.allowedClasses = ["Fighter", "Assassin", "Conjurer"];
   this.intelligence -= 50;
-  console.log("Goblin constructor function");
+  // console.log("Goblin constructor function");
 };
-console.log("");
-console.log("Setting prototype for Goblin");
+// console.log("");
+// console.log("Setting prototype for Goblin");
 Goblin.prototype = new Monster();
 
 
@@ -56,10 +56,10 @@ var Skeleton = function() {
   this.health += 10;
   this.skinColors = [];
   this.allowedClasses = ["Fighter"];
-  console.log("Skeleton constructor function");
+  // console.log("Skeleton constructor function");
 };
-console.log("");
-console.log("Setting prototype for Skeleton");
+// console.log("");
+// console.log("Setting prototype for Skeleton");
 Skeleton.prototype = new Monster();
 
 
@@ -70,10 +70,10 @@ var Ghoul = function() {
   this.skinColors.push("tattoo", "sickly white");
   this.allowedClasses = ["Assassin", "Shaman"];
   this.intelligence -= 50;
-  console.log("Ghoul constructor function");
+  // console.log("Ghoul constructor function");
 };
-console.log("");
-console.log("Setting prototype for Ghoul");
+// console.log("");
+// console.log("Setting prototype for Ghoul");
 Ghoul.prototype = new Monster();
 
 

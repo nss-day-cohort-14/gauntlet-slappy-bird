@@ -17,7 +17,7 @@ var Player = function() {
   this.strength = 90;
   this.intelligence = 90;
 
-  console.log("Player constructor function");
+  // console.log("Player constructor function");
 };
 
 Player.prototype.toString = function() {
@@ -46,7 +46,7 @@ Player.prototype.init = function(profession, weapon) {
     this.setClass(profession);
   }
 
-  console.log("this.class",this.class);
+  // console.log("this.class",this.class);
   if (!this.class.magical) {
     if (!weapon) {
       this.generateWeapon();
@@ -95,7 +95,7 @@ Player.prototype.generateWeapon = function() {
   if (this.class && !this.class.magical) {
     var random = Math.round(Math.random() * (this.class.allowedWeapons.length - 1));
     var weapon = this.class.allowedWeapons[random];
-    this.setWeapon(new window[weapon]());
+    this.setWeapon(Gauntlet.WeaponRack.weapons()[weapon]);
   }
 }
 

@@ -15,11 +15,11 @@ var Human = function(name) {
   this.allowedClasses.push("Mage", "Wizard", "Conjurer");
   this.allowedClasses.push("Thief", "Ninja");
 
-  console.log("Human constructor function");
+  // console.log("Human constructor function");
 };
 
-console.log("");
-console.log("Human set Player as prototype");
+// console.log("");
+// console.log("Human set Player as prototype");
 Human.prototype = new Player();
 
 
@@ -33,10 +33,10 @@ var Monster = function(name) {
   this.intelligence -= 50;
   this.strength += 30;
 
-  console.log("Monster constructor function");
+  // console.log("Monster constructor function");
 };
 
-console.log("");
-console.log("Monster set Player as prototype");
+// console.log("");
+// console.log("Monster set Player as prototype");
 Monster.prototype = new Player();
 
