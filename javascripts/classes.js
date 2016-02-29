@@ -15,10 +15,14 @@ var Gauntlet = function (g) {
             response.classes.forEach(($class) => {
               var currentClass;
               var prototypeForObject = ($class.prototype === null) ? null : _classes[$class.prototype].prototype;
+              var addPropertiesTo;
 
               _classes[$class.id] = Object.create(prototypeForObject);
               currentClass = _classes[$class.id];
               currentClass.prototype = {};
+
+              addPropertiesTo = ($class.prototype === null) ? currentClass.prototype : currentClass;
+
 
               Object.keys($class).forEach((property) => {
                 defineProperty(currentClass.prototype, property, $class[property]);

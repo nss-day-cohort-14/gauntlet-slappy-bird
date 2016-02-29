@@ -12,7 +12,7 @@ var Human = function(name) {
     Define the classes allowed for Humans
    */
   this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
-  this.allowedClasses.push("Mage", "Wizard", "Conjurer");
+  this.allowedClasses.push("Wizard", "Conjurer", "Sorcerer");
   this.allowedClasses.push("Thief", "Ninja");
 
   // console.log("Human constructor function");

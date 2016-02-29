@@ -93,6 +93,7 @@ Player.prototype.setClass = function(newClass) {
 };
 
 Player.prototype.generateWeapon = function() {
+  console.log("this.class", this.class.label);
   if (this.class && !this.class.magical) {
     var random = Math.round(Math.random() * (this.class.allowedWeapons.length - 1));
     var weapon = this.class.allowedWeapons[random];
