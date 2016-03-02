@@ -32,11 +32,7 @@ var Monster = function(name) {
   this.health = this.health + 30;
   this.intelligence -= 50;
   this.strength += 30;
-
-  // console.log("Monster constructor function");
 };
 
-// console.log("");
-// console.log("Monster set Player as prototype");
 Monster.prototype = new Player();
 

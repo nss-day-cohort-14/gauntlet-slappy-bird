@@ -1,79 +1,116 @@
-var Orc = function() {
+"use strict";
+
+var Gauntlet = function (g) {
+  var Weapon = Object.create(null);
+
+  Weapon.prototype = {
+    id: "nothing",
+    label: "bare hands",
+    base_damage: 1,
+    hands: 2,
+    ranged: false,
+    poisoned: false
+  };
+
+  Weapon.prototype.toString = function() {
+    return this.label;
+  };
+
+  g.WeaponRack = function () {
+    var weaponList = {};
+
+    return {
+      weapons () {
+        return weaponList;
+      },
+      load () {
+
+        return new Promise((resolve, reject) => {
+          $.ajax({url: "./data/weapons.json"}).done((response) => {
+            response.weapons.forEach((weapon) => {
+              var currentWeapon;
+
+              weaponList[weapon.id] = Object.create(Weapon.prototype);
+              currentWeapon = weaponList[weapon.id];
+
+              Object.keys(weapon).forEach((property) => {
+                defineProperty(currentWeapon, property, weapon[property]);
+              });
+            });
+            resolve(weaponList);
+          }).fail((xhr, error, msg) => {
+            reject(msg);
+          });
+        });
+   
+      }
+    }
+  }();
+
+  return g;
+  
+}(Gauntlet || {});
+
+
+
+
+let Orc = function() {
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman", "Assassin"];
   this.health = this.health + 30;
   this.intelligence -= 30;
-
-  // console.log("Orc constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Orc");
 Orc.prototype = new Monster();
 
 
 
-var Sith = function() {
+let Sith = function() {
   this.species = "Sith";
   this.skinColors.push("red", "blue", "golden", "thorny");
   this.allowedClasses = ["Lord"];
   this.health += 60;
-  // console.log("Sith constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Sith");
 Sith.prototype = new Monster();
 
 
 
-var Kobold = function() {
+let Kobold = function() {
   this.species = "Kobold";
   this.health -= 15;
   this.allowedClasses = ["Warrior", "Assassin"];
-  // console.log("Kobold constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Kobold");
 Kobold.prototype = new Monster();
 
 
 
-var Goblin = function() {
+let Goblin = function() {
   this.species = "Goblin";
   this.health -= 20;
   this.skinColors.push("green", "mottled gray");
   this.allowedClasses = ["Warrior", "Assassin", "Conjurer"];
   this.intelligence -= 50;
-  // console.log("Goblin constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Goblin");
 Goblin.prototype = new Monster();
 
 
 
-var Skeleton = function() {
+let Skeleton = function() {
   this.species = "Skeleton";
   this.health += 10;
   this.skinColors = [];
   this.allowedClasses = ["Warrior"];
-  // console.log("Skeleton constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Skeleton");
 Skeleton.prototype = new Monster();
 
 
 
-var Ghoul = function() {
+let Ghoul = function() {
   this.species = "Ghoul";
   this.health += 10;
   this.skinColors.push("tattoo", "sickly white");
   this.allowedClasses = ["Assassin", "Shaman"];
   this.intelligence -= 50;
-  // console.log("Ghoul constructor function");
 };
-// console.log("");
-// console.log("Setting prototype for Ghoul");
 Ghoul.prototype = new Monster();
 
 
@@ -81,10 +118,11 @@ Ghoul.prototype = new Monster();
   Create an object to hold an instance 
   of all possible enemies
  */
-AvailableEnemies = {
+let AvailableEnemies = {
   randomEnemy: function() {
-    var enemies = Object.keys(this).filter((k) => k !== "randomEnemy");
-    var enemyInstance = enemies[Math.round(Math.random() * (enemies.length - 1))];
+    console.log("Object.keys(this)", Object.keys(this));
+    let enemies = Object.keys(this).filter((k) => k !== "randomEnemy");
+    let enemyInstance = enemies[Math.round(Math.random() * (enemies.length - 1))];
     return new window[enemyInstance]();
   }
 };

@@ -1,0 +1,61 @@
+{
+  "classes": [
+    {
+      "id": "Monster",
+      "playerName": "Grax",
+      "healthModifier": 30,
+      "strengthModifier": 30,
+      "intelligenceModifier": -50,
+      "allowedClasses": [],
+      "prototype": null
+    },
+    {
+      "id": "Orc",
+      "allowedClasses": ["Warrior", "Berserker", "Shaman", "Assassin"],
+      "healthModifier": 30,
+      "strengthModifier": 30,
+      "intelligenceModifier": -20,
+      "prototype": "Monster"
+    },
+    {
+      "id": "Kobold",
+      "allowedClasses": ["Warrior", "Berserker", "Shaman", "Assassin"],
+      "healthModifier": -20,
+      "strengthModifier": 10,
+      "intelligenceModifier": -20,
+      "prototype": "Monster"
+    },
+    {
+      "id": "Skeleton",
+      "allowedClasses": ["Warrior"],
+      "healthModifier": 10,
+      "strengthModifier": 0,
+      "intelligenceModifier": 0,
+      "prototype": "Monster"
+    },
+    {
+      "id": "Goblin",
+      "allowedClasses": ["Warrior", "Conjurer", "Assassin"],
+      "healthModifier": -20,
+      "strengthModifier": 5,
+      "intelligenceModifier": -50,
+      "prototype": "Monster"
+    },
+    {
+      "id": "Ghoul",
+      "allowedClasses": ["Shaman", "Assassin"],
+      "healthModifier": 20,
+      "strengthModifier": 10,
+      "intelligenceModifier": -20,
+      "prototype": "Monster"
+    },
+    {
+      "id": "Dragon",
+      "allowedClasses": ["Shaman", "Warrior"],
+      "healthModifier": 200,
+      "strengthModifier": 1800,
+      "intelligenceModifier": 220,
+      "prototype": "Monster"
+    }
+  ]
+}

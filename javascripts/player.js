@@ -78,9 +78,7 @@ Player.prototype.generateClass = function() {
   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
   // Get the string at the index
-  console.log("this.allowedClasses", this.allowedClasses);
   var randomClass = this.allowedClasses[random];
-  console.log("randomClass", randomClass);
 
   // Composes the corresponding player class into the player object
   this.setClass(Gauntlet.GuildHall.classes()[randomClass]);
