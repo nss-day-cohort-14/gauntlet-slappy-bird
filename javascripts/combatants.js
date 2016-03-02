@@ -23,16 +23,3 @@ var Human = function(name) {
 Human.prototype = new Player();
 
 
-/*
-  Define the base properties for a monster in a 
-  constructor function.
- */
-var Monster = function(name) {
-  this.playerName = name || "Grax";
-  this.health = this.health + 30;
-  this.intelligence -= 50;
-  this.strength += 30;
-};
-
-Monster.prototype = new Player();
-
