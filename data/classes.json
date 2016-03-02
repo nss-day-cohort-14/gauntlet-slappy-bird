@@ -12,7 +12,9 @@
     {
       "id": "Lord",
       "label": "Sith Lord",
+      "healthModifier": 0,
       "intelligenceModifier": 20,
+      "intelligenceModifier": 0,
       "magical": false,
       "prototype": "PlayerClass",
       "allowedWeapons": ["LightSaber"]
@@ -50,6 +52,7 @@
     {
       "id": "Conjurer",
       "label": "Conjurer",
+      "healthModifier": 0,
       "strengthModifier": -10,
       "intelligenceModifier": 90,
       "magical": true,
@@ -107,6 +110,7 @@
       "label": "Fighter",
       "healthModifier": 20,
       "strengthModifier": 10,
+      "intelligenceModifier": 0,
       "prototype": "PlayerClass",
       "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger"]
     },
@@ -115,6 +119,7 @@
       "label": "Warrior",
       "healthModifier": 50,
       "strengthModifier": 90,
+      "intelligenceModifier": 0,
       "prototype": "Fighter",
       "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "Halberd"]
     },
@@ -123,13 +128,16 @@
       "label": "Valkyrie",
       "healthModifier": 20,
       "strengthModifier": 70,
+      "intelligenceModifier": 0,
       "prototype": "Fighter",
       "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "BallChain", "LongBow"]
     },
     {
       "id": "Berserker",
       "label": "Berserker",
+      "healthModifier": 0,
       "strengthModifier": 120,
+      "intelligenceModifier": 0,
       "prototype": "Fighter",
       "allowedWeapons": ["LongSword", "ShortSword", "BroadSword", "Dagger", "Mace", "WarAxe"]
     },
@@ -138,6 +146,7 @@
       "label": "Monk",
       "healthModifier": 25,
       "strengthModifier": 100,
+      "intelligenceModifier": 0,
       "prototype": "Fighter",
       "allowedWeapons": ["ShortBow", "Staff", "Nunchaku"]
     }

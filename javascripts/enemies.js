@@ -41,7 +41,7 @@ var Goblin = function() {
   this.species = "Goblin";
   this.health -= 20;
   this.skinColors.push("green", "mottled gray");
-  this.allowedClasses = ["Fighter", "Assassin", "Conjurer"];
+  this.allowedClasses = ["Warrior", "Assassin", "Conjurer"];
   this.intelligence -= 50;
   // console.log("Goblin constructor function");
 };
@@ -55,7 +55,7 @@ var Skeleton = function() {
   this.species = "Skeleton";
   this.health += 10;
   this.skinColors = [];
-  this.allowedClasses = ["Fighter"];
+  this.allowedClasses = ["Warrior"];
   // console.log("Skeleton constructor function");
 };
 // console.log("");

@@ -36,7 +36,6 @@ var Gauntlet = function (g) {
             // Resolve the promise
             resolve(_classes);
 
-
           }).fail((xhr, error, msg) => {
             console.error(msg);
           });

@@ -56,7 +56,7 @@ Battleground.prototype.melee = function() {
     If the human player cast a defensive spell, skip calculating damage
    */
   if (!humanWeapon.defensive) {
-    baseHumanDamage = Math.round(Math.random() * humanWeapon.damage + 1);
+    baseHumanDamage = Math.round(Math.random() * humanWeapon.base_damage + 1);
     totalHumanDamage = baseHumanDamage + modifier - this.enemy.protection;
     totalHumanDamage = (totalHumanDamage < 0) ? 0 : totalHumanDamage;
 
@@ -114,7 +114,7 @@ Battleground.prototype.melee = function() {
     Apply damage unless a defensive spell was cast
    */
   if (!enemyWeapon.defensive) {
-    baseEnemyDamage = Math.round(Math.random() * enemyWeapon.damage + 1);
+    baseEnemyDamage = Math.round(Math.random() * enemyWeapon.base_damage + 1);
     totalEnemyDamage = baseEnemyDamage + modifier - this.human.protection;
     totalEnemyDamage = (totalEnemyDamage < 0) ? 0 : totalEnemyDamage;
     if (enemyCritical > 95) {

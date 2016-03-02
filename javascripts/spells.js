@@ -5,7 +5,7 @@ var AvailableSpells = ["Sphere", "Bolt", "Hammer", "Missile", "MagicDart", "Shie
  */
 var Spell = function() {
   this.name = "";
-  this.damage = 0;
+  this.base_damage = 0;
   this.defensive = false;
   this.debuff = false;
 
@@ -80,7 +80,7 @@ Wall.prototype = new Spell();
  */
 var MagicDart = function() {
   this.name = "mighty dart";
-  this.damage = Math.floor(Math.random() * 2 + 2);
+  this.base_damage = Math.floor(Math.random() * 2 + 2);
   // console.log("MagicDart constructor function");
 };
 // console.log("");
@@ -89,7 +89,7 @@ MagicDart.prototype = new Spell();
 
 var Missile = function() {
   this.name = "magical missile";
-  this.damage = Math.floor(Math.random() * 5 + 3);
+  this.base_damage = Math.floor(Math.random() * 5 + 3);
   // console.log("Missile constructor function");
 };
 // console.log("");
@@ -98,7 +98,7 @@ Missile.prototype = new Spell();
 
 var Sphere = function() {
   this.name = "rolling sphere";
-  this.damage = Math.floor(Math.random() * 3 + 7);
+  this.base_damage = Math.floor(Math.random() * 3 + 7);
   // console.log("Sphere constructor function");
 };
 // console.log("");
@@ -107,7 +107,7 @@ Sphere.prototype = new Spell();
 
 var Hammer = function() {
   this.name = "giant hammer";
-  this.damage = Math.floor(Math.random() * 8 + 4);
+  this.base_damage = Math.floor(Math.random() * 8 + 4);
   // console.log("Hammer constructor function");
 };
 // console.log("");
@@ -116,7 +116,7 @@ Hammer.prototype = new Spell();
 
 var Bolt = function() {
   this.name = "jagged bolt";
-  this.damage = Math.floor(Math.random() * 7 + 6);
+  this.base_damage = Math.floor(Math.random() * 7 + 6);
   // console.log("Bolt constructor function");
 };
 // console.log("");
