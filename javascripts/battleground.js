@@ -16,18 +16,18 @@ Battleground.prototype.melee = function() {
     If the human/enemy class is a magical one, apply a bonus
     to the critical hit probability based on intelligence
    */
-  if (!this.human.class.magical) {
+  if (!this.human.profession.magical) {
     humanCritical += this.human.intelligence / 10;
   }
 
-  if (!this.enemy.class.magical) {
+  if (!this.enemy.profession.magical) {
     enemyCritical += this.enemy.intelligence / 10;
   }
 
   /*
     Calculate damage done by player
    */
-  if (this.human.class.magical) {
+  if (this.human.profession.magical) {
     humanWeapon = new window[AvailableSpells[Math.round(Math.random() * (AvailableSpells.length - 1))]]();
     humanWeapon.cast();
     modifier = Math.floor(this.human.intelligence / 10);
@@ -74,7 +74,7 @@ Battleground.prototype.melee = function() {
     Start building output string for human action
    */
   var battleResult = "";
-  var actionType = (this.human.class.magical) ? " casts a " : " attacks with ";
+  var actionType = (this.human.profession.magical) ? " casts a " : " attacks with ";
   battleResult += "<div class=\"battle-record__human\">";
   if (humanWeapon.defensive) {
     battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + this.human.protection + " protection.";
@@ -97,7 +97,7 @@ Battleground.prototype.melee = function() {
   /*
     Calculate damage done by enemy
    */
-  if (!this.enemy.class.magical) {
+  if (!this.enemy.profession.magical) {
     enemyWeapon = this.enemy.weapon;
     modifier = Math.floor(this.enemy.strength / 10);
   } else {

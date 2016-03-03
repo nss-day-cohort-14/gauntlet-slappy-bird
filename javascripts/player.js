@@ -53,9 +53,11 @@ var Gauntlet = function (gauntlet) {
     }
 
     // Use the stat modifiers for the species
-    this.modifyHealth(this.healthModifier);
-    this.modifyStrength(this.strengthModifier);
-    this.modifyIntelligence(this.intelligenceModifier);
+    if (this.hasOwnProperty("healthModifier")) {
+      this.modifyHealth(this.healthModifier);
+      this.modifyStrength(this.strengthModifier);
+      this.modifyIntelligence(this.intelligenceModifier);
+    }
 
     // Compose a weapon
     if (!this.profession.magical) {
@@ -67,6 +69,7 @@ var Gauntlet = function (gauntlet) {
     }
 
     this.setSkin();
+
   };
 
   _army.Player.prototype.modifyHealth = function(bonus) {
@@ -89,7 +92,6 @@ var Gauntlet = function (gauntlet) {
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
     // Get the string at the index
-    console.log("this", this);
     var randomClassName = this.allowedClasses[random];
     var randomClass = gauntlet.GuildHall.classes()[randomClassName];
 
@@ -99,8 +101,6 @@ var Gauntlet = function (gauntlet) {
 
   _army.Player.prototype.setClass = function(newClass) {
     this.profession = newClass;
-
-    console.log("newClass", newClass);
 
     this.modifyHealth(newClass.healthModifier);
     this.modifyStrength(newClass.strengthModifier);

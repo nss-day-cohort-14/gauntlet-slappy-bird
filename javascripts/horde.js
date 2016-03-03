@@ -46,7 +46,6 @@ var Gauntlet = function (g) {
             });
 
             // Resolve the promise
-            console.log("_troopList", _troopList);
             resolve(_troopList);
 
           }).fail((xhr, error, msg) => {

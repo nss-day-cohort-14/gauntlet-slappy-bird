@@ -14,7 +14,7 @@ Gauntlet.WeaponRack.load().then((weapons) => {
 
   console.group("Sample Combatants");
   console.log("Creating a new Human instance");
-  let warrior = Gauntlet.Army.troops()["Human"].init("Joe")
+  let warrior = Gauntlet.Army.troops()["Human"].init("Joe");
   warrior.equip();
   console.log(warrior.toString());
   
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
         case "card--weapon":
           if (chosenProfession.magical) {
-            HumanCombatant.init(chosenProfession);
+            HumanCombatant.equip(chosenProfession);
             nextCard = "card--battleground";
             startCombat();
           } else {
@@ -98,7 +98,7 @@ $(document).ready(function() {
           break;
 
         case "card--battleground":
-          HumanCombatant.init(chosenProfession, chosenWeapon);
+          HumanCombatant.equip(chosenProfession, chosenWeapon);
           startCombat();
 
           break;
@@ -130,8 +130,8 @@ $(document).ready(function() {
   }
 
   function startCombat() {
-    EnemyCombatant = AvailableEnemies.randomEnemy();
-    EnemyCombatant.init();
+    var EnemyCombatant = Gauntlet.Horde.random();
+    EnemyCombatant.equip();
 
     $(".battle--human").html(HumanCombatant.toString());
     $(".battle--enemy").html(EnemyCombatant.toString());
@@ -166,7 +166,7 @@ $(document).ready(function() {
     Handle user choosing a profession for the human combatant
    */
   $(".class__link").click(function(e) {
-    HumanCombatant = new Human($("#player-name").val());
+    HumanCombatant = Gauntlet.Army.troops()["Human"].init($("#player-name").val());
     chosenProfession = Gauntlet.GuildHall.classes()[$(this).children(".btn__text").html()];
   });
 
