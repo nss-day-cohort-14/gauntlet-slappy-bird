@@ -1,27 +1,26 @@
+"use strict";
+
 Gauntlet.WeaponRack.load().then((weapons) => {
   return Gauntlet.Horde.load();
 }).then((classes) => {
   return Gauntlet.GuildHall.load();
-}).then((classes) => {
+}).then(() => {
+
 
   /*
     Test code to generate a human player and an orc player
    */
-  var warrior = new Human("Joe");
-  warrior.init();
-  warrior.init(Gauntlet.GuildHall.classes()["Monk"]);
 
-  Gauntlet.Horde.random();
-
-  var enemy = Gauntlet.Horde.random();
-  // enemy.init();
 
   console.group("Sample Combatants");
   console.log("Creating a new Human instance");
-  console.log(warrior);
-  // console.log(warrior.toString());
+  let warrior = Gauntlet.Army.troops()["Human"].init("Joe")
+  warrior.equip();
+  console.log(warrior.toString());
   
   console.log("Creating a new Enemy instance");
+  var enemy = Gauntlet.Horde.random();
+  enemy.equip();
   console.log(enemy);
   console.log(enemy.toString());
   console.groupEnd("Sample Combatants");

@@ -20,24 +20,33 @@ var Gauntlet = function (g) {
           $.ajax({url: "./data/horde.json"}).done((response) => {
             response.classes.forEach(($monster) => {
               var currentMonster;
-              var prototypeForObject = ($monster.prototype === null) ? null : _troopList[$monster.prototype].prototype;
+              var prototypeForObject;
               var addPropertiesTo;
+
+              if ($monster.prototype === null) { 
+                prototypeForObject = g.Army.troops()["Player"].prototype;
+              } else  {
+                prototypeForObject = _troopList[$monster.prototype];
+              };
 
               _troopList[$monster.id] = Object.create(prototypeForObject);
               currentMonster = _troopList[$monster.id];
-              currentMonster.prototype = {};
-
-              addPropertiesTo = ($monster.prototype === null) ? currentMonster.prototype : currentMonster;
 
               Object.keys($monster).filter((k) => k !== "prototype").forEach((property) => {
-                defineProperty(addPropertiesTo, property, $monster[property]);
+                defineProperty(currentMonster, property, $monster[property]);
               });
 
+              // The Player.toString() method looks for a key of `species`,
+              // which is stored in the `id` properties for the Horde, so 
+              // create the mapping for it
+              defineProperty(currentMonster, "species", $monster["id"]);
+
               // Create a toString() overloader to return just the class label
-              defineProperty(currentMonster, "toString", () => `${currentMonster.playerName} the ${currentMonster.id}` );
+              // defineProperty(currentMonster, "toString", () => `${currentMonster.playerName} the ${currentMonster.id}` );
             });
 
             // Resolve the promise
+            console.log("_troopList", _troopList);
             resolve(_troopList);
 
           }).fail((xhr, error, msg) => {
