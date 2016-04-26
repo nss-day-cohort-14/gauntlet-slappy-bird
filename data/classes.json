@@ -135,7 +135,7 @@
     {
       "id": "Berserker",
       "label": "Berserker",
-      "healthModifier": 0,
+      "healthModifier": 50,
       "strengthModifier": 120,
       "intelligenceModifier": 0,
       "prototype": "Fighter",

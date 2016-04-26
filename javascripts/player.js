@@ -8,7 +8,7 @@ var Gauntlet = function (gauntlet) {
     whether a human player or a monster.
    */
   _army.Player = Object.create(null);
-  
+
   _army.Player.prototype = {
     species: null,
     profession: null,
@@ -26,7 +26,7 @@ var Gauntlet = function (gauntlet) {
   };
 
   _army.Player.prototype.toString = function() {
-    var output = [this.playerName,
+    let output = [this.playerName,
       ": a ",
       this.skinColor,
       (this.skinColor) ? " skinned " : "",
@@ -37,7 +37,9 @@ var Gauntlet = function (gauntlet) {
       this.health,
       " health. ",
       (this.profession.magical) ? "I smell a mage" : " Wielding a " + this.weapon,
-      "!"
+      "<div>",
+      "S/I: ", this.strength, "/", this.intelligence,
+      "</div>"
     ].join("");
     return output;
   };
@@ -53,7 +55,7 @@ var Gauntlet = function (gauntlet) {
     }
 
     // Use the stat modifiers for the species
-    if (this.hasOwnProperty("healthModifier")) {
+    if ("healthModifier" in this) {
       this.modifyHealth(this.healthModifier);
       this.modifyStrength(this.strengthModifier);
       this.modifyIntelligence(this.intelligenceModifier);
@@ -89,11 +91,11 @@ var Gauntlet = function (gauntlet) {
 
   _army.Player.prototype.generateClass = function () {
     // Get a random index from the allowed classes array
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+    let random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
     // Get the string at the index
-    var randomClassName = this.allowedClasses[random];
-    var randomClass = gauntlet.GuildHall.classes()[randomClassName];
+    let randomClassName = this.allowedClasses[random];
+    let randomClass = gauntlet.GuildHall.classes().get(randomClassName);
 
     // Composes the corresponding player class into the player object
     this.setClass(randomClass);
@@ -108,15 +110,13 @@ var Gauntlet = function (gauntlet) {
   };
 
   _army.Player.prototype.generateWeapon = function() {
-
     try {
       if (this.profession && !this.profession.magical) {
-        var random = Math.round(Math.random() * (this.profession.allowedWeapons.length - 1));
-        var weapon = this.profession.allowedWeapons[random];
+        let random = Math.round(Math.random() * (this.profession.allowedWeapons.length - 1));
+        let weapon = this.profession.allowedWeapons[random];
         this.setWeapon(gauntlet.WeaponRack.weapons()[weapon]);
       }
     } catch (ex) {
-      console.log("this.profession", this.profession.toString());
       console.log("this.profession.allowedWeapons", this.profession.allowedWeapons);
     }
   }
@@ -126,13 +126,13 @@ var Gauntlet = function (gauntlet) {
   };
 
   _army.Player.prototype.setSkin = function() {
-    var randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
+    let randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
     this.skinColor = this.skinColors[randomSkin];
   };
 
 
   /*
-    Define the base properties for a human in a 
+    Define the base properties for a human in a
     constructor function.
    */
   _army.Human = Object.create(_army.Player.prototype);
@@ -147,7 +147,6 @@ var Gauntlet = function (gauntlet) {
     this.allowedClasses.push("Wizard", "Conjurer", "Sorcerer");
     this.allowedClasses.push("Thief", "Ninja");
 
-
     return this;
   };
 
@@ -161,19 +160,5 @@ var Gauntlet = function (gauntlet) {
   }();
 
   return gauntlet;
-  
+
 }(Gauntlet || {});
-
-
-
-
-
-
-
-
-
-
-
-
-
-

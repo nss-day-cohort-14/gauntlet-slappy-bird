@@ -1,16 +1,16 @@
-var Battleground = function(humanCombatant, enemyCombatant) {
+let Battleground = function(humanCombatant, enemyCombatant) {
   this.human = humanCombatant;
   this.enemy = enemyCombatant;
 };
 
 Battleground.prototype.melee = function() {
-  var baseHumanDamage = 0, 
-      baseEnemyDamage = 0, 
-      totalHumanDamage = 0, 
+  let baseHumanDamage = 0,
+      baseEnemyDamage = 0,
+      totalHumanDamage = 0,
       totalEnemyDamage = 0;
-  var humanWeapon, enemyWeapon, modifier;
-  var humanCritical = Math.random() * 100;
-  var enemyCritical = Math.random() * 100;
+  let humanWeapon, enemyWeapon, modifier;
+  let humanCritical = Math.random() * 100;
+  let enemyCritical = Math.random() * 100;
 
   /*
     If the human/enemy class is a magical one, apply a bonus
@@ -73,11 +73,13 @@ Battleground.prototype.melee = function() {
   /*
     Start building output string for human action
    */
-  var battleResult = "";
-  var actionType = (this.human.profession.magical) ? " casts a " : " attacks with ";
+  let battleResult = "";
+  let actionType = (this.human.profession.magical) ? " casts a " : " attacks with ";
   battleResult += "<div class=\"battle-record__human\">";
   if (humanWeapon.defensive) {
     battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + this.human.protection + " protection.";
+  } else if (humanWeapon.debuff) {
+    battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + totalHumanDamage + " points.";
   } else {
     battleResult += "&gt; " + this.human.playerName + " <span class=\"battle-health\">(" + this.human.health + " hp)</span>" + actionType + humanWeapon.toString() + " for " + totalHumanDamage + " damage.";
   }
@@ -145,6 +147,6 @@ Battleground.prototype.melee = function() {
 
     return false;
   }
-  
+
   return true;
 };

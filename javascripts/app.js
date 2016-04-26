@@ -6,9 +6,11 @@ Gauntlet.WeaponRack.load().then((weapons) => {
   return Gauntlet.GuildHall.load();
 }).then(() => {
 
+Gauntlet.GuildHall.load();
+
 
   /*
-    Test code to generate a human player and an orc player
+    Test code to generate a human player and a random enemy
    */
 
 
@@ -17,11 +19,11 @@ Gauntlet.WeaponRack.load().then((weapons) => {
   let warrior = Gauntlet.Army.troops()["Human"].init("Joe");
   warrior.equip();
   console.log(warrior.toString());
-  
+  console.log(" ");
   console.log("Creating a new Enemy instance");
-  var enemy = Gauntlet.Horde.random();
+  let enemy = Gauntlet.Horde.random();
+  // let enemy = Gauntlet.Horde.soldier("Dragon");
   enemy.equip();
-  console.log(enemy);
   console.log(enemy.toString());
   console.groupEnd("Sample Combatants");
 
@@ -33,11 +35,11 @@ $(document).ready(function() {
   /*
     Show the initial view that accepts player name
    */
-  var HumanCombatant = null;
-  var EnemyCombatant = null;
-  var chosenProfession = null;
-  var chosenWeapon = null;
-  var battleground = null;
+  let HumanCombatant = null;
+  let EnemyCombatant = null;
+  let chosenProfession = null;
+  let chosenWeapon = null;
+  let battleground = null;
 
   $("#player-setup").show();
 
@@ -46,9 +48,9 @@ $(document).ready(function() {
     move on to the next view.
    */
   $(".card__link").click(function(e) {
-    var currentCard = $(this).attr("current");
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    let currentCard = $(this).attr("current");
+    let nextCard = $(this).attr("next");
+    let moveAlong = false;
 
     switch (currentCard) {
       case "card--name":
@@ -78,22 +80,29 @@ $(document).ready(function() {
             nextCard = "card--battleground";
             startCombat();
           } else {
-            var weaponEl = $("#weapon-select").children(".card__prompt");
+            let weaponEl = $("#weapon-select").children(".card__prompt");
             $(".weapons").remove();
 
-            var block = "<div class=\"row weapons\">";
-            block += '<div class="col-sm-6">';
+            let block = ['<div class="row weapons">',
+                         '<div class="col-sm-6">'];
 
             chosenProfession.allowedWeapons.forEach(function(weapon, index) {
-              var weaponName = Gauntlet.WeaponRack.weapons()[weapon].toString();
+              let weaponName = Gauntlet.WeaponRack.weapons()[weapon].toString();
+
+              // Close individual rows and start new ones
               if (index === 3) {
-                block += "</div>";
-                block += "<div class=\"col-sm-6\">";
+                block.push('</div>', '<div class="col-sm-6">');
               }
-              block += '<div class="card__button"><a class="weapon__link btn btn--big btn--blue" href="#"><span class="btn__prompt">&gt;</span><span class="btn__text" weapon='+weapon+'>' + weaponName + '</span></a></div>';
+
+              // Add weapon block to DOM
+              block.push('<div class="card__button">',
+                         '<a class="weapon__link btn btn--big btn--blue" href="#">',
+                         '<span class="btn__prompt">&gt;</span>',
+                         `<span class="btn__text" weapon='{$weapon}'>${weaponName}</span>`,
+                         '</a></div>');
             });
-            block += "</div></div>";
-            weaponEl.append(block);
+            block.push("</div></div>");
+            weaponEl.append(block.join(""));
           }
           break;
 
@@ -112,8 +121,8 @@ $(document).ready(function() {
     }
   });
 
-  var continueBattle = true;
-  var battleTimer;
+  let continueBattle = true;
+  let battleTimer;
 
   function meleeRound() {
     if (!battleground.melee()) {
@@ -126,11 +135,16 @@ $(document).ready(function() {
       }
     }
 
+    $(".battle--human").html(HumanCombatant.toString());
+    $(".battle--enemy").html(EnemyCombatant.toString());
+
     $("#battle-record").scrollTop(9999999);
   }
 
   function startCombat() {
-    var EnemyCombatant = Gauntlet.Horde.random();
+    EnemyCombatant = Gauntlet.Horde.random();
+    // EnemyCombatant = Gauntlet.Horde.soldier("Dragon");
+    // console.log("EnemyCombatant",EnemyCombatant);
     EnemyCombatant.equip();
 
     $(".battle--human").html(HumanCombatant.toString());
@@ -167,7 +181,7 @@ $(document).ready(function() {
    */
   $(".class__link").click(function(e) {
     HumanCombatant = Gauntlet.Army.troops()["Human"].init($("#player-name").val());
-    chosenProfession = Gauntlet.GuildHall.classes()[$(this).children(".btn__text").html()];
+    chosenProfession = Gauntlet.GuildHall.classes().get($(this).children(".btn__text").html());
   });
 
 
@@ -175,7 +189,7 @@ $(document).ready(function() {
     Handle user choosing a weapon for the human combatant
    */
   $(document).on("click", ".weapon__link", function(e) {
-    var weapon = $(this).find(".btn__text").attr("weapon");
+    let weapon = $(this).find(".btn__text").attr("weapon");
     chosenWeapon = Gauntlet.WeaponRack.weapons()[weapon];
   });
 
@@ -184,14 +198,14 @@ $(document).ready(function() {
     When the back button clicked, move back a view
    */
   $(".card__back").click(function(e) {
-    var previousCard = $(this).attr("previous");
+    let previousCard = $(this).attr("previous");
     $(".card").hide();
     $("." + previousCard).show();
   });
 
   /*
     Whichever combatant has the higher intelligence score
-    will attack first. Intelligence also increases damange 
+    will attack first. Intelligence also increases damange
     to magical attacks.
    */
 

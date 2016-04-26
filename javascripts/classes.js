@@ -3,38 +3,34 @@
 var Gauntlet = function (g) {
 
   g.GuildHall = function () {
-    var _classes = {};
+    let _professions = new Map();
 
     return {
       classes () {
-        return _classes;
+        return _professions;
       },
       load (callBack) {
         return new Promise((resolve, reject) => {
           $.ajax({url: "./data/classes.json"}).done((response) => {
             response.classes.forEach(($class) => {
-              var currentClass;
-              var prototypeForObject = ($class.prototype === null) ? null : _classes[$class.prototype].prototype;
-              var addPropertiesTo;
+              // Define the prototype for the new profession
+              let prototypeForObject = ($class.prototype === null) ? {} : _professions.get($class.prototype);
 
-              _classes[$class.id] = Object.create(prototypeForObject);
-              currentClass = _classes[$class.id];
-              currentClass.prototype = {};
+              // Create the new profession
+              let profession = Object.create(prototypeForObject);
 
-              addPropertiesTo = ($class.prototype === null) ? currentClass.prototype : currentClass;
-
-
-              Object.keys($class).forEach((property) => {
-                defineProperty(currentClass.prototype, property, $class[property]);
+              // Add all properties from JSON definition of profession
+              Object.keys($class).filter((k) => k !== "prototype").forEach((property) => {
+                defineProperty(profession, property, $class[property]);
               });
+              defineProperty(profession, "toString", () => $class.label);
 
-              // Create a toString() overloader to return just the class label
-              defineProperty(currentClass, "toString", ()=> {return $class.label;});
-
+              // Add new profession to the Map
+              _professions.set($class.id, profession);
             });
 
             // Resolve the promise
-            resolve(_classes);
+            resolve(_professions);
 
           }).fail((xhr, error, msg) => {
             console.error(msg);
@@ -45,6 +41,6 @@ var Gauntlet = function (g) {
   }();
 
   return g;
-  
+
 }(Gauntlet || {});
 
