@@ -1,6 +1,8 @@
 /*
   TODO: Modularize this code with IIFE or Browserify
  */
+  "use strict";
+
 var Gauntlet = Gauntlet || {};
 Gauntlet.SpellBook = {};
 
