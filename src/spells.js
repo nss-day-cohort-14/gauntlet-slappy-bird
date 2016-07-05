@@ -3,7 +3,7 @@
  */
   "use strict";
 
-var Gauntlet = Gauntlet || {};
+var Gauntlet = require("./player");
 Gauntlet.SpellBook = {};
 
 
@@ -19,7 +19,7 @@ Gauntlet.SpellBook.Spell = function() {
 
   this.toString = function() {
     return this.name + " of " + this.type + " for " + this.damage + " damage!";
-  }
+  };
 };
 
 /*
@@ -33,3 +33,5 @@ Gauntlet.SpellBook.Sphere = function() {
   this.type = this.damageTypes[random];
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
+
+module.exports=Gauntlet;

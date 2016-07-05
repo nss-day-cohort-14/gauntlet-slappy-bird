@@ -18,7 +18,7 @@ Gauntlet.GuildHall.PlayerClass = function() {
 
   this.toString = function() {
     return this.name;
-  }
+  };
 };
 
 /*
@@ -125,4 +125,4 @@ Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
       - Ninja
       - Assassin
  */
-
+module.exports=Gauntlet;

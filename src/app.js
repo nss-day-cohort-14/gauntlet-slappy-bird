@@ -2,14 +2,23 @@
   Test code to generate a human player and an orc player
  */
  "use strict";
+
+var enemies = require("./enemies");
+var spells = require("./spells");
+var weapons= require("./weapons");
+var classes=require("./classes");
+var Gauntlet = require("./player");
+
+
+
 var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
+warrior.setWeapon(new weapons.WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
 console.log(warrior.toString());
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
-orc.setWeapon(new BroadSword());
+orc.setWeapon(new weapons.BroadSword());
 console.log(orc.toString());
 
 /*
@@ -58,3 +67,4 @@ $(document).ready(function() {
   });
 
 });
+
