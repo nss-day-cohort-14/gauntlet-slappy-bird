@@ -13,8 +13,7 @@ roleList.Employee=function(){
 
 roleList.Intern=function(){
   this.spell1= spells.Coffee;
-  this.energy=100;
-  
+
 };
 roleList.Intern.prototype = new roleList.Employee();
 

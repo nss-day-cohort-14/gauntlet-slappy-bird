@@ -7,6 +7,7 @@ const Players= require("./player");
 const Calculations = require("./calculations");
 },{"./calculations":2,"./classes":3,"./player":4,"./spells":5,"./weapons":6}],2:[function(require,module,exports){
 "use strict";
+//all damage will be calculated here
 },{}],3:[function(require,module,exports){
 "use strict";
 var spells = require("./spells");
@@ -23,8 +24,7 @@ roleList.Employee=function(){
 
 roleList.Intern=function(){
   this.spell1= spells.Coffee;
-  this.energy=100;
-  
+
 };
 roleList.Intern.prototype = new roleList.Employee();
 
@@ -35,7 +35,7 @@ console.log(testclass);
 module.exports=roleList;
 },{"./spells":5}],4:[function(require,module,exports){
 "use strict";
-
+//weapons and second spell will be set here
 
 
 },{}],5:[function(require,module,exports){
