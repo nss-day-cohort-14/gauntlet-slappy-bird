@@ -1,6 +1,5 @@
 "use strict";
 var spells = require("./spells");
-var weapon = require("./weapons");
 var roleList={};
 
 roleList.Employee=function(){
@@ -19,6 +18,7 @@ roleList.Intern=function(){
 
 };
 
+
 roleList.Intern.prototype = new roleList.Employee();
 
 roleList.IT=function(){
@@ -32,6 +32,8 @@ roleList.IT=function(){
 
 roleList.IT.prototype = new roleList.Employee();
 
+
+
 roleList.Sales=function(){
   this.name="Sales";
   this.energy=150;
@@ -43,16 +45,20 @@ roleList.Sales=function(){
 
 roleList.Sales.prototype = new roleList.Employee();
 
+
+
 roleList.HR=function(){
   this.name="HR";
   this.energy=75;
   this.experience=125;
   this.skill=100;
-  this.spell1= spells.Team_Exercise;
+  this.spell1= spells.Team_Building_Exercise;
 
 };
 
 roleList.HR.prototype = new roleList.Employee();
+
+
 
 roleList.Warehouse=function(){
   this.name="Warehouse";
@@ -65,6 +71,8 @@ roleList.Warehouse=function(){
 
 roleList.Warehouse.prototype = new roleList.Employee();
 
+
+
 roleList.Secretary=function(){
   this.name="Secretary";
   this.energy=250;
@@ -75,6 +83,8 @@ roleList.Secretary=function(){
 };
 
 roleList.Secretary.prototype = new roleList.Employee();
+
+
 
 roleList.Janitor=function(){
   this.name="Janitor";
@@ -106,7 +116,7 @@ roleList.CEO=function(){
   this.energy=75;
   this.experience=150;
   this.skill=75;
-  this.spell1= spells.Severance;
+  this.spell1= spells.Demotion;
 
 };
 
@@ -114,7 +124,7 @@ roleList.CEO.prototype = new roleList.Employee();
 
 
 
-var testclass = new roleList.Intern();
-console.log(testclass);
+var testclass = new roleList.Warehouse();
+console.log("test", testclass);
 
 module.exports=roleList;
