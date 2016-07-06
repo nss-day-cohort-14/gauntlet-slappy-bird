@@ -11,14 +11,14 @@ spellList.Coffee=function(){
   this.power=0;
   this.energyRestored=50;
 };
-Coffee.prototype = new Spell();
+spellList.Coffee.prototype = new spellList.Spell();
 
 spellList.Demotion = function(){
 	this.lastingEffect = true;
 	this.skillReduction = 25;
 	this.energyReduction = 10;
 };
-Demotion.prototype = new Spell();
+spellList.Demotion.prototype = new spellList.Spell();
 
 spellList.Serevence = function(){
 	this.lastingEffect = true;
@@ -26,28 +26,28 @@ spellList.Serevence = function(){
 	this.energyReduction = 10;
 };
 
-Serevence.prototype = new Spell();
+spellList.Serevence.prototype = new spellList.Spell();
 
 spellList.BubbleWrap = function(){
 	this.lastingEffect = true;
 	this.energyRestored = 10;
 };
 
-BubbleWrap.prototype = new Spell();
+spellList.BubbleWrap.prototype = new spellList.Spell();
 
 spellList.Team_Building_Excercise = function(){
 	this.lastingEffect = true;
 	this.energyReduction = 25;
 };
 
-Team_Building_Excercise.prototype = new Spell();
+spellList.Team_Building_Excercise.prototype = new spellList.Spell();
 
 spellList.Virus = function(){
 	this.lastingEffect = true;
 	this.energyReduction = 10;
 };
 
-Virus.prototype = new Spell();
+spellList.Virus.prototype = new spellList.Spell();
 
 spellList.Spam_Email = function (){
 	this.lastingEffect = true;
@@ -55,14 +55,14 @@ spellList.Spam_Email = function (){
 	this.loseSpell = true; /////////////////this will be defined as "Enemy cant Use Spell for a turn"
 };
 
-Spam_Email.prototype = new Spell();
+spellList.Spam_Email.prototype = new spellList.Spell();
 
 spellList.Intercom = function (){
 	this.lastingEffect = true;
 	this.skillAddition = 10;
 };
 
-Intercom.prototype = new Spell();
+spellList.Intercom.prototype = new spellList.Spell();
 
 spellList.Wet_Floor = function () {
 	this.lastingEffect = true;
@@ -71,7 +71,7 @@ spellList.Wet_Floor = function () {
 	this.skillReduction = 10;
 };
 
-Wet_Floor.prototype = new Spell();
+spellList.Wet_Floor.prototype = new spellList.Spell();
 
 ///////////End of assigned spells///////////
 
@@ -83,14 +83,14 @@ spellList.Thermostat = function() {
 };
 
 
-Thermostat.prototype = new Spell();
+spellList.Thermostat.prototype = new spellList.Spell();
 
 spellList.Microwave_Tuna = function (){
 	this.energyReduction = 50;
 	//////////To both players/////////
 };
 
-Microwave_Tuna.prototype = new Spell(); 
+spellList.Microwave_Tuna.prototype = new spellList.Spell(); 
 
 spellList.Meeting = function() {
 	this.lastingEffect = true;
@@ -99,7 +99,7 @@ spellList.Meeting = function() {
 };
 
 
-Meeting.prototype = new Spell();
+spellList.eeting.prototype = new spellList.Spell();
 
 spellList.Bonus = function () {
 	this.lastingEffect = true;
@@ -107,7 +107,7 @@ spellList.Bonus = function () {
 };
 
 
-Meeting.prototype = new Spell();
+spellList.Meeting.prototype = new spellList.Spell();
 
 
 
