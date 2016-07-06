@@ -99,7 +99,7 @@ spellList.Meeting = function() {
 };
 
 
-spellList.eeting.prototype = new spellList.Spell();
+spellList.Meeting.prototype = new spellList.Spell();
 
 spellList.Bonus = function () {
 	this.lastingEffect = true;

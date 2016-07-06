@@ -125,6 +125,6 @@ roleList.CEO.prototype = new roleList.Employee();
 
 
 var testclass = new roleList.Warehouse();
-console.log("test", testclass);
+// console.log("test", testclass);
 
 module.exports=roleList;
