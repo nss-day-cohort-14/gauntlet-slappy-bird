@@ -52,7 +52,7 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 
 
 }
-calculateSpellDamage(players.player1,players.player2,players.player1.spell2);
+
 
 
 
@@ -65,3 +65,24 @@ calculateSpellDamage(players.player1,players.player2,players.player1.spell2);
 
 
 // calculateWpnDmg(players.player1, players.player2);
+
+
+
+// **************attack functions**************
+// 
+// 
+var attack1 = $("#attack1");
+var spell1 = $("#spell1");
+var spell2 = $("#spell2");
+
+attack1.click(function(){
+		calculateWpnDmg(players.player1, players.player2);
+		
+		if(players.player2.energy>=0){
+	setTimeout(function(){
+		calculateWpnDmg(players.player2, players.player1);
+		
+	}, 2000);
+	} else {console.log("You Win!");}
+});
+

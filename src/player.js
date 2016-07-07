@@ -6,8 +6,10 @@ const Spells= require("./spells");
 const Roles= require("./classes");
 
 var player1 = new Roles.Intern();
+var player2 = null;
 var allRoles = $(".role");
-var allSpells = $(".spell")
+var allSpells = $(".spell");
+var allWeapons = $(".weapon");
 var battleBtn =$("#battle");
 
 
@@ -15,7 +17,10 @@ battleBtn.click(startCalc);
 
 allRoles.click(createClass);
 
-allSpells.click(createSpell)
+allSpells.click(createSpell);
+
+allWeapons.click(equipPlayer);
+
 
 function createClass(){
 	var randomClass= Math.floor(Math.random()*(8)+1);
@@ -27,21 +32,20 @@ function createClass(){
 	player2 = new Roles[Object.keys(Roles)[randomClass]]();
 	
 	player2.spell1= new player2.spell1();
-	player2.generateHp= generateHp(player2);
-	console.log(player1,player2);
+	player2.energy= generateHp(player2);
+	
 
 }
 
 function createSpell(){
-  var spellArray = ["Thermostat", "Microwave_Tuna", "Bonus", "Meeting"]
-  var randomSpell = Math.floor(Math.random()*(4)+1);
+  var spellArray = ["Thermostat", "Microwave_Tuna", "Bonus", "Meeting"];
+  var randomSpell = Math.floor(Math.random()*(3)+1);
 
   player1.spell2 = new Spells[this.id]();
 
-  // player2.spell2 = new Spells[Object.keys(Spells)[randomSpell]]();
   player2.spell2 = new Spells[spellArray[randomSpell]]();
 
-  console.log(player1, player2);
+ 
 }
 
 
@@ -62,33 +66,39 @@ function generateHp(player){
 }
 
 
-function canDuelWeild (player){
-	if(player.weapon.handsUsed === 1){
-		console.log("select another weapon");
-		return true;
-	} else {
-		console.log("your hands are full");
-		return false;	
-	}
-}
+// function canDuelWeild (player){
+// 	if(player.weapon.handsUsed === 1){
+// 		console.log("select another weapon");
+// 		return true;
+// 	} else {
+// 		console.log("your hands are full");
+// 		return false;	
+// 	}
+// }
 
-player1.energy =  generateHp(player1);
+// player1.energy =  generateHp(player1);
 // console.log("player1.energy",player1.energy);
 
-player1.weapon.canDuelWeild = canDuelWeild(player1);
+// player1.weapon.canDuelWeild = canDuelWeild(player1);
 
 
 //////////////////////////// PLAYER 2
-var player2 = new Roles.Warehouse();
-player2.energy = generateHp(player2);
-player2.weapon = new Weapons.Shredder();
-player2.weapon.canDuelWeild = canDuelWeild(player2);
+// var player2 = new Roles.Warehouse();
+// player2.energy = generateHp(player2);
+// player2.weapon = new Weapons.Shredder();
+// player2.weapon.canDuelWeild = canDuelWeild(player2);
 
 
 // module.exports={player1,player2};
 
 
 
-
+function equipPlayer(){
+  var randomWeapon= Math.floor(Math.random()*(11)+1);
+  player1.weapon = new Weapons[this.id]();
+  player2.weapon = new Weapons[Object.keys(Weapons)[randomWeapon]]();
+  console.log("weapon", player1.weapon);
+  console.log("enemy", player2.weapon);
+}
 
 
