@@ -17,14 +17,14 @@ function calculateWpnDmg (attacker, defender){
     var finalDmg = Math.floor((attacker.skill / 100) * randomPower);  // Player Skill Damage multiplier
     defender.energy -= finalDmg;
 
-    console.log("You Hit!", randomNum);    
+    console.log("Hit!", randomNum);    
     console.log("Weapon Power", attacker.weapon.power);
     console.log("Random Power", randomPower);
     console.log("finalDmg is", finalDmg);
     console.log(`${defender.name}`, "HP is currently", defender.energy);
 
   } else {
-    console.log("You Missed", randomNum);
+    console.log(`${attacker.name}`, "Missed", randomNum);
   }
 }
 
@@ -49,12 +49,11 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 	playerDefending.skill-= Math.floor(((spellUsed.skillReduction/100)*playerDefending.skill)*experience);
 	playerDefending.experience-= Math.floor(((spellUsed.experienceReduction/100)*playerDefending.experience)*experience);
 
-	
-
+	console.log("spell", playerUsing.name, playerUsing.energy, playerDefending.name, playerDefending.energy);
 }
 
 
-
+ 
 
 
 // while (players.player1.energy > 0 && players.player2.energy > 0){
@@ -83,6 +82,9 @@ attack1.click(function(){
 		calculateWpnDmg(players.player2, players.player1);
 		
 	}, 2000);
+		if(players.player1.energy<=0){
+			console.log("You Lose");
+		}
 	} else {console.log("You Win!");}
 });
 
@@ -95,6 +97,9 @@ spellBtn1.click(function(){
 		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
 		
 	}, 2000);
+		if(players.player1.energy<=0){
+			console.log("You Lose");
+		}
 	} else {console.log("You Win!");}
 });
 
@@ -108,6 +113,9 @@ spellBtn2.click(function(){
 		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
 		
 	}, 2000);
+		if(players.player1.energy<=0){
+			console.log("You Lose");
+		}
 	} else {console.log("You Win!");}
 });
 
