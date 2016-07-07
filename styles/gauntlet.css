@@ -9,6 +9,7 @@ body {
   margin: 20px 0 0 0;
 }
 
+
 .field__textinput {
   font-size: 1em;
   padding: 15px 0;
@@ -16,6 +17,10 @@ body {
   min-width: 500px;
 }
 
+.text {
+  font-size: .75em;
+  margin: 20px;
+}
 .gradient {
   background: linear-gradient(#A19A9B, #7B756A, black);
 }
