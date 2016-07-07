@@ -65,7 +65,7 @@ roleList.Warehouse=function(){
   this.energy=75;
   this.experience=50;
   this.skill=175;
-  this.spell1= spells.Bubblewrap;
+  this.spell1= spells.BubbleWrap;
 
 };
 

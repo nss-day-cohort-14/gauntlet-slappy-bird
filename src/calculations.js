@@ -1,6 +1,8 @@
 "use strict";
 //all damage will be calculated here
+
 var players = require("./player");
+console.log(players.player1);
 // console.log("",players.player1 );
 
 function checkAccuracy(){
@@ -26,7 +28,7 @@ function calculateWpnDmg (attacker, defender){
 }
 
 function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
-	console.log(playerDefending);
+
 
 	var experience = playerUsing.experience/100;
 
@@ -46,10 +48,11 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 	playerDefending.skill-= Math.floor(((spellUsed.skillReduction/100)*playerDefending.skill)*experience);
 	playerDefending.experience-= Math.floor(((spellUsed.experienceReduction/100)*playerDefending.experience)*experience);
 
-	console.log(playerDefending);
+
 
 }
 calculateSpellDamage(players.player1,players.player2,players.player1.spell2);
+
 
 
 

@@ -27,13 +27,13 @@ spellList.Demotion = function(){
 };
 spellList.Demotion.prototype = new spellList.Spell();
 
-spellList.Severence = function(){
-	this.name="Severence";
+spellList.Severance = function(){
+	this.name="Severance";
 	this.experienceReduction = 25;
 	this.energyReduction = 10;
 };
 
-spellList.Severence.prototype = new spellList.Spell();
+spellList.Severance.prototype = new spellList.Spell();
 
 spellList.BubbleWrap = function(){
 	this.name="Bubble Wrap";
@@ -43,12 +43,12 @@ spellList.BubbleWrap = function(){
 
 spellList.BubbleWrap.prototype = new spellList.Spell();
 
-spellList.Team_Building_Excercise = function(){
+spellList.Team_Building_Exercise = function(){
 	this.name="Team Building Exercise";
 	this.energyPercReduction = 25;
 };
 
-spellList.Team_Building_Excercise.prototype = new spellList.Spell();
+spellList.Team_Building_Exercise.prototype = new spellList.Spell();
 
 spellList.Virus = function(){
 	this.name="Virus";
