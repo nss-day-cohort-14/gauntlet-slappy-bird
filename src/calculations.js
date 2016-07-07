@@ -1,6 +1,8 @@
 "use strict";
 //all damage will be calculated here
+
 var players = require("./player");
+console.log(players.player1);
 // console.log("",players.player1 );
 
 function checkAccuracy(){
@@ -50,6 +52,7 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 
 }
 calculateSpellDamage(players.player1,players.player2,players.player1.spell2);
+
 
 
 
