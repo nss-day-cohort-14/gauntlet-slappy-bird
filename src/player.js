@@ -42,6 +42,10 @@ function createSpell(){
   var randomSpell = Math.floor(Math.random()*(3)+1);
   console.log(this.id);
   player1.spell2 = new Spells[this.id]();
+        var magic1 = $("#spell1");
+        var magic2 = $("#spell2");
+        magic1[0].innerText=player1.spell1.name;
+        magic2[0].innerText=player1.spell2.name;
   console.log(player1.spell1);
   console.log(player1.spell2);
 
