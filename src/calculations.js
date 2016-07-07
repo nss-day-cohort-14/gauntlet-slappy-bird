@@ -3,7 +3,7 @@
 
 var players = require("./player");
 console.log(players.player1);
-console.log(players.player1.spell2)
+
 // console.log("",players.player1 );
 
 function checkAccuracy(){
@@ -72,8 +72,8 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 // 
 // 
 var attack1 = $("#attack1");
-var spell1 = $("#spell1");
-var spell2 = $("#spell2");
+var spellBtn1 = $("#spell1");
+var spellBtn2 = $("#spell2");
 
 attack1.click(function(){
 		calculateWpnDmg(players.player1, players.player2);
@@ -81,6 +81,31 @@ attack1.click(function(){
 		if(players.player2.energy>=0){
 	setTimeout(function(){
 		calculateWpnDmg(players.player2, players.player1);
+		
+	}, 2000);
+	} else {console.log("You Win!");}
+});
+
+spellBtn1.click(function(){
+	console.log(players.player1.spell1);
+		calculateSpellDamage(players.player1, players.player2, players.player1.spell1);
+		
+		if(players.player2.energy>=0){
+	setTimeout(function(){
+		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
+		
+	}, 2000);
+	} else {console.log("You Win!");}
+});
+
+spellBtn2.click(function(){
+	console.log(players.player1.spell2)
+		calculateSpellDamage(players.player1, players.player2, players.player1.spell2);
+
+		
+		if(players.player2.energy>=0){
+	setTimeout(function(){
+		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
 		
 	}, 2000);
 	} else {console.log("You Win!");}

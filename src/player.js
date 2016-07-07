@@ -40,12 +40,15 @@ function createClass(){
 function createSpell(){
   var spellArray = ["Thermostat", "Microwave_Tuna", "Bonus", "Meeting"];
   var randomSpell = Math.floor(Math.random()*(3)+1);
-
+  console.log(this.id);
   player1.spell2 = new Spells[this.id]();
+  console.log(player1.spell1);
+  console.log(player1.spell2);
+
+
 
   player2.spell2 = new Spells[spellArray[randomSpell]]();
 
- 
 }
 
 
