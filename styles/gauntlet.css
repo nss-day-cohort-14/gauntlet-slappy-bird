@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
-  background: 
 }
 
 .field {
@@ -17,7 +16,13 @@ body {
   min-width: 500px;
 }
 
+.gradient {
+  background: linear-gradient(#A19A9B, #7B756A, black);
+}
 
+.gradient2 {
+  background: linear-gradient(#A19A9B, #9B9182, black);
+}
 
 /*
   Section styles
