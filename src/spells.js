@@ -1,22 +1,27 @@
+
 "use strict";
 var spellList={};
 
 spellList.Spell=function(){
-  this.power=10;
+  this.energyReduction=0;
+  this.energyPercReduction=0;
   this.lastingEffect=false;
+  this.targetsBoth=false;
   this.energyRestored=0;
+  this.experienceReduction=0;
+  this.skillReduction=0;
+  this.energyPercRestored=0;
+  this.skillAddition=0;
 };
 
 spellList.Coffee=function(){
-	this.name="Coffee";
-  this.power=0;
+  this.name="Coffee";
   this.energyRestored=50;
 };
 spellList.Coffee.prototype = new spellList.Spell();
 
 spellList.Demotion = function(){
 	this.name="Demotion";
-	this.lastingEffect = true;
 	this.skillReduction = 25;
 	this.energyReduction = 10;
 };
@@ -24,7 +29,6 @@ spellList.Demotion.prototype = new spellList.Spell();
 
 spellList.Severence = function(){
 	this.name="Severence";
-	this.lastingEffect = true;
 	this.experienceReduction = 25;
 	this.energyReduction = 10;
 };
@@ -33,16 +37,15 @@ spellList.Severence.prototype = new spellList.Spell();
 
 spellList.BubbleWrap = function(){
 	this.name="Bubble Wrap";
-	this.lastingEffect = true;
-	this.energyRestored = 10;
+	
+	this.energyPercRestored = 25;
 };
 
 spellList.BubbleWrap.prototype = new spellList.Spell();
 
 spellList.Team_Building_Excercise = function(){
 	this.name="Team Building Exercise";
-	this.lastingEffect = true;
-	this.energyReduction = 25;
+	this.energyPercReduction = 25;
 };
 
 spellList.Team_Building_Excercise.prototype = new spellList.Spell();
@@ -57,25 +60,22 @@ spellList.Virus.prototype = new spellList.Spell();
 
 spellList.Spam_Email = function (){
 	this.name="Spam Email";
-	this.lastingEffect = true;
-	this.energyReduction = 10;
-	this.loseSpell = true; /////////////////this will be defined as "Enemy cant Use Spell for a turn"
+	this.energyPercReduction = 20;
 };
 
 spellList.Spam_Email.prototype = new spellList.Spell();
 
 spellList.Intercom = function (){
 	this.name="Intercom";
-	this.lastingEffect = true;
-	this.skillAddition = 10;
+	
+	this.skillAddition = 25;
 };
 
 spellList.Intercom.prototype = new spellList.Spell();
 
 spellList.Wet_Floor = function () {
 	this.name="Wet Floor";
-	this.lastingEffect = true;
-	this.energyReduction = 10;
+	this.energyPercReduction = 10;
 	this.experienceReduction = 10;
 	this.skillReduction = 10;
 };
@@ -86,8 +86,7 @@ spellList.Wet_Floor.prototype = new spellList.Spell();
 
 spellList.Thermostat = function() {
 	this.name="Thermostat";
-	this.lastingEffect = true;
-	this.energyReduction = 10;
+	this.energyPercReduction = 10;
 	this.experienceReduction = 10;
 	this.skillReduction = 10;
 };
@@ -98,16 +97,15 @@ spellList.Thermostat.prototype = new spellList.Spell();
 spellList.Microwave_Tuna = function (){
 	this.name="Microwave Tuna";
 	this.energyReduction = 50;
-	//////////To both players/////////
+	this.targetsBoth=true;
 };
 
 spellList.Microwave_Tuna.prototype = new spellList.Spell(); 
 
 spellList.Meeting = function() {
 	this.name="Meeting";
-	this.lastingEffect = true;
 	this.energyReduction = 10;
-	this.skillRestored = 10;
+	this.skillAddition = 10;
 };
 
 
@@ -115,11 +113,11 @@ spellList.Meeting.prototype = new spellList.Spell();
 
 spellList.Bonus = function () {
 	this.name="Bonus";
-	this.energyRestored = 25;
+	this.energyPercRestored = 25;
 };
 
 
-spellList.Meeting.prototype = new spellList.Spell();
+spellList.Bonus.prototype = new spellList.Spell();
 
 
 
