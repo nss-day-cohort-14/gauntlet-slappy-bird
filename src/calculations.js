@@ -49,7 +49,7 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 	playerDefending.skill-= Math.floor(((spellUsed.skillReduction/100)*playerDefending.skill)*experience);
 	playerDefending.experience-= Math.floor(((spellUsed.experienceReduction/100)*playerDefending.experience)*experience);
 
-
+	
 
 }
 
