@@ -4,72 +4,309 @@
 <head>
   <meta charset="utf-8">
   <title>Gauntlet</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/gauntlet.css">
 </head>
 
-<div id="nameselector">
-  <div class="row">
-    <input type="text" id="playername" placeholder="Enter the name of your hero" class="col-md-8 col-md-offset-2">
-  </div>
+<body>
 
-  <div class="row">
-    <input type="button" value="To battle!" id="createbtn" class="col-md-4 col-md-offset-4">
-  </div>
-</div>
+    <article id="game-container">
 
-<div id="roleselector">
-  <div class="row">
-    <div class="role col-md-3 col-md-offset-1" id="CEO">CEO</div>
-    <div class="role col-md-3 col-md-offset-1" id="Manager">Manager</div>
-    <div class="role col-md-3 col-md-offset-1" id="HR">HR</div>
-  </div>
-  <div class="row">
-    <div class="role col-md-3 col-md-offset-1" id="IT">IT</div>
-    <div class="role col-md-3 col-md-offset-1" id="Intern">Intern</div>
-    <div class="role col-md-3 col-md-offset-1" id="Sales">Sales</div>
-  </div>
-  <div class="row">
-    <div class="role col-md-3 col-md-offset-1" id="Warehouse">Warehouse</div>
-    <div class="role col-md-3 col-md-offset-1" id="Secretary">Secretary</div>
-    <div class="role col-md-3 col-md-offset-1" id="Janitor">Janitor</div>
-  </div>
-</div>
-<div id="weaponsandspells">
-  <div id="weaponselector">
-  <div class="row">
-    <div class="weapon col-md-2 col-md-offset-1" id="Tapegun">Tape Gun</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Paperweight">Paper Weight</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Febreezegrenade">Febreeze Grenade</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Coffeepot">Coffee Pot</div>
-  </div>
-  <div class="row">
-    <div class="weapon col-md-2 col-md-offset-1" id="Printertoner">Printer Toner</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Stapler">Stapler</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Mouse">Mouse</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Keyboard">Keyboard</div>
-  </div>
-  <div class="row">
-    <div class="weapon col-md-2 col-md-offset-1" id="Rubberband">Rubber Band</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Faxmachine">Fax Machine</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Shredder">Paper Shredder</div>
-    <div class="weapon col-md-2 col-md-offset-1" id="Laserpointer">Laser Pointer</div>
-  </div>
+    <section id="player-setup" class="card card--name">
+      <div class="card__prompt">
+        <div>RECORD YOUR NAME, ADVENTURER</div>
+        <div class="field">
+          <input type="text" autofocus="true" id="player-name" class="field__textinput">
+        </div>
+      </div>
 
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange" 
+           href="#" 
+           next="card--class">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">Select your Sad Job Title</span>
+        </a>
+      </div>
+    </section>
 
-  </div>
-  <div id="spellselector">
-    <div class="row">
-      <div class="spell col-md-2 col-md-offset-1" id="Thermostat"> Thermostat </div>
-      <div class="spell col-md-2 col-md-offset-1" id="Tuna"> Microwave Tuna</div>
-      <div class="spell col-md-2 col-md-offset-1" id="Meeting"> Meeting </div>
-      <div class="spell col-md-2 col-md-offset-1" id="Bonus"> Bonus </div>
-    </div>
-  </div>
-</div>
+    <section id="class-select" class="card card--class">
+      <div class="card__prompt">
+        <div>CHOOSE YOUR PATH</div>
+        <div>
+          <a class="card__back btn btn--small" 
+             href="#"
+             previous="card--name">
+            <span class="btn__prompt">&lt;</span>
+            <span class="btn__text">Back</span>
+          </a>          
+        </div>
+      </div>
 
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">CEO</span>
+              </a>
+            </div>      
+            
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Manager</span>
+              </a>
+            </div>      
+            
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">HR</span>
+              </a>
+            </div>      
+            
+          </div>
+
+          <div class="col-sm-4">
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">IT</span>
+              </a>
+            </div>
+
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Secretary</span>
+              </a>
+            </div>
+            
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Warehouse</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Janitor</span>
+              </a>
+            </div>
+
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Sales</span>
+              </a>
+            </div>
+            
+            <div class="card__button">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Intern</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange" 
+           href="#" 
+           next="card--weapon">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">Arm Yourself!</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="weapon-select" class="card card--weapon">
+      <div class="card__prompt">
+        <div>choose your weapons</div>
+        <div>
+          <a class="card__back btn btn--small" 
+             href="#"
+             previous="card--class">
+            <span class="btn__prompt">&lt;</span>
+            <span class="btn__text">Back</span>
+          </a>          
+        </div>
+        <div class="row">
+          <div>
+            One-Handed Weaponry
+          </div>
+        </div>
+      </div>
+      <div>
+          <div class="row">
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Tape Gun</span>
+              </a>
+            </div>
+
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Paper Weight</span>
+              </a>
+            </div>
+            
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Febreze</span>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Coffee Pot</span>
+              </a>
+            </div>
+
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Laser Pointer</span>
+              </a>
+            </div>
+            
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Stapler</span>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Mouse</span>
+              </a>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="card__prompt">
+              Two-Handed Weaponry
+            </div>
+          </div>
+          <div class="row">
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Keyboard</span>
+              </a>
+            </div>
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Rubberband</span>
+              </a>
+            </div>
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Fax Machine</span>
+              </a>
+            </div>
+
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Shredder</span>
+              </a>
+            </div>
+            
+            <div class="card__button col-md-4">
+              <a class="class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Printer Toner</span>
+              </a>
+            </div>
+          </div>
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange" 
+           href="#" 
+           next="card--spells">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">Select additional power</span>
+        </a>
+      </div>
+    </section>
+    <section id="spell-select" class="card card--spells">
+      <div class="card__prompt">
+        <div>choose your power</div>
+        <div>
+          <a class="card__back btn btn--small" 
+             href="#"
+             previous="card--weapon">
+            <span class="btn__prompt">&lt;</span>
+            <span class="btn__text">Back</span>
+          </a>          
+        </div>
+      </div>
+       <div class="row">
+            <div class="card__button col-md-3">
+              <a class="class__link btn  btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Thermostat</span>
+              </a>
+            </div>
+
+            <div class="card__button col-md-3">
+              <a class="class__link btn  btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Microwave Tuna</span>
+              </a>
+            </div>
+            
+            <div class="card__button col-md-3">
+              <a class="class__link btn  btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Meeting</span>
+              </a>
+            </div>
+
+            <div class="card__button col-md-3">
+              <a class="class__link btn  btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Bonus</span>
+              </a>
+            </div>
+          </div>
+
+      <div class="row">
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange" 
+           href="#" 
+           next="card--battleground">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">defeat your enemies</span>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="battleground" class="card card--battleground">
+      
+    </section>
+
+  </article>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="dist/bundle.js"></script>
 
 </body>

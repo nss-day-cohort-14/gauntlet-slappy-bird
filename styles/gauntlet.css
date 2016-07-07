@@ -1,8 +1,9 @@
 body {
-  font-family: "Lato", "Helvetica", "sans-serif";
+  font-family: "Special Elite", "Helvetica", "sans-serif";
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background: 
 }
 
 .field {
@@ -58,15 +59,15 @@ body {
 }
 
 .btn--orange {
-  border-color: #FF4136;
+  border-color: #82735C;
   color: white;
-  background-color: #FF4136;
+  background-color: #A19A9B;
 }
 
 .btn--blue {
-  border-color: #0074D9;
+  border-color: #7B756A;
   color: white;
-  background-color: #0074D9;
+  background-color: #9B9182;
 }
 
 .btn--yellow {
