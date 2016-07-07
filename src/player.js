@@ -3,14 +3,35 @@
 const Weapons= require("./weapons");
 const Spells= require("./spells");
 const Roles= require("./classes");
+var player1 = new Roles.Intern();
+var allRoles = $(".role");
+
+allRoles.click(createClass);
+
+function createClass(){
+	var randomClass= Math.floor(Math.random()*(8)+1);
+	
+	player1= new Roles[this.id]();
+	player1.spell1 = new player1.spell1();
+	player1.energy=generateHp(player1);
+
+	player2 = new Roles[Object.keys(Roles)[randomClass]];
+	
+	player2.spell1= new player2.spell1();
+	player2.generateHp= generateHp(player2);
+	console.log(player1,player2);
+	
+}
+
+
+
+
 
 //////////////////////////// PLAYER 1
-var player1 = new Roles.IT();
 player1.weapon = new Weapons.Stapler();
 player1.spell1= new player1.spell1();
 player1.spell2= new Spells.Thermostat();
-console.log("player1",player1.name);
-console.log("player1",player1.weapon);
+
 
 
 function generateHp(player){
@@ -24,7 +45,8 @@ player1.energy =  generateHp(player1);
 var player2 = new Roles.Warehouse();
 player2.energy = generateHp(player2);
 player2.weapon = new Weapons.Shredder();
-
-
-
 module.exports = {player1, player2};
+
+
+
+
