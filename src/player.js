@@ -5,9 +5,10 @@ const Spells= require("./spells");
 const Roles= require("./classes");
 
 //////////////////////////// PLAYER 1
-var player1 = new Roles.Secretary();
+var player1 = new Roles.IT();
 player1.weapon = new Weapons.Stapler();
-player1.spell2 = new Spells.Bonus();
+player1.spell1= new player1.spell1();
+player1.spell2= new Spells.Thermostat();
 console.log("player1",player1.name);
 console.log("player1",player1.weapon);
 
