@@ -21,7 +21,15 @@ body {
 }
 
 .gradient2 {
-  background: linear-gradient(#A19A9B, #9B9182, black);
+  background: linear-gradient(#9B9182, #A19A9B, #7B756A);
+}
+
+.gradient3 {
+  background: linear-gradient(#A19A9B, #82735C, black);
+}
+
+.gradient4 {
+  background: linear-gradient(#7B756A, #A19A9B, black);
 }
 
 /*
