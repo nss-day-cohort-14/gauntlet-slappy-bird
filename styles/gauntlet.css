@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato", "Helvetica", "sans-serif";
+  font-family: "Special Elite", "Helvetica", "sans-serif";
   margin: 0;
   padding: 10px;
   font-size: 3em;
@@ -16,7 +16,21 @@ body {
   min-width: 500px;
 }
 
+.gradient {
+  background: linear-gradient(#A19A9B, #7B756A, black);
+}
 
+.gradient2 {
+  background: linear-gradient(#9B9182, #A19A9B, #7B756A);
+}
+
+.gradient3 {
+  background: linear-gradient(#A19A9B, #82735C, black);
+}
+
+.gradient4 {
+  background: linear-gradient(#7B756A, #A19A9B, black);
+}
 
 /*
   Section styles
@@ -58,15 +72,15 @@ body {
 }
 
 .btn--orange {
-  border-color: #FF4136;
+  border-color: #82735C;
   color: white;
-  background-color: #FF4136;
+  background-color: #A19A9B;
 }
 
 .btn--blue {
-  border-color: #0074D9;
+  border-color: #7B756A;
   color: white;
-  background-color: #0074D9;
+  background-color: #9B9182;
 }
 
 .btn--yellow {

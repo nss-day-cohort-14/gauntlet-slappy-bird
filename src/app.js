@@ -4,3 +4,43 @@ const Spells= require("./spells");
 const Roles= require("./classes");
 const Players= require("./player");
 const Calculations = require("./calculations");
+
+console.log("roles", Roles);
+
+$(document).ready(function() {
+
+  $("#player-setup").show();
+
+  $(".card__link").click(function(e) {
+    var nextCard = $(this).attr("next");
+    var moveAlong = false;
+
+    switch (nextCard) {
+      case "card--class":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+      case "card--weapon":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+      case "card--spells":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+      case "card--battleground":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+    }
+
+    if (moveAlong) {
+      $(".card").hide();
+      $("." + nextCard).show();
+    }
+  });
+
+
+  $(".card__back").click(function(e) {
+    var previousCard = $(this).attr("previous");
+    $(".card").hide();
+    $("." + previousCard).show();
+  });
+
+});
