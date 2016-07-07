@@ -3,6 +3,7 @@
 
 var players = require("./player");
 console.log(players.player1);
+console.log(players.player1.spell2)
 // console.log("",players.player1 );
 
 function checkAccuracy(){
