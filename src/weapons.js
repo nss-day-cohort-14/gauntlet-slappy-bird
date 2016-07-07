@@ -35,7 +35,7 @@ weaponList.Mouse.prototype = new weaponList.Weapon();
 weaponList.Stapler=function(){
   this.name="Stapler";
   this.power=10;
-  this.accuracy=50;
+  this.accuracy=100;
 };
 weaponList.Stapler.prototype = new weaponList.Weapon();
 // console.log("weaponList.Stapler",weaponList.Stapler);
