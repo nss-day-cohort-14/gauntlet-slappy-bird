@@ -37,7 +37,6 @@ spellList.Severance.prototype = new spellList.Spell();
 
 spellList.BubbleWrap = function(){
 	this.name="Bubble Wrap";
-	
 	this.energyPercRestored = 25;
 };
 
