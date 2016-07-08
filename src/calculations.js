@@ -84,9 +84,10 @@ attack1.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
-      speechSynthesis.speak(msg);
+      speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");}
+	} else {console.log("You Win!");
+  speechSynthesis.speak(msgYay);}
 });
 
 spellBtn1.click(function(){
@@ -100,9 +101,10 @@ spellBtn1.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
-      speechSynthesis.speak(msg);
+      speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");}
+	} else {console.log("You Win!");
+  speechSynthesis.speak(msgYay);}
 });
 
 spellBtn2.click(function(){
@@ -117,21 +119,37 @@ spellBtn2.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
-      speechSynthesis.speak(msg);
+      speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");}
+	} else {console.log("You Win!");
+  speechSynthesis.speak(msgYay);}
 });
 
-//////////////////// Nooooooooo ////////////////////
-var msg = new SpeechSynthesisUtterance();
+//////////////////// SPEACH ////////////////////
+//NOOOO
+var msgNo = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
 
-msg.voiceURI = 'native';
-msg.volume = 1; // 0 to  1
-msg.rate = .4; // 0.1 to 10
-msg.pitch = 2; //0 to 2
-msg.text = "NO";
-msg.lang = 'en-US';
+msgNo.voiceURI = 'native';
+msgNo.volume = 1; // 0 to  1
+msgNo.rate = .4; // 0.1 to 10
+msgNo.pitch = 2; //0 to 2
+msgNo.text = "NO";
+msgNo.lang = 'en-US';
+// speechSynthesis.speak(msgNo);
 
-// speechSynthesis.speak(msg);
-//////////////////// Nooooooooo ////////////////////
+
+//YAAAAY
+var msgYay = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+
+msgYay.voiceURI = 'native';
+msgYay.volume = 1; // 0 to  1
+msgYay.rate = .4; // 0.1 to 10
+msgYay.pitch = 2; //0 to 2
+msgYay.text = "Yes";
+msgYay.lang = 'en-US';
+
+
+// speechSynthesis.speak(msgYay);
+//////////////////// SPEACH ////////////////////
