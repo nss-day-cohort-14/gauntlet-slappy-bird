@@ -7,7 +7,7 @@ var p1Max = players.player1.energy;
 var p2Max = players.player2.energy;
 
 
-// console.log("",players.player1 );
+
 
 function checkAccuracy(){
   return Math.floor(Math.random() * (100) + 1);
@@ -82,18 +82,6 @@ function updateDOM(){
 
 };
  
-
-
-// while (players.player1.energy > 0 && players.player2.energy > 0){
-//   calculateWpnDmg(players.player1, players.player2);
-//   calculateWpnDmg(players.player2, players.player1);
-// }
-
-
-
-// calculateWpnDmg(players.player1, players.player2);
-
-
 
 // **************attack functions**************
 // 
