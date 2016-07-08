@@ -26,16 +26,30 @@ function createClass(){
 	var randomClass= Math.floor(Math.random()*(8)+1);
 	var player1img = $("#player1img");
 	var player2img = $("#player2img");
+  var playerName = $("#player-name");
 	
 	player1= new Roles[this.id]();
 	player1.spell1 = new player1.spell1();
 	player1.energy=generateHp(player1);
 	player1img.html(`<img src="${player1.src}">`);
+  player1img.append(`<div class="energy">Energy: ${player1.energy}</div>`);
+  player1img.append(`<div class="experience">Experience: ${player1.experience}</div>`);
+  player1img.append(`<div class="skill">Skill: ${player1.skill}</div>`);
+  player1img.append(`<div class="role">Role: ${player1.name}</div>`);
+ 
+  player1.name = playerName[0].value;
+
+
+
 
 	player2 = new Roles[Object.keys(Roles)[randomClass]]();
 	player2.spell1= new player2.spell1();
 	player2.energy= generateHp(player2);
 	player2img.html(`<img src="${player2.src}">`);
+  player2img.append(`<div class="energy">Energy: ${player2.energy}</div>`);
+  player2img.append(`<div class="experience">Experience: ${player2.experience}</div>`);
+  player2img.append(`<div class="skill">Skill: ${player2.skill}</div>`);
+  player2img.append(`<div class="role">Role: ${player2.name}</div>`);
 	
 
 }

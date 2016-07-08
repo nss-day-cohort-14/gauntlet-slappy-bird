@@ -2,7 +2,8 @@
 //all damage will be calculated here
 
 var players = require("./player");
-console.log(players.player1);
+var battleText =$("#battleText");
+
 
 // console.log("",players.player1 );
 
@@ -11,21 +12,20 @@ function checkAccuracy(){
 }
 
 function calculateWpnDmg (attacker, defender){
+
   var randomNum = checkAccuracy();  //checks whether or not you will hit or not
   if (randomNum < attacker.weapon.accuracy){
     var randomPower = Math.floor(Math.random() * ((1.5 * attacker.weapon.power) - attacker.weapon.power) + attacker.weapon.power);  //Randomize weapon damage
     var finalDmg = Math.floor((attacker.skill / 100) * randomPower);  // Player Skill Damage multiplier
     defender.energy -= finalDmg;
 
-    console.log("Hit!", randomNum);    
-    console.log("Weapon Power", attacker.weapon.power);
-    console.log("Random Power", randomPower);
-    console.log("finalDmg is", finalDmg);
-    console.log(`${defender.name}`, "HP is currently", defender.energy);
+    battleText.html(`${attacker.name} hit ${defender.name} for ${finalDmg} damage`);
+
 
   } else {
-    console.log(`${attacker.name}`, "Missed", randomNum);
+    battleText.html(`${attacker.name} Missed`);
   }
+  updateDOM();
 }
 
 function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
@@ -49,10 +49,24 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 	playerDefending.skill-= Math.floor(((spellUsed.skillReduction/100)*playerDefending.skill)*experience);
 	playerDefending.experience-= Math.floor(((spellUsed.experienceReduction/100)*playerDefending.experience)*experience);
 
-	console.log("spell", spellUsed.name, playerUsing.name, playerUsing.energy, playerDefending.name, playerDefending.energy);
+	battleText.html(`${playerUsing.name} used ${spellUsed.name}`);
+	updateDOM();
 }
 
+function updateDOM(){
+	var player1img = $("#player1img");
+	var player2img = $("#player2img");
 
+	player1img.find(".energy").html(`Energy: ${Math.floor(players.player1.energy)}`);
+	player1img.find(".experience").html(`Experience: ${players.player1.experience}`);
+	player1img.find(".skill").html(`Skill: ${players.player1.skill}`);
+
+	player2img.find(".energy").html(`Energy: ${Math.floor(players.player2.energy)}`);
+	player2img.find(".experience").html(`Experience: ${players.player2.experience}`);
+	player2img.find(".skill").html(`Skill: ${players.player2.skill}`);
+
+
+};
  
 
 
