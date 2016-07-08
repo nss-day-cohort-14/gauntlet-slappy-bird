@@ -31,7 +31,6 @@ $(document).ready(function() {
         break;
       case "card--battleground":
         moveAlong = ($("#player-name").val() !== "");
-       
         break;
     }
 
