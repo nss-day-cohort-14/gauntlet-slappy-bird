@@ -35,12 +35,36 @@ hr {
 
 .player1{
   float: left;
+  margin: 100px 5px 10px 30px;
 }
 .player2{
   float: right;
-  transform: scaleX(-1);
-  filter: FlipH;
+/*  transform: scaleX(-1);
+  filter: FlipH;*/
+  margin: 100px 30px 10px 5px;
 }
+
+
+/*
+https://github.com/daneden/animate.css 
+          for "ANIMATE.CSS" Animations and documentation!!!
+*/
+
+/**************** Needs to be added dynamically with each hit (TOGGLE?) to the player hit *****************/
+/*.animation-hit-target {
+  animation: animation 1000ms linear both;
+  max-width: 200px;
+  margin: 30px 150px;
+  border-radius: 30px;
+}
+
+@keyframes animation { 
+  0% {background-color: rgba(255, 0, 0, .5); 
+  }
+}*/
+/*********************************/
+
+
 
 .field {
   margin: 20px 0 0 0;
@@ -171,4 +195,9 @@ hr {
 
 p {
   margin: 15px 0 0 0 ;
+}
+
+/* pretty sure this isn't working? */
+.card__button col-md-3 {
+  clear: both;  
 }
