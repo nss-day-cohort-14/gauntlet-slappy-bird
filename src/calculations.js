@@ -101,10 +101,13 @@ attack1.click(function(){
 		
 	}, 2000);
 		if(players.player1.energy<=0){
+			battleText.html(`${players.player1.name} has joined the eternal unemployment line.`);
 			console.log("You Lose");
       speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");
+	} else {
+		battleText.html(`Oh yay. Your dreary existence continues. Yippee.`);
+		console.log("You Win!");
   speechSynthesis.speak(msgYay);}
 });
 
@@ -118,10 +121,13 @@ spellBtn1.click(function(){
 		
 	}, 2000);
 		if(players.player1.energy<=0){
+			battleText.html(`${players.player1.name} has performed way below expectations.`);
 			console.log("You Lose");
       speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");
+	} else {
+		battleText.html(`Congrats. Here is your printed certificate with your name misspelled.`);
+		console.log("You Win!");
   speechSynthesis.speak(msgYay);}
 });
 
@@ -136,10 +142,13 @@ spellBtn2.click(function(){
 		
 	}, 2000);
 		if(players.player1.energy<=0){
+			battleText.html(`${players.player1.name} was barely remembered in the company newsletter.`);
 			console.log("You Lose");
       speechSynthesis.speak(msgNo);
 		}
-	} else {console.log("You Win!");
+	} else {
+		battleText.html(`Well, I'll be. You actually don't suck at something.`);
+		console.log("You Win!");
   speechSynthesis.speak(msgYay);}
 });
 

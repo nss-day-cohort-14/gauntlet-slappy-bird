@@ -36,7 +36,7 @@ function createClass(){
   player1img.append(`<div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
   </div>
-</div>`)
+</div>`);
   player1img.append(`<div class="experience">Experience: ${player1.experience}</div>`);
   player1img.append(`<div class="skill">Skill: ${player1.skill}</div>`);
   player1img.append(`<div class="role">Role: ${player1.name}</div>`);
