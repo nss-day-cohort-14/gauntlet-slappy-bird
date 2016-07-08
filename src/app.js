@@ -20,7 +20,10 @@ $(document).ready(function() {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
         break;
-      case "card--weapon":
+      case "card--oneweapon":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+      case "card--twoweapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--spells":
