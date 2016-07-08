@@ -84,6 +84,7 @@ attack1.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
+      speechSynthesis.speak(msg);
 		}
 	} else {console.log("You Win!");}
 });
@@ -99,12 +100,13 @@ spellBtn1.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
+      speechSynthesis.speak(msg);
 		}
 	} else {console.log("You Win!");}
 });
 
 spellBtn2.click(function(){
-	console.log(players.player1.spell2)
+	console.log(players.player1.spell2);
 		calculateSpellDamage(players.player1, players.player2, players.player1.spell2);
 
 		
@@ -115,7 +117,21 @@ spellBtn2.click(function(){
 	}, 2000);
 		if(players.player1.energy<=0){
 			console.log("You Lose");
+      speechSynthesis.speak(msg);
 		}
 	} else {console.log("You Win!");}
 });
 
+//////////////////// Nooooooooo ////////////////////
+var msg = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+
+msg.voiceURI = 'native';
+msg.volume = 1; // 0 to  1
+msg.rate = .4; // 0.1 to 10
+msg.pitch = 2; //0 to 2
+msg.text = "NO";
+msg.lang = 'en-US';
+
+// speechSynthesis.speak(msg);
+//////////////////// Nooooooooo ////////////////////
