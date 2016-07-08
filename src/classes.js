@@ -15,11 +15,12 @@ roleList.Employee=function(){
 roleList.Intern=function(){
   this.name= "Intern";
   this.spell1= spells.Coffee;
+  this.src= "img/intern.png";
 
 };
 
-
 roleList.Intern.prototype = new roleList.Employee();
+
 
 roleList.IT=function(){
   this.name="IT";
@@ -27,6 +28,7 @@ roleList.IT=function(){
   this.experience=175;
   this.skill=50;
   this.spell1= spells.Virus;
+  this.src= "img/it.png";
 
 };
 
@@ -40,6 +42,7 @@ roleList.Sales=function(){
   this.experience=75;
   this.skill=75;
   this.spell1= spells.Spam_Email;
+  this.src = "img/sales.png";
 
 };
 
@@ -53,6 +56,7 @@ roleList.HR=function(){
   this.experience=125;
   this.skill=100;
   this.spell1= spells.Team_Building_Exercise;
+  this.src= "img/hr.png";
 
 };
 
@@ -66,6 +70,7 @@ roleList.Warehouse=function(){
   this.experience=50;
   this.skill=175;
   this.spell1= spells.Bubblewrap;
+  this.src= "img/warehouse.png";
 
 };
 
@@ -79,6 +84,7 @@ roleList.Secretary=function(){
   this.experience=25;
   this.skill=25;
   this.spell1= spells.Intercom;
+  this.src= "img/secretary.png";
 
 };
 
@@ -92,6 +98,7 @@ roleList.Janitor=function(){
   this.experience=150;
   this.skill=10;
   this.spell1= spells.Wet_Floor;
+  this.src= "img/janitor.png";
 
 };
 
@@ -105,6 +112,7 @@ roleList.Manager=function(){
   this.experience=125;
   this.skill=125;
   this.spell1= spells.Severance;
+  this.src= "img/manager.png";
 
 };
 
@@ -117,6 +125,7 @@ roleList.CEO=function(){
   this.experience=150;
   this.skill=75;
   this.spell1= spells.Demotion;
+  this.src= "img/ceo.png";
 
 };
 
