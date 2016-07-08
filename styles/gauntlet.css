@@ -31,7 +31,7 @@ body {
 }
 
 .gradient2 {
-  background: linear-gradient(#9B9182, #A19A9B, #7B756A);
+  background: linear-gradient(#ffe191, #A19A9B, #7B756A);
 }
 
 .gradient3 {
@@ -80,6 +80,7 @@ body {
   font-weight: 600;
   padding: 10px 5px;
   min-width: 260px;
+  white-space: normal;
 }
 
 .btn--orange {
@@ -126,8 +127,9 @@ body {
 }
 
 .btn__text {
-  padding: 0 50px 0 20px;
+  padding: auto;
   border-radius: 0 5px 5px 0;
+  margin: 10px 0 0 0;
 }
 
 p {
