@@ -39,13 +39,6 @@
     <section id="class-select" class="card card--class">
       <div class="card__prompt">
         <div>CHOOSE YOUR ROLE</div>
-        <div>
-          <a class="card__back btn btn--small" 
-             href="#"
-             previous="card--name">
-            <span class="btn__text">Back</span>
-          </a>          
-        </div>
       </div>
       <div class="text">
       Choose your character. Each is pre-equipped with a special power that is really not all that exciting but might possibly save your life. 
@@ -114,18 +107,34 @@
           </div>
         </div>
       </div>
-
+     <div id="row">
       <div class="card__button">
         <a class="card__link btn btn--big btn--orange gradient" 
            href="#" 
-           next="card--weapon"
+           next="card--oneweapon"
            id="arm">
-          <span class="btn__text">Arm Yourself!</span>
+          <span class="btn__text">Pick two small weapons</span>
         </a>
       </div>
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange gradient" 
+           href="#" 
+           next="card--twoweapon"
+           id="arm">
+          <span class="btn__text">Or Pick one large weapon</span>
+        </a>
+      </div>
+        <div>
+          <a class="card__back btn btn--small" 
+             href="#"
+             previous="card--name">
+            <span class="btn__text">Back</span>
+          </a>          
+        </div>
+       </div> 
     </section>
 
-    <section id="weapon-select" class="card card--weapon">
+    <section id="weapon-select" class="card card--oneweapon">
       <div class="card__prompt">
         <div>choose your weapons</div>
         <div>
@@ -192,16 +201,40 @@
             </div>
           </div>
           </div>
-          <div class="row">
-            <div class="card__prompt">
-              Two-Handed Weaponry
-            </div>
+        <div class="card__button">
+        <a class="card__link btn btn--big btn--orange gradient2" 
+           href="#" 
+           next="card--spells"
+           id="power">
+          <span class="btn__text">Select additional power</span>
+        </a>
+      </div>
+    </section>
+    <section id="weapon-select2" class="card card--twoweapon">  
+      <div class="card__prompt">
+        <div>choose your weapons</div>
+        <div>
+          <a class="card__back btn btn--small" 
+             href="#"
+             previous="card--class">
+            <span class="btn__text">Back</span>
+          </a>          
+        </div>
+        </div>
+      <div class="text">
+      Your opponent is charging and these are the items within reach that you may use as a weapon. Choose wisely. Sorry, but no pens or scissors. Company banned them after that incident with Darcy from Accounting.
+      </div>
+        <div class="row">
+          <div class="card__prompt">
+            Two-Handed Weaponry
           </div>
+        </div>
+      </div>
           <div class="row">
             <div class="card__button col-md-4">
               <a class="weapon 2handed class__link btn btn--big btn--blue gradient3
               " id="Keyboard">
-                <span class="btn__text">Keyboard</span><span class="btn__text desctext"><p>"Autocorrect this, Jeremy!"</p></span>
+                <span class="btn__text">Keyboard</span><span class="btn__text desctext"><p>"Autocorrect THIS, Jeremy!"</p></span>
               </a>
             </div>
             <div class="card__button col-md-4">
@@ -246,7 +279,7 @@
         <div>
           <a class="card__back btn btn--small" 
              href="#"
-             previous="card--weapon">
+             previous="card--class">
             <span class="btn__text">Back</span>
           </a>          
         </div>
