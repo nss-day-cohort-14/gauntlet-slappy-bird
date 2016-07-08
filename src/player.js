@@ -49,7 +49,7 @@ function createClass(){
 	player2 = new Roles[Object.keys(Roles)[randomClass]]();
 	player2.spell1= new player2.spell1();
 	player2.energy= generateHp(player2);
-	player2img.html(`<img src="${player2.src}">`);
+	player2img.html(`<img src="${player2.src2}">`);
   player2img.append(`<div class="energy">Energy: ${player2.energy}</div>`);
   player2img.append(`<div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
