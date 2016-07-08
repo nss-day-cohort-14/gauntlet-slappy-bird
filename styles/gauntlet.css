@@ -35,7 +35,7 @@ hr {
 
 .player1{
   float: left;
-  margin: 100px 5px 10px 30px;
+  margin: 100px 15px 10px 30px;
 }
 .player2{
   float: right;
@@ -217,3 +217,15 @@ p {
 .card__button col-md-3 {
   clear: both;  
 }
+
+#battleText {
+  margin: auto;
+  padding: 25px;
+  text-align: center;
+}
+
+.final {
+  position: relative;
+  margin: 30px 0 0 30px;
+}
+

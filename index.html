@@ -329,13 +329,15 @@
 
 <!--~~~~~~~~~~~~~~~~~~ BATTLEGROUND/CHARACTERS ~~~~~~~~~~~~~~~~~~-->
     <section id="battleground" class="card card--battleground">
+    <div class="row">
+    <div id="battleText"></div>
+    </div>
     <div id="player1img" class="animated bounceInLeft player1 rubberBand"></div>
 
-    <div id="battleText"></div>
     <div id="player2img" class="animated bounceInRight player2"></div>
       <div id="player1attack">
           <div class="row">
-            <div class="card__button col-md-3">
+            <div class="card__button col-md-4 final">
               <a class="weapon1 class__link btn btn--big btn--blue gradient2"
               id="attack1">
                 <span class="btn__text">Weapons</span>
@@ -347,13 +349,13 @@
                 <span class="btn__text">Weapon 2</span>
               </a>
             </div>  -->
-            <div class="card__button col-md-3">
+            <div class="card__button col-md-4 final">
               <a class="class__link btn  btn--blue gradient4"
               id="spell1">
                 <span class="btn__text"></span>
               </a>
             </div>
-            <div class="card__button col-md-3">
+            <div class="card__button col-md-4 final">
               <a class="class__link btn  btn--blue gradient4"
               id="spell2">
                 <span class="btn__text"></span>
@@ -361,6 +363,13 @@
             </div>
         </div>
        </div> 
+       <div id="row">
+        <a class="card__back btn btn--md" 
+           href="#"
+           previous="card--name">
+          <span class="btn__text">Back to Start</span>
+        </a>          
+      </div> 
 
     </section>
 
