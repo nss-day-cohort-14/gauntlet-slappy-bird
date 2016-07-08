@@ -26,7 +26,7 @@ weaponList.FebrezeGrenade.prototype = new weaponList.Weapon();
 
 weaponList.Mouse=function(){
   this.name="Mouse";
-  this.power=6;
+  this.power=7;
   this.accuracy=95;
 };
 weaponList.Mouse.prototype = new weaponList.Weapon();
@@ -35,7 +35,7 @@ weaponList.Mouse.prototype = new weaponList.Weapon();
 weaponList.Stapler=function(){
   this.name="Stapler";
   this.power=10;
-  this.accuracy=100;
+  this.accuracy=85;
 };
 weaponList.Stapler.prototype = new weaponList.Weapon();
 // console.log("weaponList.Stapler",weaponList.Stapler);
@@ -43,7 +43,7 @@ weaponList.Stapler.prototype = new weaponList.Weapon();
 weaponList.CoffeePot=function(){
   this.name="Coffee Pot";
   this.power=12;
-  this.accuracy=45;
+  this.accuracy=80;
 };
 weaponList.CoffeePot.prototype = new weaponList.Weapon();
 // console.log("weaponList.CoffeePot",weaponList.CoffeePot);
@@ -51,7 +51,7 @@ weaponList.CoffeePot.prototype = new weaponList.Weapon();
 weaponList.PaperWeight=function(){
   this.name="Paper Weight";
   this.power=15;
-  this.accuracy=30;
+  this.accuracy=75;
 };
 weaponList.PaperWeight.prototype = new weaponList.Weapon();
 // console.log("weaponList.PaperWeight",weaponList.PaperWeight);
@@ -69,8 +69,8 @@ weaponList.TapeGun.prototype = new weaponList.Weapon();
 weaponList.RubberBand=function(){
   this.name="Rubber Band";
   this.handsUsed=2;
-  this.power=15;
-  this.accuracy=90;
+  this.power=25;
+  this.accuracy=65;
 };
 weaponList.RubberBand.prototype = new weaponList.Weapon();
 // console.log("weaponList.RubberBand",weaponList.RubberBand);
@@ -79,7 +79,7 @@ weaponList.PrinterToner=function(){
   this.name="Printer Toner";
   this.handsUsed=2;
   this.power=17;
-  this.accuracy=75;
+  this.accuracy=70;
 };
 weaponList.PrinterToner.prototype = new weaponList.Weapon();
 // console.log("weaponList.PrinterToner",weaponList.PrinterToner);
@@ -88,7 +88,7 @@ weaponList.Keyboard=function(){
   this.name="Keyboard";
   this.handsUsed=2;
   this.power=17;
-  this.accuracy=85;
+  this.accuracy=70;
 };
 weaponList.Keyboard.prototype = new weaponList.Weapon();
 // console.log("weaponList.Keyboard",weaponList.Keyboard);
@@ -96,8 +96,8 @@ weaponList.Keyboard.prototype = new weaponList.Weapon();
 weaponList.FaxMachine=function(){
   this.name="Fax Machine";
   this.handsUsed=2;
-  this.power=20;
-  this.accuracy=70;
+  this.power=28;
+  this.accuracy=60;
 };
 weaponList.FaxMachine.prototype = new weaponList.Weapon();
 // console.log("weaponList.FaxMachine",weaponList.FaxMachine);
@@ -105,8 +105,8 @@ weaponList.FaxMachine.prototype = new weaponList.Weapon();
 weaponList.Shredder=function(){
   this.name="Shredder";
   this.handsUsed=2;
-  this.power=25;
-  this.accuracy=60;
+  this.power=30;
+  this.accuracy=50;
 };
 weaponList.Shredder.prototype = new weaponList.Weapon();
 // console.log("weaponList.Shredder",weaponList.Shredder);
