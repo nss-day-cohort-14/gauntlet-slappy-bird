@@ -21,6 +21,11 @@ body {
   font-size: .75em;
   margin: 20px;
 }
+
+.desctext {
+  font-size: .5em;
+  margin: 10px;
+}
 .gradient {
   background: linear-gradient(#A19A9B, #7B756A, black);
 }
@@ -87,6 +92,7 @@ body {
   border-color: #7B756A;
   color: white;
   background-color: #9B9182;
+  width: 100%;
 }
 
 .btn--yellow {
@@ -122,4 +128,8 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+p {
+  margin: 15px 0 0 0 ;
 }
