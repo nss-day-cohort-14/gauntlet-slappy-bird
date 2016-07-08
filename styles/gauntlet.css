@@ -3,7 +3,11 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background: radial-gradient(rgba(220,220,220,0.9), rgba(220,220,220,.8), transparent) no-repeat center center fixed, url(../img/theOffice.jpg) no-repeat center center fixed;
+  background-size: cover;
+  
 }
+
 
 .field {
   margin: 20px 0 0 0;
