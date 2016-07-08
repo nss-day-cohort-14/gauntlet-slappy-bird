@@ -72,6 +72,13 @@ function updateDOM(){
   player2img.find(".progress").find(".progress-bar").prop("style",`width:${(players.player2.energy/p2Max)*100}%`);
   player2img.removeClass("bounceInRight")
   player2img.toggleClass("rubberBand");
+  	if(players.player1.energy<=0){
+		battleText.html(`${players.player1.name} has joined the eternal unemployment line.`);
+      speechSynthesis.speak(msgNo);
+	} else if (players.player2.energy<=0){
+		battleText.html(`Oh yay. Your dreary existence continues. Yippee.`);
+  		speechSynthesis.speak(msgYay);
+  	} else {}
 
 };
  
@@ -102,16 +109,8 @@ attack1.click(function(){
 	setTimeout(function(){
 		calculateWpnDmg(players.player2, players.player1);
 		
-	}, 2000);
-		if(players.player1.energy<=0){
-			battleText.html(`${players.player1.name} has joined the eternal unemployment line.`);
-			console.log("You Lose");
-      speechSynthesis.speak(msgNo);
-		}
-	} else {
-		battleText.html(`Oh yay. Your dreary existence continues. Yippee.`);
-		console.log("You Win!");
-  speechSynthesis.speak(msgYay);}
+	}, 1000);
+};
 });
 
 spellBtn1.click(function(){
@@ -122,16 +121,8 @@ spellBtn1.click(function(){
 	setTimeout(function(){
 		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
 		
-	}, 2000);
-		if(players.player1.energy<=0){
-			battleText.html(`${players.player1.name} has performed way below expectations.`);
-			console.log("You Lose");
-      speechSynthesis.speak(msgNo);
-		}
-	} else {
-		battleText.html(`Congrats. Here is your printed certificate with your name misspelled.`);
-		console.log("You Win!");
-  speechSynthesis.speak(msgYay);}
+	}, 1000);
+}
 });
 
 spellBtn2.click(function(){
@@ -143,16 +134,8 @@ spellBtn2.click(function(){
 	setTimeout(function(){
 		calculateSpellDamage(players.player2, players.player1, players.player2.spell2);
 		
-	}, 2000);
-		if(players.player1.energy<=0){
-			battleText.html(`${players.player1.name} was barely remembered in the company newsletter.`);
-			console.log("You Lose");
-      speechSynthesis.speak(msgNo);
-		}
-	} else {
-		battleText.html(`Well, I'll be. You actually don't suck at something.`);
-		console.log("You Win!");
-  speechSynthesis.speak(msgYay);}
+	}, 1000);
+}
 });
 
 //////////////////// SPEACH ////////////////////
