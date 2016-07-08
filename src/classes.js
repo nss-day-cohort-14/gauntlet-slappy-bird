@@ -16,6 +16,7 @@ roleList.Intern=function(){
   this.name= "Intern";
   this.spell1= spells.Coffee;
   this.src= "img/intern.png";
+  this.src2= "img/intern2.png";
 
 };
 
@@ -29,6 +30,7 @@ roleList.IT=function(){
   this.skill=50;
   this.spell1= spells.Virus;
   this.src= "img/it.png";
+  this.src2= "img/it2.png";
 
 };
 
@@ -43,6 +45,7 @@ roleList.Sales=function(){
   this.skill=75;
   this.spell1= spells.Spam_Email;
   this.src = "img/sales.png";
+  this.src2 = "img/sales2.png";
 
 };
 
@@ -57,6 +60,7 @@ roleList.HR=function(){
   this.skill=100;
   this.spell1= spells.Team_Building_Exercise;
   this.src= "img/hr.png";
+  this.src2= "img/hr2.png";
 
 };
 
@@ -71,6 +75,7 @@ roleList.Warehouse=function(){
   this.skill=175;
   this.spell1= spells.BubbleWrap;
   this.src= "img/warehouse.png";
+  this.src2= "img/warehouse2.png";
   
 };
 
@@ -85,6 +90,7 @@ roleList.Secretary=function(){
   this.skill=25;
   this.spell1= spells.Intercom;
   this.src= "img/secretary.png";
+  this.src2= "img/secretary2.png";
 
 };
 
@@ -99,6 +105,7 @@ roleList.Janitor=function(){
   this.skill=10;
   this.spell1= spells.Wet_Floor;
   this.src= "img/janitor.png";
+  this.src2= "img/janitor2.png";
 
 };
 
@@ -113,6 +120,7 @@ roleList.Manager=function(){
   this.skill=125;
   this.spell1= spells.Severance;
   this.src= "img/manager.png";
+  this.src2= "img/manager2.png";
 
 };
 
@@ -126,6 +134,7 @@ roleList.CEO=function(){
   this.skill=75;
   this.spell1= spells.Demotion;
   this.src= "img/ceo.png";
+  this.src2= "img/ceo2.png";
 
 };
 
