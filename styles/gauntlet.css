@@ -124,9 +124,7 @@ https://github.com/daneden/animate.css
   text-align: center;
 }
 
-.card__back {
-  
-}
+
 
 
 /*
@@ -148,6 +146,19 @@ https://github.com/daneden/animate.css
   white-space: normal;
 }
 
+.left {
+  float: left;
+  margin: 0 0 0 75px;
+}
+
+.right {
+  float: right;
+  margin: 0 75px 0 0;
+}
+.card__back {
+  float: left;
+  margin: 75px 25px 25px 25px;
+}
 .btn--orange {
   border-color: #82735C;
   color: white;
