@@ -49,7 +49,7 @@ function calculateSpellDamage(playerUsing,playerDefending,spellUsed){
 	playerDefending.skill-= Math.floor(((spellUsed.skillReduction/100)*playerDefending.skill)*experience);
 	playerDefending.experience-= Math.floor(((spellUsed.experienceReduction/100)*playerDefending.experience)*experience);
 
-	console.log("spell", playerUsing.name, playerUsing.energy, playerDefending.name, playerDefending.energy);
+	console.log("spell", spellUsed.name, playerUsing.name, playerUsing.energy, playerDefending.name, playerDefending.energy);
 }
 
 
@@ -110,7 +110,7 @@ spellBtn2.click(function(){
 		
 		if(players.player2.energy>=0){
 	setTimeout(function(){
-		calculateSpellDamage(players.player2, players.player1, players.player2.spell1);
+		calculateSpellDamage(players.player2, players.player1, players.player2.spell2);
 		
 	}, 2000);
 		if(players.player1.energy<=0){
