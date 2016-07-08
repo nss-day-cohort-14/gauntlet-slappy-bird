@@ -33,6 +33,10 @@ function createClass(){
 	player1.energy=generateHp(player1);
 	player1img.html(`<img src="${player1.src}">`);
   player1img.append(`<div class="energy">Energy: ${player1.energy}</div>`);
+  player1img.append(`<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+  </div>
+</div>`)
   player1img.append(`<div class="experience">Experience: ${player1.experience}</div>`);
   player1img.append(`<div class="skill">Skill: ${player1.skill}</div>`);
   player1img.append(`<div class="role">Role: ${player1.name}</div>`);
@@ -47,6 +51,10 @@ function createClass(){
 	player2.energy= generateHp(player2);
 	player2img.html(`<img src="${player2.src}">`);
   player2img.append(`<div class="energy">Energy: ${player2.energy}</div>`);
+  player2img.append(`<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+  </div>
+</div>`)
   player2img.append(`<div class="experience">Experience: ${player2.experience}</div>`);
   player2img.append(`<div class="skill">Skill: ${player2.skill}</div>`);
   player2img.append(`<div class="role">Role: ${player2.name}</div>`);
