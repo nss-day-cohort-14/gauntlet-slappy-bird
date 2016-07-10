@@ -36,14 +36,11 @@ function createClass(){
   player1img.append(`<div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
   </div>
-</div>`);
+  </div>`);
   player1img.append(`<div class="experience">Experience: ${player1.experience}</div>`);
   player1img.append(`<div class="skill">Skill: ${player1.skill}</div>`);
   player1img.append(`<div class="role">Role: ${player1.name}</div>`);
- 
   player1.name = playerName[0].value;
-
-
 
 
 	player2 = new Roles[Object.keys(Roles)[randomClass]]();
@@ -54,12 +51,10 @@ function createClass(){
   player2img.append(`<div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
   </div>
-</div>`);
+  </div>`);
   player2img.append(`<div class="experience">Experience: ${player2.experience}</div>`);
   player2img.append(`<div class="skill">Skill: ${player2.skill}</div>`);
   player2img.append(`<div class="role">Role: ${player2.name}</div>`);
-	
-
 }
 
 function createSpell(){
@@ -67,24 +62,20 @@ function createSpell(){
   var randomSpell = Math.floor(Math.random()*(3)+1);
   console.log(this.id);
   player1.spell2 = new Spells[this.id]();
-        var magic1 = $("#spell1");
-        var magic2 = $("#spell2");
-        magic1[0].innerText=player1.spell1.name;
-        magic2[0].innerText=player1.spell2.name;
+  var magic1 = $("#spell1");
+  var magic2 = $("#spell2");
+  magic1[0].innerText=player1.spell1.name;
+  magic2[0].innerText=player1.spell2.name;
   console.log(player1.spell1);
   console.log(player1.spell2);
 
-
-
   player2.spell2 = new Spells[spellArray[randomSpell]]();
-
 }
 
 
 function startCalc(){
 	module.exports={player1,player2};
 	var calculations=require("./calculations");
-
 }
 
 
@@ -100,5 +91,4 @@ function equipPlayer(){
   console.log("weapon", player1.weapon);
   console.log("enemy", player2.weapon);
 }
-
 

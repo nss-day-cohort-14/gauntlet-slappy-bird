@@ -5,9 +5,6 @@ const Roles= require("./classes");
 const Players= require("./player");
 
 
-
-
-
 $(document).ready(function() {
 
   $("#player-setup").show();
@@ -40,11 +37,10 @@ $(document).ready(function() {
     }
   });
 
-
   $(".card__back").click(function(e) {
     var previousCard = $(this).attr("previous");
     $(".card").hide();
     $("." + previousCard).show();
   });
-
 });
+

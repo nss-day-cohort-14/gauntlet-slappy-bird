@@ -1,3 +1,6 @@
+/* https://github.com/daneden/animate.css 
+for "ANIMATE.CSS" Animations and documentation */
+
 body {
   font-family: "Special Elite", "Helvetica", "sans-serif";
   margin: 0;
@@ -5,9 +8,7 @@ body {
   font-size: 3em;
   background: radial-gradient(rgba(220,220,220,0.9), rgba(220,220,220,.8), transparent) no-repeat center center fixed, url(../img/theOffice.jpg) no-repeat center center fixed;
   background-size: cover;
-  
 }
-
 h1 {
   color: white;
   text-align: center;
@@ -25,13 +26,11 @@ h1 {
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
 }
-
 hr {
     border: 0;
     height: 5px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
-
 
 .player1{
   float: left;
@@ -39,51 +38,21 @@ hr {
 }
 .player2{
   float: right;
-/*  transform: scaleX(-1);
-  filter: FlipH;*/
   margin: 100px 30px 10px 5px;
 }
-
-
-
-/*
-https://github.com/daneden/animate.css 
-          for "ANIMATE.CSS" Animations and documentation!!!
-*/
-
-/**************** Needs to be added dynamically with each hit (TOGGLE?) to the player hit *****************/
-/*.animation-hit-target {
-  animation: animation 1000ms linear both;
-  max-width: 200px;
-  margin: 30px 150px;
-  border-radius: 30px;
-}
-
-@keyframes animation { 
-  0% {background-color: rgba(255, 0, 0, .5); 
-  }
-}*/
-/*********************************/
-
-
-
 .field {
   margin: 20px 0 0 0;
 }
-
-
 .field__textinput {
   font-size: 1em;
   padding: 15px 0;
   text-align: center;
   min-width: 500px;
 }
-
 .text {
   font-size: .75em;
   margin: 20px;
 }
-
 .desctext {
   font-size: .5em;
   margin: 10px;
@@ -91,26 +60,21 @@ https://github.com/daneden/animate.css
 .gradient {
   background: linear-gradient(#A19A9B, #7B756A, black);
 }
-
 .gradient2 {
   background: linear-gradient(#ffe191, #A19A9B, #7B756A);
 }
-
 .gradient3 {
   background: linear-gradient(#A19A9B, #82735C, #7B756A);
 }
-
 .gradient4 {
   background: linear-gradient(#7B756A, #A19A9B, black);
 }
 
-/*
-  Section styles
- */
+
+/* Section styles */
 .card { 
   display: none;
 }
-
 .card__prompt {
   font-size: 1.1em;
   font-weight: bold;
@@ -118,7 +82,6 @@ https://github.com/daneden/animate.css
   text-transform: uppercase;
   margin: 20px;
 }
-
 .card__button {
   font-size: 1.1em;
   margin: 30px 0 0 0;
@@ -126,12 +89,7 @@ https://github.com/daneden/animate.css
 }
 
 
-
-
-/*
-  Button styles
- */
-
+/*  Button styles */
 .btn {
   text-decoration: none;
   background-color: white;
@@ -146,12 +104,10 @@ https://github.com/daneden/animate.css
   min-width: 260px;
   white-space: normal;
 }
-
 .left {
   float: left;
   margin: 0 0 0 75px;
 }
-
 .right {
   float: right;
   margin: 0 75px 0px 0;
@@ -165,30 +121,25 @@ https://github.com/daneden/animate.css
   color: white;
   background-color: #A19A9B;
 }
-
 .btn--blue {
   border-color: #7B756A;
   color: white;
   background-color: #9B9182;
   width: 100%;
 }
-
 .btn--yellow {
   border-color: #E4BD00;
   color: white;
   background-color: #F3C500;
 }
-
 .btn--big {
   font-size: 28px;
   padding: 10px;
   font-weight: 400;
 }
-
 .btn--small {
   min-width: 50px;
 }
-
 .btn__prompt {
   background-color: white;
   color: #fff;
@@ -202,28 +153,22 @@ https://github.com/daneden/animate.css
   left: 37px;
   float: left;
 }
-
 .btn__text {
   padding: auto;
   border-radius: 0 5px 5px 0;
   margin: 10px 0 0 0;
 }
-
 p {
   margin: 15px 0 0 0 ;
 }
-
-/* pretty sure this isn't working? */
 .card__button col-md-3 {
   clear: both;  
 }
-
 #battleText {
   margin: auto;
   padding: 25px;
   text-align: center;
 }
-
 .final {
   position: relative;
   margin: 30px 0 0 30px;
