@@ -1,4 +1,4 @@
- "use strict";
+"use strict";
 var weaponList={};
 
 weaponList.Weapon=function(){     //our main constructor function (top of the chain)
@@ -14,7 +14,6 @@ weaponList.LaserPointer=function(){
   this.accuracy=100;
 };
 weaponList.LaserPointer.prototype = new weaponList.Weapon();
-// console.log("weaponList.LaserPointer",weaponList.LaserPointer);
 
 weaponList.FebrezeGrenade=function(){
   this.name="Febreze Grenade";
@@ -22,7 +21,6 @@ weaponList.FebrezeGrenade=function(){
   this.accuracy=100;
 };
 weaponList.FebrezeGrenade.prototype = new weaponList.Weapon();
-// console.log("weaponList.FebrezeGrenade",weaponList.FebrezeGrenade);
 
 weaponList.Mouse=function(){
   this.name="Mouse";
@@ -30,7 +28,6 @@ weaponList.Mouse=function(){
   this.accuracy=95;
 };
 weaponList.Mouse.prototype = new weaponList.Weapon();
-// console.log("weaponList.Mouse",weaponList.Mouse);
 
 weaponList.Stapler=function(){
   this.name="Stapler";
@@ -38,7 +35,6 @@ weaponList.Stapler=function(){
   this.accuracy=85;
 };
 weaponList.Stapler.prototype = new weaponList.Weapon();
-// console.log("weaponList.Stapler",weaponList.Stapler);
 
 weaponList.CoffeePot=function(){
   this.name="Coffee Pot";
@@ -46,7 +42,6 @@ weaponList.CoffeePot=function(){
   this.accuracy=80;
 };
 weaponList.CoffeePot.prototype = new weaponList.Weapon();
-// console.log("weaponList.CoffeePot",weaponList.CoffeePot);
 
 weaponList.PaperWeight=function(){
   this.name="Paper Weight";
@@ -54,7 +49,6 @@ weaponList.PaperWeight=function(){
   this.accuracy=75;
 };
 weaponList.PaperWeight.prototype = new weaponList.Weapon();
-// console.log("weaponList.PaperWeight",weaponList.PaperWeight);
 
 weaponList.TapeGun=function(){
   this.name="Tape Gun";
@@ -62,7 +56,6 @@ weaponList.TapeGun=function(){
   this.accuracy= Math.floor(Math.random() * 100);       //our accuracy range from 1-100
 };
 weaponList.TapeGun.prototype = new weaponList.Weapon();
-// console.log("weaponList.TapeGun",weaponList.TapeGun);
 
 
 /////////////////////////////// TWO HANDED WEAPONS ///////////////////////////////
@@ -73,7 +66,6 @@ weaponList.RubberBand=function(){
   this.accuracy=65;
 };
 weaponList.RubberBand.prototype = new weaponList.Weapon();
-// console.log("weaponList.RubberBand",weaponList.RubberBand);
 
 weaponList.PrinterToner=function(){
   this.name="Printer Toner";
@@ -82,7 +74,6 @@ weaponList.PrinterToner=function(){
   this.accuracy=70;
 };
 weaponList.PrinterToner.prototype = new weaponList.Weapon();
-// console.log("weaponList.PrinterToner",weaponList.PrinterToner);
 
 weaponList.Keyboard=function(){
   this.name="Keyboard";
@@ -91,7 +82,6 @@ weaponList.Keyboard=function(){
   this.accuracy=70;
 };
 weaponList.Keyboard.prototype = new weaponList.Weapon();
-// console.log("weaponList.Keyboard",weaponList.Keyboard);
 
 weaponList.FaxMachine=function(){
   this.name="Fax Machine";
@@ -100,7 +90,6 @@ weaponList.FaxMachine=function(){
   this.accuracy=60;
 };
 weaponList.FaxMachine.prototype = new weaponList.Weapon();
-// console.log("weaponList.FaxMachine",weaponList.FaxMachine);
 
 weaponList.Shredder=function(){
   this.name="Shredder";
@@ -109,7 +98,7 @@ weaponList.Shredder=function(){
   this.accuracy=50;
 };
 weaponList.Shredder.prototype = new weaponList.Weapon();
-// console.log("weaponList.Shredder",weaponList.Shredder);
 
 
 module.exports=weaponList;    // for Browserify-ication
+

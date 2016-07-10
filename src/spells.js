@@ -1,4 +1,3 @@
-
 "use strict";
 var spellList={};
 
@@ -119,6 +118,5 @@ spellList.Bonus = function () {
 spellList.Bonus.prototype = new spellList.Spell();
 
 
+module.exports=spellList;    // for Browserify-ication
 
-
-module.exports=spellList;
