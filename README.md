@@ -12,6 +12,7 @@ To run locally:
 + http://localhost:8080/
 
 ![EXECUTEive Orders Animated GIF](img/EXECUTiveOrdersANIMATED.gif?raw=true "EXECUTEive Orders gif")
+
 _I'm Sorry. We can't turn off the Office Muzak. ***It helps productivity.***_
 
 ***
