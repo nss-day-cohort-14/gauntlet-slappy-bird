@@ -3,7 +3,6 @@
 ###"EXECUTEive Orders" / Team Slappy Bird
 
 ![EXECUTEive Orders](img/EXECUTiveOrdersSCREEN.jpg?raw=true "EXECUTEive Orders Screenshot")
-![EXECUTEive Orders Animated GIF](img/EXECUTiveOrdersANIMATED.gif?raw=true "EXECUTEive Orders gif")
 
 To run locally:
 + Clone
@@ -12,6 +11,7 @@ To run locally:
 + run HTTP Server
 + http://localhost:8080/
 
+![EXECUTEive Orders Animated GIF](img/EXECUTiveOrdersANIMATED.gif?raw=true "EXECUTEive Orders gif")
 _I'm Sorry. We can't turn off the Office Muzak. ***It helps productivity.***_
 
 ***
