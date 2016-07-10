@@ -1,4 +1,4 @@
- "use strict";
+"use strict";
 var weaponList={};
 
 weaponList.Weapon=function(){     //our main constructor function (top of the chain)
@@ -15,14 +15,12 @@ weaponList.LaserPointer=function(){
 };
 weaponList.LaserPointer.prototype = new weaponList.Weapon();
 
-
 weaponList.FebrezeGrenade=function(){
   this.name="Febreze Grenade";
   this.power=5;
   this.accuracy=100;
 };
 weaponList.FebrezeGrenade.prototype = new weaponList.Weapon();
-
 
 weaponList.Mouse=function(){
   this.name="Mouse";
@@ -31,14 +29,12 @@ weaponList.Mouse=function(){
 };
 weaponList.Mouse.prototype = new weaponList.Weapon();
 
-
 weaponList.Stapler=function(){
   this.name="Stapler";
   this.power=10;
   this.accuracy=85;
 };
 weaponList.Stapler.prototype = new weaponList.Weapon();
-
 
 weaponList.CoffeePot=function(){
   this.name="Coffee Pot";
@@ -47,13 +43,12 @@ weaponList.CoffeePot=function(){
 };
 weaponList.CoffeePot.prototype = new weaponList.Weapon();
 
-
 weaponList.PaperWeight=function(){
   this.name="Paper Weight";
   this.power=15;
   this.accuracy=75;
 };
-
+weaponList.PaperWeight.prototype = new weaponList.Weapon();
 
 weaponList.TapeGun=function(){
   this.name="Tape Gun";
@@ -61,7 +56,6 @@ weaponList.TapeGun=function(){
   this.accuracy= Math.floor(Math.random() * 100);       //our accuracy range from 1-100
 };
 weaponList.TapeGun.prototype = new weaponList.Weapon();
-
 
 
 /////////////////////////////// TWO HANDED WEAPONS ///////////////////////////////
@@ -73,7 +67,6 @@ weaponList.RubberBand=function(){
 };
 weaponList.RubberBand.prototype = new weaponList.Weapon();
 
-
 weaponList.PrinterToner=function(){
   this.name="Printer Toner";
   this.handsUsed=2;
@@ -81,7 +74,6 @@ weaponList.PrinterToner=function(){
   this.accuracy=70;
 };
 weaponList.PrinterToner.prototype = new weaponList.Weapon();
-
 
 weaponList.Keyboard=function(){
   this.name="Keyboard";
@@ -91,7 +83,6 @@ weaponList.Keyboard=function(){
 };
 weaponList.Keyboard.prototype = new weaponList.Weapon();
 
-
 weaponList.FaxMachine=function(){
   this.name="Fax Machine";
   this.handsUsed=2;
@@ -99,7 +90,6 @@ weaponList.FaxMachine=function(){
   this.accuracy=60;
 };
 weaponList.FaxMachine.prototype = new weaponList.Weapon();
-
 
 weaponList.Shredder=function(){
   this.name="Shredder";
@@ -110,5 +100,5 @@ weaponList.Shredder=function(){
 weaponList.Shredder.prototype = new weaponList.Weapon();
 
 
-
 module.exports=weaponList;    // for Browserify-ication
+
