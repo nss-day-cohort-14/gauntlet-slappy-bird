@@ -2,8 +2,8 @@
 ## Modern JavaScript / Prototypal / Gauntlet Group Project 
 ###"EXECUTEive Orders" / Team Slappy Bird
 
-![EXECUTEive Orders](EXECUTiveOrdersSCREEN.jpg?raw=true "EXECUTEive Orders Screenshot")
-![EXECUTEive Orders Animated GIF](EXECUTiveOrdersANIMATED.gif?raw=true "EXECUTEive Orders gif")
+![EXECUTEive Orders](img/EXECUTiveOrdersSCREEN.jpg?raw=true "EXECUTEive Orders Screenshot")
+![EXECUTEive Orders Animated GIF](img/EXECUTiveOrdersANIMATED.gif?raw=true "EXECUTEive Orders gif")
 
 To run locally:
 + Clone
