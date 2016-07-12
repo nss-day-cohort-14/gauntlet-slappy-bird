@@ -1,4 +1,5 @@
 "use strict";
+const $=require("../node_modules/jquery/dist/jquery.min.js");
 const Weapons= require("./weapons");
 const Spells= require("./spells");
 const Roles= require("./classes");

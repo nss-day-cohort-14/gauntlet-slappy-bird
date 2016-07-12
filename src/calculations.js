@@ -62,16 +62,16 @@ function updateDOM(){
 	player1img.find(".energy").html(`Energy: ${Math.floor(players.player1.energy)}`);
 	player1img.find(".experience").html(`Experience: ${players.player1.experience}`);
 	player1img.find(".skill").html(`Skill: ${players.player1.skill}`);
-  player1img.find(".progress").find(".progress-bar").prop("style",`width:${(players.player1.energy/p1Max)*100}%`);
-  player1img.removeClass("bounceInLeft")
-  player1img.toggleClass("rubberBand");
+  	player1img.find(".progress").find(".progress-bar").prop("style",`width:${(players.player1.energy/p1Max)*100}%`);
+  	player1img.removeClass("bounceInLeft")
+  	player1img.toggleClass("rubberBand");
 
 	player2img.find(".energy").html(`Energy: ${Math.floor(players.player2.energy)}`);
 	player2img.find(".experience").html(`Experience: ${players.player2.experience}`);
 	player2img.find(".skill").html(`Skill: ${players.player2.skill}`);
-  player2img.find(".progress").find(".progress-bar").prop("style",`width:${(players.player2.energy/p2Max)*100}%`);
-  player2img.removeClass("bounceInRight")
-  player2img.toggleClass("rubberBand");
+  	player2img.find(".progress").find(".progress-bar").prop("style",`width:${(players.player2.energy/p2Max)*100}%`);
+  	player2img.removeClass("bounceInRight")
+  	player2img.toggleClass("rubberBand");
   	if(players.player1.energy<=0){
 		battleText.html(`${players.player1.name} has joined the eternal unemployment line.`);
       speechSynthesis.speak(msgNo);
